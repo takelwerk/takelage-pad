@@ -1,0 +1,54 @@
+# frozen_string_literal: true
+
+require 'English'
+require 'rake'
+require 'yaml'
+
+@project = YAML.safe_load `tau project`
+@base_dir = ENV['TAKELAGE_PROJECT_BASE_DIR'] || "/tmp/#{@project['name']}"
+
+# Add run=dry to see shell @commands
+# Example: rake stage run=dry
+
+#####################################################################
+# Variables
+
+# The tasks will add shell commands to this empty global array
+@commands = []
+
+#####################################################################
+# Default task
+
+task :default do
+  sh 'rake --tasks', verbose: false
+end
+
+#####################################################################
+# Import Rakefiles from rake subfolders
+
+Dir.glob('rake/**/Rakefile').each do |rakefile|
+  import rakefile unless rakefile == 'rake/meta/Rakefile'
+end
+
+#####################################################################
+# Final task
+
+# Detect run=dry command line parameter
+dry_run = ENV['run'] == 'dry'
+
+# if Rakefile is invoked with run=dry
+# then print commands
+# else run commands
+task :finally do
+  @commands.each do |command|
+    if dry_run
+      puts command
+    else
+      sh command
+    end
+  end
+end
+
+# Run final task at exit
+at_exit { Rake::Task[:finally].invoke if $ERROR_INFO.nil? }
+#####################################################################
