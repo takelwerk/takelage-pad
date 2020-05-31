@@ -1,0 +1,57 @@
+{
+  "variables": {
+    "ansible_connection": "docker",
+    "ansible_environment": "{{ ansible_environment }}",
+    "ansible_host": "{{ user `target_repo` }}",
+    "ansible_playbook": "{{ ansible_playbook }}",
+    "base_repo": "{{ base_repo }}",
+    "base_tag": "{{ base_tag }}",
+    "base_user": "{{ base_user }}",
+    "target_repo": "{{ target_repo }}",
+    "target_tag": "{{ target_tag }}",
+    "local_user": "{{ local_user }}"
+  },
+  "builders":[
+    {
+      "type": "docker",
+      "image": "{{ user `base_user` }}/{{ user `base_repo` }}:{{ user `base_tag` }}",
+      "pull": false,
+      "export_path": "images/{{ user `target_repo` }}-{{ user `target_tag` }}.tar",
+      "run_command": [ "-d", "-i", "-t", "--privileged", "--name", "{{user `target_repo`}}", "{{.Image}}", "/lib/systemd/systemd" ]
+    }
+  ],
+  "provisioners":
+  [
+    {
+      "type": "ansible",
+      "user": "root",
+      "playbook_file": "../ansible/{{ user `ansible_playbook` }}",
+      "groups": [ "all", "private", "users", "image", "{{ user `ansible_environment` }}"],
+      "ansible_env_vars" : [
+        "ANSIBLE_HOST_KEY_CHECKING=False",
+        "ANSIBLE_SSH_ARGS='-v -o ControlMaster=auto -o ControlPersist=15m'"
+      ],
+      "extra_arguments": [
+        "-vvv",
+        "--extra-vars",
+        "ansible_host={{ user `target_repo` }} ansible_connection={{ user `ansible_connection` }}"
+        ]
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-import",
+        "repository": "{{ user `local_user` }}/{{ user `target_repo` }}",
+        "tag": "{{ user `target_tag` }}",
+        "changes": [
+          "CMD [\"/lib/systemd/systemd\"]",
+          "ENV DEBIAN_FRONTEND=noninteractive",
+          "ENV LANG=en_US.UTF-8",
+          "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "WORKDIR /root"
+        ]
+      }
+    ]
+  ]
+}
