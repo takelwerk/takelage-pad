@@ -1,0 +1,8 @@
+---
+- name: (cleanup) clean apt cache
+  apt:
+    autoclean: true
+    autoremove: true
+  changed_when: true
+  notify: remove files
+  tags: molecule-idempotence-notest

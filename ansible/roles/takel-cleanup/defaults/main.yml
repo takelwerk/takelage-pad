@@ -1,0 +1,5 @@
+---
+takel_cleanup_enable: false
+
+takel_cleanup_absent_files:
+  - /tmp/rvm-installer.sh

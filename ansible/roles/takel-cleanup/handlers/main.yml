@@ -1,0 +1,6 @@
+---
+- name: remove files
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop: "{{ takel_cleanup_absent_files }}"
