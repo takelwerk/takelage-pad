@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+cmd_test_project = 'cd ansible && molecule test'
+cmd_test_roles = 'for dir in ' \
+    '`find ansible/roles -maxdepth 2 -name molecule | sort`; ' \
+    'do ' \
+    'cd `dirname $dir`; ' \
+    'molecule test; ' \
+    'cd ../../../; ' \
+    'done'
+
+desc 'Run molecule tests'
+task test: %w[test:roles
+              test:project]
+
+namespace :test do
+  desc 'Run molecule project tests'
+  task :project do
+    @commands << cmd_test_project
+  end
+
+  desc 'Run molecule role tests'
+  task :roles do
+    @commands << cmd_test_roles
+  end
+end
