@@ -1,0 +1,9 @@
+---
+# project settings
+project: takelage-pad
+version: 0.1.0
+local_user: packer_local
+
+# dockerhub settings
+dockerhub_prod_user: takelage
+dockerhub_prod_repo: takelpad
