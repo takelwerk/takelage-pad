@@ -1,0 +1,16 @@
+ansible-devel.log
+.DS_Store
+.idea
+*.iml
+*.iso
+packer/images
+packer/packer_cache
+__pycache__/
+*.pyc
+.pytest_cache
+pytestdebug.log
+*.retry
+takelage.yml
+.vagrant
+vault-password-file
+*.vdi
