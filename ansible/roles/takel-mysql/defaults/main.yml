@@ -1,0 +1,87 @@
+---
+takel_mysql_deb_install_packages:
+  - mariadb-server
+  - python3-mysqldb
+
+takel_mysql_root_password: >-
+  {{ lookup('password',
+  '/tmp/mysql_root_password length=30 chars=ascii_letters,digits') }}
+
+takel_mysql_user_my_cnf:
+  - sys_home: /root
+    sys_user: root
+    sys_group: root
+    mysql_host: localhost
+    mysql_user: root
+    mysql_password: "{{ takel_mysql_root_password }}"
+
+takel_mysql_conf_dir: /etc/mysql/conf.d/
+
+takel_mysql_port: 3306
+takel_mysql_host: 127.0.0.1
+takel_mysql_socket: /var/run/mysqld/mysqld.sock
+takel_mysql_pid_file: /var/run/mysqld/mysqld.pid
+
+takel_mysqld_safe_nice: 0
+
+takel_mysql_user: mysql
+takel_mysql_group: mysql
+takel_mysql_datadir: /var/lib/mysql
+takel_mysql_basedir: /usr
+takel_mysql_tmpdir: /tmp
+takel_mysql_lc_messages_dir: /usr/share/mysql
+
+takel_mysql_key_buffer: 16M
+takel_mysql_thread_stack: 192K
+
+takel_mysql_myisam_recover: BACKUP
+takel_mysql_table_cache: 64
+takel_mysql_thread_concurrency: 10
+
+takel_mysql_general_log: 0
+takel_mysql_general_log_file: /var/log/mysql/mysql.log
+takel_mysql_log_error: /var/log/mysql/error.log
+
+takel_mysql_slow_query_log: 0
+takel_mysql_slow_query_log_file: /var/log/mysql/mysql-slow.log
+takel_mysql_long_query_time: 2
+takel_mysql_log_queries_not_using_indexes: '#log_queries_not_using_indexes'
+
+takel_mysql_expire_logs_days: 10
+
+takel_mysql_mysqldump_quick: quick
+takel_mysql_mysqldump_quote_names: quote-names
+takel_mysql_mysqldump_max_allowed_packet: 16M
+
+takel_mysql_symbolic_links: 0
+
+# Memory settings (default values optimized ~512MB RAM).
+takel_mysql_key_buffer_size: 256M
+takel_mysql_max_allowed_packet: 64M
+takel_mysql_table_open_cache: 256
+takel_mysql_sort_buffer_size: 1M
+takel_mysql_read_buffer_size: 1M
+takel_mysql_read_rnd_buffer_size: 4M
+takel_mysql_myisam_sort_buffer_size: 64M
+takel_mysql_thread_cache_size: 8
+takel_mysql_query_cache_size: 16M
+takel_mysql_query_cache_limit: 1M
+takel_mysql_max_connections: 151
+takel_mysql_tmp_table_size: 16M
+takel_mysql_max_heap_table_size: 16M
+
+# Other settings.
+takel_mysql_lower_case_table_names: 0
+takel_mysql_wait_timeout: 28800
+
+# InnoDB settings.
+takel_mysql_innodb_file_per_table: 1
+# Set .._buffer_pool_size up to 80% of RAM but beware of setting too high.
+takel_mysql_innodb_buffer_pool_size: 256M
+# Set .._log_file_size to 25% of buffer pool size.
+takel_mysql_innodb_log_file_size: 64M
+takel_mysql_innodb_log_buffer_size: 8M
+takel_mysql_innodb_flush_log_at_trx_commit: 1
+takel_mysql_innodb_lock_wait_timeout: 50
+takel_mysql_innodb_large_prefix: 1
+takel_mysql_innodb_file_format: barracuda

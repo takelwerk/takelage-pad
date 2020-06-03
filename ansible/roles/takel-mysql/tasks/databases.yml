@@ -1,0 +1,19 @@
+---
+- name: (databases) create mysql databases
+  mysql_db:
+    name: "{{ item.name }}"
+    collation: "{{ item.collation | default('utf8mb4_unicode_ci') }}"
+    encoding: "{{ item.encoding | default('utf8mb4') }}"
+    state: present
+  loop: "{{ takel_mysql_mysql_databases | default([]) }}"
+  no_log: true
+
+- name: (databases) create mysql users
+  mysql_user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    priv: "{{ item.priv | default('*.*:USAGE') }}"
+    state: "{{ item.state | default('present') }}"
+    append_privs: "{{ item.append_privs | default('no') }}"
+  loop: "{{ takel_mysql_mysql_users | default([]) }}"
+  no_log: true

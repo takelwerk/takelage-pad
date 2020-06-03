@@ -1,0 +1,81 @@
+[client]
+port = {{ takel_mysql_port }}
+socket = {{ takel_mysql_socket }}
+
+[mysqld_safe]
+socket = {{ takel_mysql_socket }}
+nice = {{ takel_mysqld_safe_nice }}
+
+[mysqld]
+user = {{ takel_mysql_user }}
+pid-file = {{ takel_mysql_pid_file }}
+socket = {{ takel_mysql_socket }}
+port = {{ takel_mysql_port }}
+basedir = {{ takel_mysql_basedir }}
+datadir = {{ takel_mysql_datadir }}
+tmpdir = {{ takel_mysql_tmpdir }}
+lc-messages-dir = {{ takel_mysql_lc_messages_dir }}
+skip-external-locking
+bind-address = {{ takel_mysql_host }}
+
+key_buffer = {{ takel_mysql_key_buffer }}
+max_allowed_packet = {{ takel_mysql_max_allowed_packet }}
+thread_stack = {{ takel_mysql_thread_stack }}
+thread_cache_size = {{ takel_mysql_thread_cache_size }}
+
+myisam-recover = {{ takel_mysql_myisam_recover }}
+table_cache = {{ takel_mysql_table_cache }}
+thread_concurrency = {{ takel_mysql_thread_concurrency }}
+
+general_log = {{ takel_mysql_general_log }}
+general_log_file = {{ takel_mysql_general_log_file }}
+log_error = {{ takel_mysql_log_error }}
+
+slow_query_log = {{ takel_mysql_slow_query_log }}
+slow_query_log_file = {{ takel_mysql_slow_query_log_file }}
+long_query_time = {{ takel_mysql_long_query_time }}
+{{ takel_mysql_log_queries_not_using_indexes }}
+
+expire_logs_days = {{ takel_mysql_expire_logs_days }}
+skip-log-bin
+
+symbolic-links = {{ takel_mysql_symbolic_links }}
+
+# Memory settings.
+key_buffer_size = {{ takel_mysql_key_buffer_size }}
+max_allowed_packet = {{ takel_mysql_max_allowed_packet }}
+table_open_cache = {{ takel_mysql_table_open_cache }}
+sort_buffer_size = {{ takel_mysql_sort_buffer_size }}
+read_buffer_size = {{ takel_mysql_read_buffer_size }}
+read_rnd_buffer_size = {{ takel_mysql_read_rnd_buffer_size }}
+myisam_sort_buffer_size = {{ takel_mysql_myisam_sort_buffer_size }}
+thread_cache_size = {{ takel_mysql_thread_cache_size }}
+query_cache_size = {{ takel_mysql_query_cache_size }}
+query_cache_limit = {{ takel_mysql_query_cache_limit }}
+max_connections = {{ takel_mysql_max_connections }}
+tmp_table_size = {{ takel_mysql_tmp_table_size }}
+max_heap_table_size = {{ takel_mysql_max_heap_table_size }}
+
+# Other settings.
+wait_timeout = {{ takel_mysql_wait_timeout }}
+lower_case_table_names = {{ takel_mysql_lower_case_table_names }}
+
+# InnoDB settings.
+innodb_large_prefix = {{ takel_mysql_innodb_large_prefix }}
+innodb_file_format = {{ takel_mysql_innodb_file_format }}
+innodb_file_per_table = {{ takel_mysql_innodb_file_per_table }}
+innodb_buffer_pool_size = {{ takel_mysql_innodb_buffer_pool_size }}
+innodb_log_file_size = {{ takel_mysql_innodb_log_file_size }}
+innodb_log_buffer_size = {{ takel_mysql_innodb_log_buffer_size }}
+innodb_flush_log_at_trx_commit = {{ takel_mysql_innodb_flush_log_at_trx_commit }}
+innodb_lock_wait_timeout = {{ takel_mysql_innodb_lock_wait_timeout }}
+
+[mysqldump]
+{{ takel_mysql_mysqldump_quick }}
+{{ takel_mysql_mysqldump_quote_names }}
+max_allowed_packet = {{ takel_mysql_mysqldump_max_allowed_packet }}
+
+[isamchk]
+key_buffer = {{ takel_mysql_key_buffer }}
+
+!includedir {{ takel_mysql_conf_dir }}

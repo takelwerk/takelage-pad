@@ -1,0 +1,39 @@
+---
+- name: (secure) update mariadb root password for root accounts
+  mysql_user:
+    name: root
+    password: "{{ takel_mysql_root_password }}"
+    host_all: true
+    update_password: on_create
+  no_log: true
+
+- name: (secure) copy user password credentials
+  template:
+    src: user_my_cnf.j2
+    dest: "{{ item.sys_home }}/.my.cnf"
+    owner: "{{ item.sys_user }}"
+    group: "{{ item.sys_group }}"
+    mode: 0600
+  loop: "{{ takel_mysql_user_my_cnf }}"
+  no_log: true
+
+- name: (secure) disallow root login remotely
+  command: 'mysql --batch --skip-column-names --execute="{{ item }}"'
+  loop:
+    - |
+      DELETE FROM mysql.user
+      WHERE User='root'
+      AND Host NOT IN ('localhost', '127.0.0.1', '::1')
+  changed_when: false
+
+- name: (secure) remove anonymous user account
+  mysql_user:
+    name: ''
+    host_all: true
+    state: absent
+  no_log: true
+
+- name: (secure) remove mysql test database
+  mysql_db:
+    name: test
+    state: absent
