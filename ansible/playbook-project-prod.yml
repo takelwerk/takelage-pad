@@ -4,4 +4,5 @@
   roles:
     - takel-base
     - takel-anarchism
+    - takel-mysql
     - takel-cleanup

@@ -1,0 +1,31 @@
+---
+takel_mysql_host: localhost
+takel_mysql_port: 3306
+takel_mysql_etherpad_user: etherpad
+takel_mysql_etherpad_database: etherpad
+takel_mysql_etherpad_password: >-
+  {{ lookup('password',
+  '/tmp/mysql_etherpad_password length=30 chars=ascii_letters,digits') }}
+
+takel_mysql_user_my_cnf:
+  - sys_home: /root
+    sys_user: root
+    sys_group: root
+    mysql_host: localhost
+    mysql_user: root
+    mysql_password: "{{ takel_mysql_root_password }}"
+  - sys_home: /var/opt/etherpad
+    sys_user: etherpad
+    sys_group: etherpad
+    sys_shell: /bin/bash
+    mysql_host: localhost
+    mysql_user: etherpad
+    mysql_password: "{{ takel_mysql_etherpad_password }}"
+
+takel_mysql_mysql_databases:
+  - name: etherpad
+
+takel_mysql_mysql_users:
+  - name: "{{ takel_mysql_etherpad_user }}"
+    password: "{{ takel_mysql_etherpad_password }}"
+    priv: "{{ takel_mysql_etherpad_database }}.*:ALL"
