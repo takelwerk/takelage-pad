@@ -8,8 +8,8 @@ namespace :dockerhub do
                 rubylint
                 dockerhub:prod:registry:login
                 test:project
-                image:prod:build
-                image:prod:test
+                image:prod:docker:build
+                image:prod:docker:test
                 git:tag
                 dockerhub:prod:registry:tag
                 dockerhub:prod:registry:push]

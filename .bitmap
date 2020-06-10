@@ -190,24 +190,6 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
-    "takelage.packer/packer/templates/project@0.0.3": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "docker.json",
-                "relativePath": "docker.json",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "packer/templates/project",
-        "origin": "IMPORTED",
-        "originallySharedDir": "packer/templates/project"
-    },
     "takelage.rake/rake/dockerhub/prod/registry@0.0.2": {
         "files": [
             {
@@ -243,24 +225,6 @@
         "rootDir": "rake/git",
         "origin": "IMPORTED",
         "originallySharedDir": "rake/git"
-    },
-    "takelage.rake/rake/image/prod@0.0.7": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "Rakefile",
-                "relativePath": "Rakefile",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/image/prod",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/image/prod"
     },
     "takelage.rake/rake/meta@0.0.6": {
         "files": [
