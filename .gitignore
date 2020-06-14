@@ -4,6 +4,7 @@ ansible-devel.log
 *.iml
 *.iso
 packer/images
+packer/iso
 packer/packer_cache
 __pycache__/
 *.pyc
