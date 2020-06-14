@@ -190,6 +190,24 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
+    "takelage.rake/rake/dockerhub/base/registry@0.0.2": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "Rakefile",
+                "relativePath": "Rakefile",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "rake/dockerhub/base/registry",
+        "origin": "IMPORTED",
+        "originallySharedDir": "rake/dockerhub/base/registry"
+    },
     "takelage.rake/rake/dockerhub/prod/registry@0.0.2": {
         "files": [
             {
