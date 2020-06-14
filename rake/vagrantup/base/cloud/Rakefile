@@ -1,0 +1,28 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+cmd_vagrantup_base_cloud_login = 'vagrant cloud auth login'
+
+cmd_vagrantup_base_cloud_publish = 'cd packer && ' \
+    'vagrant cloud publish ' \
+    "#{@project['vagrantup_base_user']}/#{@project['vagrantup_base_repo']} " \
+    "#{@project['vagrantup_base_version']} " \
+    "virtualbox " \
+    "images/vbox/debian10/virtualbox-debian10.box"
+
+namespace :vagrantup do
+  namespace :base do
+    namespace :cloud do
+      desc 'Log in to app.vagrantup.com'
+      task :login do
+        @commands << cmd_vagrantup_base_cloud_login
+      end
+
+      desc 'Publish base image at app.vagrantup.com'
+      task :publish do
+        @commands << cmd_vagrantup_base_cloud_publish
+      end
+    end
+  end
+end

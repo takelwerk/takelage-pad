@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+cmd_img_build_vbox_debian10 = 'mkdir -p packer/images/vbox/debian10 && ' \
+    'cd packer && packer build ' \
+    'templates/base/vbox/debian10/packer.json'
+
+namespace :image do
+  namespace :base do
+    namespace :vbox do
+      desc 'Build Debian buster image with packer'
+      task :debian10 do
+        @commands << cmd_img_build_vbox_debian10
+      end
+    end
+  end
+end
