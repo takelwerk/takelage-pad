@@ -1,0 +1,7 @@
+---
+- name: (main) include install
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_nodejs
+    - takel_nodejs_install

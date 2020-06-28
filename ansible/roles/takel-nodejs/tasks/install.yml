@@ -1,0 +1,20 @@
+---
+- name: (install) install prerequisites
+  apt:
+    name: "{{ takel_nodejs_deb_install_prerequisites }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: (install) install nodesource repository
+  shell: "curl -sL {{ takel_nodejs_source_url }} | sudo -E bash -"
+  args:
+    creates: /etc/apt/sources.list.d/nodesource.list
+    warn: False
+
+- name: (install) install packages
+  apt:
+    name: "{{ takel_nodejs_deb_install_packages }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600

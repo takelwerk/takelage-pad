@@ -6,4 +6,5 @@
     - takel-base
     - takel-anarchism
     - takel-mysql
+    - takel-nodejs
     - takel-cleanup

@@ -1,0 +1,11 @@
+---
+takel_nodejs_deb_install_prerequisites:
+  - curl
+  - sudo
+
+takel_nodejs_deb_install_packages:
+  - build-essential
+  - nodejs
+
+takel_nodejs_nodejs_version: 14
+takel_nodejs_source_url: "https://deb.nodesource.com/setup_{{ takel_nodejs_nodejs_version }}.x"
