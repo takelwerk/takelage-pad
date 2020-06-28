@@ -1,6 +1,7 @@
 ---
 - name: (playbook-project-prod) create project prod
   hosts: all
+  become: true
   roles:
     - takel-base
     - takel-anarchism

@@ -16,7 +16,7 @@
       "type": "docker",
       "image": "{{ user `base_user` }}/{{ user `base_repo` }}:{{ user `base_tag` }}",
       "pull": false,
-      "export_path": "images/{{ user `target_repo` }}-{{ user `target_tag` }}.tar",
+      "export_path": "images/vbox/project/prod/{{ user `target_repo` }}-{{ user `target_tag` }}.tar",
       "run_command": [ "-d", "-i", "-t", "--privileged", "--name", "{{user `target_repo`}}", "{{.Image}}", "/lib/systemd/systemd" ]
     }
   ],

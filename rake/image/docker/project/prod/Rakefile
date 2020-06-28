@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+cmd_image_docker_project_prod_build = 'cd packer && packer build ' \
+    "--var 'ansible_environment=prod' " \
+    "--var 'ansible_playbook=playbook-project-prod.yml' " \
+    "--var 'base_repo=#{@project['dockerhub_base_repo']}' " \
+    "--var 'base_user=#{@project['dockerhub_base_user']}' " \
+    "--var 'base_tag=latest' " \
+    "--var 'local_user=#{@project['local_user']}' " \
+    "--var 'target_repo=#{@project['project']}' " \
+    "--var 'target_tag=prod' " \
+    'templates/docker/project/prod/packer.json'
+
+cmd_image_docker_project_prod_test = 'cd ansible && molecule test --scenario-name prod'
+
+namespace :image do
+  namespace :docker do
+    namespace :project do
+      namespace :prod do
+        desc 'Build docker production image'
+        task :build do
+          @commands << cmd_image_docker_project_prod_build
+        end
+
+        desc 'Test docker production image'
+        task :test do
+          @commands << cmd_image_docker_project_prod_test
+        end
+      end
+    end
+  end
+end

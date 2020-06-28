@@ -18,7 +18,7 @@
   [
     {
       "type": "shell",
-      "script": "templates/base/docker/debian10/bin/setup.sh"
+      "script": "templates/docker/base/debian10/bin/setup.sh"
     }
   ],
   "post-processors": [
