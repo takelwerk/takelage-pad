@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+namespace :ansible do
+  desc 'Run molecule tests for all roles'
+  task :roles do
+    @commands << @cmd_test_all_roles
+  end
+  namespace :roles do
+    Dir.glob('ansible/roles/*/molecule').each do |role_path|
+      role = role_path.match(%r{roles\/(?<role_name>.*)\/molecule})
+      namespace role[:role_name] do
+        @list_ansible_role.each do |command|
+          desc "Run molecule #{command} for #{role[:role_name]}"
+          task command do
+            @commands << format(
+              @cmd_ansible_project,
+              command: command,
+              role_path: role_path
+            )
+          end
+        end
+      end
+    end
+  end
+end
