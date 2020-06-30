@@ -290,6 +290,24 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/roles/lib"
     },
+    "takelage.rake/rake/ansible/roles/role@0.0.1": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "Rakefile",
+                "relativePath": "Rakefile",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "rake/ansible/roles/role",
+        "origin": "IMPORTED",
+        "originallySharedDir": "rake/ansible/roles/role"
+    },
     "takelage.rake/rake/dockerhub/base/registry@0.0.2": {
         "files": [
             {
