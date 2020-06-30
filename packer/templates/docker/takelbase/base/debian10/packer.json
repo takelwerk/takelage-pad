@@ -1,0 +1,43 @@
+{
+  "variables": {
+    "base_repo": "{{ base_repo }}",
+    "base_tag": "{{ base_tag }}",
+    "target_repo": "{{ target_repo }}",
+    "target_user": "{{ target_user }}",
+    "target_tag": "{{ target_tag }}"
+  },
+  "builders":[
+    {
+      "type": "docker",
+      "image": "{{ user `base_repo` }}:{{ user `base_tag` }}",
+      "export_path": "images/{{ user `target_repo` }}.tar",
+      "run_command": [ "-d", "-i", "-t", "--name", "{{user `target_repo`}}", "{{.Image}}", "/bin/bash" ]
+    }
+  ],
+  "provisioners":
+  [
+    {
+      "type": "shell",
+      "script": "templates/base/debian_10_systemd/bin/install-debian.bash"
+    }
+  ],
+  "post-processors": [
+    [
+      {
+        "type": "docker-import",
+        "repository": "{{ user `target_user` }}/{{ user `target_repo` }}",
+        "tag": "{{ user `target_tag` }}",
+        "keep_input_artifact": true,
+        "changes": [
+          "WORKDIR /root",
+          "ENV DEBIAN_FRONTEND=noninteractive",
+          "ENV LANG=C.UTF-8",
+          "ENV SUPATH=$PATH",
+          "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "CMD [\"/lib/systemd/systemd\"]"
+        ]
+      }
+    ]
+  ]
+}
+
