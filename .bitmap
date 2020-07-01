@@ -236,7 +236,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "packer/templates/docker/takelbase/project"
     },
-    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.1": {
+    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.2": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/base/README.bit",
@@ -513,7 +513,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/rubylint"
     },
-    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.2": {
+    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.3": {
         "files": [
             {
                 "relativePath": "rake/vagrantup/takelbase/base/cloud/README.bit",
