@@ -9,7 +9,7 @@ cmd_vagrantup_takelbase_base_cloud_publish = 'cd packer && ' \
     "#{@project['vagrantup_base_user']}/#{@project['vagrantup_base_repo']} " \
     "#{@project['vagrantup_base_version']} " \
     "virtualbox " \
-    "images/vbox/debian10/virtualbox-debian10.box"
+    "images/vbox/takelbase/base/debian10/virtualbox-debian10.box"
 
 namespace :vagrantup do
   namespace :takelbase do
