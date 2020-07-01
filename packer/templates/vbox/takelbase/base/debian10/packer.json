@@ -27,7 +27,7 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Debian_64",
       "headless": true,
-      "http_directory": "templates/vbox/base/debian10/http",
+      "http_directory": "templates/vbox/takelbase/base/debian10/http",
       "iso_checksum": "sha256:ab3763d553330e90869487a6843c88f1d4aa199333ff16b653e60e59ac1fc60b",
       "iso_urls": [
         "iso/debian-10.4.0-amd64-netinst.iso",
@@ -61,9 +61,9 @@
     {
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash -eux '{{.Path}}'",
       "scripts": [
-        "templates/vbox/base/debian10/bin/ssh.sh",
-        "templates/vbox/base/debian10/bin/sudo.sh",
-        "templates/vbox/base/debian10/bin/guest.sh"
+        "templates/vbox/takelbase/base/debian10/bin/ssh.sh",
+        "templates/vbox/takelbase/base/debian10/bin/sudo.sh",
+        "templates/vbox/takelbase/base/debian10/bin/guest.sh"
       ],
       "type": "shell"
     }
@@ -71,7 +71,7 @@
   "post-processors": [
     [
       {
-        "output": "images/vbox/base/debian10/takelwerk-takelbase.box",
+        "output": "images/vbox/takelbase/base/debian10/takelwerk-takelbase.box",
         "type": "vagrant"
       }
     ]
