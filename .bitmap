@@ -236,6 +236,44 @@
         "origin": "IMPORTED",
         "originallySharedDir": "packer/templates/docker/takelbase/project"
     },
+    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.1": {
+        "files": [
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/bin/guest.sh",
+                "test": false,
+                "name": "guest.sh"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/bin/ssh.sh",
+                "test": false,
+                "name": "ssh.sh"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/bin/sudo.sh",
+                "test": false,
+                "name": "sudo.sh"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/http/preseed.cfg",
+                "test": false,
+                "name": "preseed.cfg"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/packer.json",
+                "test": false,
+                "name": "packer.json"
+            }
+        ],
+        "mainFile": "packer/templates/vbox/takelbase/base/README.bit",
+        "trackDir": "packer/templates/vbox/takelbase/base",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "takelage.rake/rake/ansible/project/lib@0.0.1": {
         "files": [
             {
