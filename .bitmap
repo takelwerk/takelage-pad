@@ -452,7 +452,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/rubylint"
     },
-    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.1": {
+    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.2": {
         "files": [
             {
                 "relativePath": "rake/vagrantup/takelbase/base/cloud/README.bit",
