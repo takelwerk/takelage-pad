@@ -3,7 +3,6 @@ takel_mysql_deb_install_packages:
   - mariadb-server
   - python3-mysqldb
   - python-pymysql
-  - sudo
 
 takel_mysql_root_password: >-
   {{ lookup('password',

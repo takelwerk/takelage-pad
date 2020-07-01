@@ -1,7 +1,6 @@
 ---
 takel_nodejs_deb_install_prerequisites:
   - curl
-  - sudo
 
 takel_nodejs_deb_install_packages:
   - build-essential
