@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+namespace :vagrantup do
+  namespace :takelbase do
+    desc 'Create and deploy base image to vagrantup'
+    task base: %w[vagrantup:takelbase:base:cloud:login
+                  rubylint
+                  image:vbox:takelbase:base:debian10
+                  vagrantup:takelbase:base:cloud:publish]
+  end
+end

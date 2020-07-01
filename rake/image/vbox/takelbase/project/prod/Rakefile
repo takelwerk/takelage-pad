@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-cmd_image_vbox_project_prod_build = 'rm -fr packer/images/vbox/project/prod && ' \
+cmd_image_vbox_takelbase_project_prod_build = \
+    'rm -fr packer/images/vbox/project/prod && ' \
     'cd packer && ' \
     'packer build ' \
     "--var 'ansible_environment=prod' " \
@@ -14,7 +15,7 @@ namespace :image do
         namespace :prod do
           desc 'Build virtualbox production image'
           task :build do
-            @commands << cmd_image_vbox_project_prod_build
+            @commands << cmd_image_vbox_takelbase_project_prod_build
           end
         end
       end
