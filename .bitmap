@@ -274,6 +274,29 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.1": {
+        "files": [
+            {
+                "relativePath": "packer/templates/vbox/takelbase/project/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/project/bin/ssh.sh",
+                "test": false,
+                "name": "ssh.sh"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/project/build_from_base.json",
+                "test": false,
+                "name": "build_from_base.json"
+            }
+        ],
+        "mainFile": "packer/templates/vbox/takelbase/project/README.bit",
+        "trackDir": "packer/templates/vbox/takelbase/project",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "takelage.rake/rake/ansible/project/lib@0.0.1": {
         "files": [
             {
