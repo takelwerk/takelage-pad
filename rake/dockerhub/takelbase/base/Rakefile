@@ -1,0 +1,14 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+namespace :dockerhub do
+  namespace :takelbase do
+    desc 'Create and deploy base image to dockerhub'
+    task base: %w[dockerhub:takelbase:base:registry:login
+                  rubylint
+                  image:docker:takelbase:base:debian10
+                  dockerhub:takelbase:base:registry:tag
+                  dockerhub:takelbase:base:registry:push]
+  end
+end
