@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 cmd_image_vbox_takelbase_base_debian10 = \
-    'mkdir -p packer/images/vbox/takelbase/base/debian10 && ' \
-    'cd packer && ' \
-    'packer build templates/vbox/takelbase/base/debian10/packer.json'
+  'mkdir -p packer/images/vbox/takelbase/base/debian10 && ' \
+  'cd packer && ' \
+  'packer build templates/vbox/takelbase/base/debian10/packer.json'
 
 namespace :image do
   namespace :vbox do
