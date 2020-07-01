@@ -6,7 +6,7 @@ cmd_image_vbox_takelbase_project_prod_build = \
     'packer build ' \
     "--var 'ansible_environment=prod' " \
     "--var 'ansible_playbook=playbook-project-prod.yml' " \
-    'templates/vbox/takelbase/project/prod/packer.json'
+    'templates/vbox/takelbase/project/prod/build_from_base.json'
 
 namespace :image do
   namespace :vbox do
