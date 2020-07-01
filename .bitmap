@@ -333,7 +333,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/project/prod"
     },
-    "takelage.rake/rake/ansible/roles/lib@0.0.1": {
+    "takelage.rake/rake/ansible/roles/lib@0.0.2": {
         "files": [
             {
                 "name": "README.bit",
@@ -351,7 +351,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/roles/lib"
     },
-    "takelage.rake/rake/ansible/roles/role@0.0.1": {
+    "takelage.rake/rake/ansible/roles/role@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
@@ -531,5 +531,5 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "version": "14.7.6"
+    "version": "14.8.3"
 }

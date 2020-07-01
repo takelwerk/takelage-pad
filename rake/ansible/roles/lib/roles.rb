@@ -8,7 +8,7 @@
     'cd ../../../; ' \
     'done'
 
-@cmd_ansible_role = "'cd %<role_path>s && " \
+@cmd_ansible_role = "cd %<role_path>s && bash -c '" \
                     "molecule %<command>s'"
 
 @list_ansible_role = %i[converge destroy login test verify]
