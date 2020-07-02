@@ -1,0 +1,37 @@
+---
+- name: (main) include decision
+  import_tasks: decision.yml
+  tags:
+    - takel
+    - takel_ssl
+    - takel_ssl_decision
+
+- name: (main) include install
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_ssl
+    - takel_ssl_install
+
+- name: (main) include configure
+  import_tasks: configure.yml
+  tags:
+    - takel
+    - takel_ssl
+    - takel_ssl_configure
+
+- name: (main) include selfsigned
+  import_tasks: selfsigned.yml
+  when: takel_ssl_self_signed
+  tags:
+    - takel
+    - takel_ssl
+    - takel_ssl_selfsigned
+
+- name: (main) include casigned
+  import_tasks: casigned.yml
+  when: not takel_ssl_self_signed
+  tags:
+    - takel
+    - takel_ssl
+    - takel_ssl_casigned

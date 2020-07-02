@@ -1,0 +1,6 @@
+---
+- name: converge
+  hosts: molecule-takel-ssl
+  gather_facts: false
+  roles:
+    - takel-ssl

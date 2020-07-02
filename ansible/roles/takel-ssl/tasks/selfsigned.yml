@@ -1,0 +1,28 @@
+---
+- name: (selfsigned) generate a ssl private key
+  openssl_privatekey:
+    path: "{{ takel_ssl_key_path }}/{{ takel_ssl_key_file }}"
+
+- name: (selfsigned) create alt name dict
+  set_fact:
+    takel_ssl_var_subject_alt_name:
+      dns_server: "{{takel_ssl_subject_alt_name}}"
+
+- name: (selfsigned) generate a self-signed certificate signing request
+  openssl_csr:
+    path: "{{ takel_ssl_certs_path }}/{{ takel_ssl_csr_file }}"
+    privatekey_path: >-
+      {{ takel_ssl_key_path }}/{{ takel_ssl_key_file }}
+    country_name: "{{ takel_ssl_country_name }}"
+    organization_name: "{{ takel_ssl_organization_name }}"
+    common_name: "{{ takel_ssl_common_name }}"
+    subject_alt_name: "{{ item.value|map('regex_replace', '^', 'DNS:')|list }}"
+  loop: "{{ takel_ssl_var_subject_alt_name | dict2items }}"
+
+- name: (selfsigned) generate a self-signed ssl certificate
+  openssl_certificate:
+    path: "{{ takel_ssl_certs_path }}/{{ takel_ssl_cert_file }}"
+    privatekey_path: >-
+      {{ takel_ssl_key_path }}/{{ takel_ssl_key_file }}
+    csr_path: "{{ takel_ssl_certs_path }}/{{ takel_ssl_csr_file }}"
+    provider: selfsigned

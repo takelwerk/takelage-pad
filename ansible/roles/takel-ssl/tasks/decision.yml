@@ -1,0 +1,9 @@
+---
+- name: (decision) decide if we need a self signed certificate
+  set_fact:
+    takel_ssl_self_signed: false
+  when:
+    - takel_ssl_cert is defined
+    - takel_ssl_cert | length > 0
+    - takel_ssl_key is defined
+    - takel_ssl_key | length > 0

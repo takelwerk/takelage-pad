@@ -1,0 +1,23 @@
+---
+takel_ssl_self_signed: true
+
+takel_ssl_deb_install_packages:
+  - ca-certificates
+  - openssl
+  - python3-cryptography
+
+takel_ssl_certs_path: /etc/ssl/certs
+takel_ssl_key_path: /etc/ssl/private
+
+takel_ssl_cert_file: ssl.pem
+takel_ssl_key_file: ssl.key
+takel_ssl_csr_file: ssl.csr
+
+takel_ssl_common_name: takelage
+takel_ssl_country_name: DE
+takel_ssl_organization_name: takelage
+takel_ssl_subject_alt_name:
+  - "{{ takel_ssl_common_name }}.local"
+
+# half a year in seconds
+takel_ssl_minimum_valid_seconds: 15379200

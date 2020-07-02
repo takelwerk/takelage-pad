@@ -1,0 +1,8 @@
+---
+- name: (configure) create folders
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ takel_ssl_certs_path }}"
+    - "{{ takel_ssl_key_path }}"
