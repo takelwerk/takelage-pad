@@ -1,0 +1,39 @@
+---
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint molecule/*/*.yml
+  flake8
+platforms:
+  - name: molecule-takelage-dev-test-image-${TAKELAGE_PROJECT_ENV:-prod}
+    image: packer_local/takelage-dev:${TAKELAGE_PROJECT_ENV:-prod}
+    command: /lib/systemd/systemd
+    privileged: true
+    pre_build_image: true
+    groups:
+      - ${TAKELAGE_PROJECT_ENV:-prod}
+      - users
+      - molecule
+provisioner:
+  name: ansible
+  log: true
+verifier:
+  name: testinfra
+  options:
+    # p: cacheprovider  # enable cache
+    s: true  # capture output
+    v: true
+scenario:
+  create_sequence:
+    - create
+  converge_sequence:
+    - create
+  destroy_sequence:
+    - destroy
+  test_sequence:
+    - destroy
+    - create
+    - verify
+    - destroy

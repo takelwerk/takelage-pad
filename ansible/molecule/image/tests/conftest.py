@@ -1,6 +1,9 @@
 import pytest
 import docker
 
+image_name = 'takelage/takelage'
+image_tag = 'testing'
+
 
 @pytest.fixture(scope='module')
 def docker_api():

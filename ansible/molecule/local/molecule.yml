@@ -4,44 +4,32 @@ driver:
 lint: |
   set -e
   yamllint .
-  ansible-lint playbook*.yml
+  ansible-lint molecule/*/*.yml
   flake8
 platforms:
-  - name: molecule-takelage-pad-test-project-${TAKELAGE_PROJECT_ENV:-default}
-    image: ${TAKELAGE_PROJECT_BASE_IMAGE:-takelage/takelbase}
+  - name: molecule-takelage-dev-local-${TAKELAGE_PROJECT_ENV:-prod}
+    image: packer_local/mapapp:${TAKELAGE_PROJECT_ENV:-prod}
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
     groups:
       - ${TAKELAGE_PROJECT_ENV:-prod}
-      - private
       - users
+      - molecule
 provisioner:
   name: ansible
-  playbooks:
-    converge: >-
-      ../../${TAKELAGE_MOLECULE_CONVERGE_PLAYBOOK:-playbook-project-base.yml}
   config_options:
     defaults:
       interpreter_python: auto_silent
-      stdout_callback: yaml
-      bin_ansible_callbacks: true
   inventory:
     links:
       group_vars: ../../group_vars/
 verifier:
   name: testinfra
   options:
-    # m: debug
-    s: true
+    # p: cacheprovider  # enable cache
+    s: true  # capture output
     v: true
-  additional_files_or_dirs:
-    # integration
-    - ../../../roles/*/molecule/default/tests/test_*.py
-    # system
-    - ../../../roles/*/molecule/default/system/test_*.py
-  env:
-    TESTVARS_ROLES_BLACKLIST: takel-nginx
 scenario:
   create_sequence:
     - create
@@ -49,13 +37,16 @@ scenario:
     - create
     - converge
   destroy_sequence:
+    - cleanup
     - destroy
   test_sequence:
     - lint
+    - cleanup
     - destroy
     - syntax
     - create
     - converge
     - idempotence
     - verify
+    - cleanup
     - destroy
