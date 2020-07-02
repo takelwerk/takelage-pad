@@ -190,6 +190,74 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
+    "takelage.ansible/ansible/roles/takel-nginx@0.0.2": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "defaults/main.yml",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "handlers/main.yml",
+                "test": false
+            },
+            {
+                "name": "converge.yml",
+                "relativePath": "molecule/default/converge.yml",
+                "test": false
+            },
+            {
+                "name": "molecule.yml",
+                "relativePath": "molecule/default/molecule.yml",
+                "test": false
+            },
+            {
+                "name": "test_takel-nginx_system_nginx.py",
+                "relativePath": "molecule/default/system/test_takel-nginx_system_nginx.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-nginx_system_ssl.py",
+                "relativePath": "molecule/default/system/test_takel-nginx_system_ssl.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-nginx_configure.py",
+                "relativePath": "molecule/default/tests/test_takel-nginx_configure.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-nginx_install.py",
+                "relativePath": "molecule/default/tests/test_takel-nginx_install.py",
+                "test": false
+            },
+            {
+                "name": "configure.yml",
+                "relativePath": "tasks/configure.yml",
+                "test": false
+            },
+            {
+                "name": "install.yml",
+                "relativePath": "tasks/install.yml",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "tasks/main.yml",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "ansible/roles/takel-nginx",
+        "origin": "IMPORTED",
+        "originallySharedDir": "ansible/roles/takel-nginx"
+    },
     "takelage.packer/packer/templates/docker/takelbase/base@0.0.1": {
         "files": [
             {
