@@ -258,6 +258,94 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-nginx"
     },
+    "takelage.ansible/ansible/roles/takel-ssl@0.0.2": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "defaults/main.yml",
+                "test": false
+            },
+            {
+                "name": "converge.yml",
+                "relativePath": "molecule/default/converge.yml",
+                "test": false
+            },
+            {
+                "name": "molecule.yml",
+                "relativePath": "molecule/default/molecule.yml",
+                "test": false
+            },
+            {
+                "name": "test_takel-ssl_casigned.py",
+                "relativePath": "molecule/default/tests/test_takel-ssl_casigned.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-ssl_configure.py",
+                "relativePath": "molecule/default/tests/test_takel-ssl_configure.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-ssl_general.py",
+                "relativePath": "molecule/default/tests/test_takel-ssl_general.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-ssl_install.py",
+                "relativePath": "molecule/default/tests/test_takel-ssl_install.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-ssl_selfsigned.py",
+                "relativePath": "molecule/default/tests/test_takel-ssl_selfsigned.py",
+                "test": false
+            },
+            {
+                "name": "casigned.yml",
+                "relativePath": "tasks/casigned.yml",
+                "test": false
+            },
+            {
+                "name": "configure.yml",
+                "relativePath": "tasks/configure.yml",
+                "test": false
+            },
+            {
+                "name": "decision.yml",
+                "relativePath": "tasks/decision.yml",
+                "test": false
+            },
+            {
+                "name": "install.yml",
+                "relativePath": "tasks/install.yml",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "tasks/main.yml",
+                "test": false
+            },
+            {
+                "name": "selfsigned.yml",
+                "relativePath": "tasks/selfsigned.yml",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "vars/main.yml",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "ansible/roles/takel-ssl",
+        "origin": "IMPORTED",
+        "originallySharedDir": "ansible/roles/takel-ssl"
+    },
     "takelage.packer/packer/templates/docker/takelbase/base@0.0.1": {
         "files": [
             {
