@@ -1,0 +1,28 @@
+---
+- name: (configure) copy nginx config
+  copy:
+    content: "{{ takel_nginx_site }}"
+    dest: "{{ takel_nginx_config_path }}/sites-available/{{ project['project'] }}"   # yamllint disable-line rule:line-length
+  notify: reload nginx
+  tags:
+    - test
+
+- name: (configure) copy basic auth
+  copy:
+    content: "{{ takel_nginx_basic_auth }}"
+    dest: "{{ takel_nginx_config_path }}/.htpasswd"
+  when: "'stage' in group_names"
+
+- name: (configure) remove nginx default config
+  file:
+    path: "{{ takel_nginx_config_path }}/sites-enabled/default"
+    state: absent
+  notify: restart nginx
+
+- name: (configure) enable nginx config
+  file:
+    src: >-
+      {{ takel_nginx_config_path }}/sites-available/{{ takel_nginx_site_name }}
+    dest: "{{ takel_nginx_config_path }}/sites-enabled/{{ takel_nginx_site_name }}"  # yamllint disable-line rule:line-length
+    state: link
+  notify: restart nginx
