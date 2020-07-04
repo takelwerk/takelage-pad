@@ -6,7 +6,7 @@
 - name: (selfsigned) create alt name dict
   set_fact:
     takel_ssl_var_subject_alt_name:
-      dns_server: "{{takel_ssl_subject_alt_name}}"
+      dns_server: "{{ takel_ssl_subject_alt_name }}"
 
 - name: (selfsigned) generate a self-signed certificate signing request
   openssl_csr:

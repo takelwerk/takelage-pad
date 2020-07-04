@@ -40,13 +40,13 @@ verifier:
     - ../../../roles/*/molecule/default/tests/test_*.py
     # system
     - ../../../roles/*/molecule/default/system/test_*.py
-  env:
-    TESTVARS_ROLES_BLACKLIST: takel-nginx
 scenario:
   create_sequence:
     - create
+    - prepare
   converge_sequence:
     - create
+    - prepare
     - converge
   destroy_sequence:
     - destroy
@@ -55,6 +55,7 @@ scenario:
     - destroy
     - syntax
     - create
+    - prepare
     - converge
     - idempotence
     - verify

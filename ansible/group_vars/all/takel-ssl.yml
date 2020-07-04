@@ -1,0 +1,6 @@
+---
+takel_ssl_common_name: pad
+takel_ssl_country_name: US
+takel_ssl_organization_name: etherpad
+takel_ssl_services_handler:
+  - restart nginx

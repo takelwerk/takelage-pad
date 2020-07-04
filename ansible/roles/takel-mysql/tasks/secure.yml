@@ -13,13 +13,13 @@
 
 # Only works when run as user "root" (not as user "vagrant")
 # So this works for a docker target but not for virtualbox one
-#- name: (secure) update mariadb root password for root accounts
-#  mysql_user:
-#    name: root
-#    password: "{{ takel_mysql_root_password }}"
-#    host_all: true
-#    update_password: on_create
-#  no_log: false
+# - name: (secure) update mariadb root password for root accounts
+#   mysql_user:
+#     name: root
+#     password: "{{ takel_mysql_root_password }}"
+#     host_all: true
+#     update_password: on_create
+#   no_log: false
 
 - name: (secure) copy user password credentials
   template:

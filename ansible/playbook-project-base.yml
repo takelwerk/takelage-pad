@@ -8,4 +8,5 @@
     - takel-mysql
     - takel-nodejs
     - takel-ssl
+    - takel-nginx
     - takel-cleanup

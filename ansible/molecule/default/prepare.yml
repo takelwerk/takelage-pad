@@ -1,0 +1,13 @@
+---
+- name: prepare
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: attach molecule container to docker network
+      docker_container:
+        name: "{{ inventory_hostname }}"
+        networks:
+          - name: "{{ lookup('env','HOSTNAME') }}"
+        networks_cli_compatible: false
+        privileged: true
+      delegate_to: 127.0.0.1

@@ -36,8 +36,9 @@ def test_takel_nginx_config_server_name(
         testvars,
         protocol):
     nginx_server_names = testvars['takel_nginx_server_names']
-    for server_name in nginx_server_names:
-        assert server_name in site_config[protocol]
+    if 'server_name _;' not in site_config[protocol]:
+        for server_name in nginx_server_names:
+            assert server_name in site_config[protocol]
 
 
 def test_takel_nginx_config_ssl_cert(site_config, testvars):

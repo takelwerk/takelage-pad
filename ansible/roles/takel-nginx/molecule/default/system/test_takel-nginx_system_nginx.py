@@ -1,9 +1,6 @@
-import \
-    ssl
-import \
-    takeltest
-import \
-    urllib.request
+import ssl
+import takeltest
+import urllib.request
 
 testinfra_hosts = takeltest.hosts()
 
@@ -17,14 +14,18 @@ def test_takel_nginx_system_nginx_service_running(host):
 
 
 def test_takel_nginx_system_nginx_http(testvars):
-    nginx_host = testvars['takel_nginx_server_names'][0]
+    nginx_host = testvars['ansible_hostname']
     valid_return_codes = [
         '200',
         'HTTP/1.1 301 Moved Permanently'
     ]
+    context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
     try:
         page = urllib.request.urlopen(
-            f"http://{nginx_host}")
+            f"http://{nginx_host}",
+            context=context)
         assert str(page.getcode()) in valid_return_codes
     except urllib.error.HTTPError as e:
         if e.code == 401:
@@ -38,12 +39,12 @@ def test_takel_nginx_system_nginx_http(testvars):
                 f"Error code: {e.code}"
     except urllib.error.URLError as e:
         assert False, \
-            'We failed to reach a server.' \
+            'We failed to reach a server. ' \
             f"Reason: {e.reason}"
 
 
 def test_takel_nginx_system_nginx_https(testvars):
-    nginx_host = testvars['takel_nginx_server_names'][0]
+    nginx_host = testvars['ansible_hostname']
     context = ssl.create_default_context()
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
@@ -64,5 +65,5 @@ def test_takel_nginx_system_nginx_https(testvars):
                 f"Error code: {e.code}"
     except urllib.error.URLError as e:
         assert False, \
-            'We failed to reach a server.' \
+            'We failed to reach a server. ' \
             f"Reason: {e.reason}"

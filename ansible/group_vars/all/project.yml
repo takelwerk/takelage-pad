@@ -1,2 +1,2 @@
 ---
-takelage_project: "{{ lookup('pipe', 'tau project') | from_yaml }}"
+project: "{{ lookup('pipe', 'tau project') | from_yaml }}"

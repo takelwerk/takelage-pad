@@ -11,10 +11,9 @@ testinfra_hosts = takeltest.hosts()
 
 @pytest.fixture()
 def get_remote_ssl_cert(testvars):
-    ssl_host = testvars['takel_nginx_server_names'][0]
+    ssl_host = testvars['ansible_hostname']
     sock = socket.socket()
     sock.connect((f"{ssl_host}", 443))
-    # peername = sock.getpeername()
     ctx = SSL.Context(SSL.SSLv23_METHOD)  # most compatible
     ctx.check_hostname = False
     ctx.verify_mode = SSL.VERIFY_NONE
