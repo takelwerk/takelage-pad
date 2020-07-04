@@ -1,6 +1,9 @@
-import ssl
-import takeltest
-import urllib.request
+import \
+    ssl
+import \
+    takeltest
+import \
+    urllib.request
 
 testinfra_hosts = takeltest.hosts()
 
@@ -20,12 +23,14 @@ def test_takel_nginx_system_nginx_http(testvars):
         'HTTP/1.1 301 Moved Permanently'
     ]
     try:
-        page = urllib.request.urlopen(f"http://{nginx_host}")
+        page = urllib.request.urlopen(
+            f"http://{nginx_host}")
         assert str(page.getcode()) in valid_return_codes
     except urllib.error.HTTPError as e:
         if e.code == 401:
-            assert True, "Server error 401 probably means that " \
-                         "basic auth blocked access"
+            assert True, \
+                "Server error 401 probably means that " \
+                "basic auth blocked access"
             return
         else:
             assert False, \
@@ -43,8 +48,9 @@ def test_takel_nginx_system_nginx_https(testvars):
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
     try:
-        page = urllib.request.urlopen(f"https://{nginx_host}/",
-                                      context=context)
+        page = urllib.request.urlopen(
+            f"https://{nginx_host}/",
+            context=context)
         assert 200 == page.getcode()
     except urllib.error.HTTPError as e:
         if e.code == 401:

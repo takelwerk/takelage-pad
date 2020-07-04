@@ -1,6 +1,6 @@
 ---
 - name: converge
-  hosts: molecule-takel-nginx
+  hosts: all
   gather_facts: false
   pre_tasks:
     - name: attach molecule container to docker network
@@ -13,5 +13,5 @@
       delegate_to: 127.0.0.1
 
   roles:
-    - takel-ssl-self-signed
+    - takel-ssl
     - takel-nginx

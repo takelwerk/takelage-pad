@@ -7,7 +7,7 @@ takel_nginx_config_path: /etc/nginx
 takel_nginx_server_names:
   - example
   - example.localhost
-takel_nginx_site_name: "{{ project['project'] }}"
+takel_nginx_site_name: site
 takel_nginx_ssl_cert: /etc/ssl/certs/ssl.pem
 takel_nginx_ssl_key: /etc/ssl/private/ssl.key
 takel_nginx_ssl_session_cache: shared:SSL:10m

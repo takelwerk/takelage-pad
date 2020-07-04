@@ -32,10 +32,11 @@ def get_remote_ssl_cert(testvars):
 
 @pytest.fixture(name='ssl_cert')
 def extract_cert_infos(get_remote_ssl_cert):
-    cert = {'alternative_names': [], 'common_name': '', 'country_name': '',
-            'organization_name': '',
-            'not_valid_after': get_remote_ssl_cert.not_valid_after,
-            'not_valid_before': get_remote_ssl_cert.not_valid_before}
+    cert = {
+        'alternative_names': [], 'common_name': '', 'country_name': '',
+        'organization_name': '',
+        'not_valid_after': get_remote_ssl_cert.not_valid_after,
+        'not_valid_before': get_remote_ssl_cert.not_valid_before}
 
     names = \
         get_remote_ssl_cert.subject.get_attributes_for_oid(NameOID.COMMON_NAME)

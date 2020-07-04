@@ -2,10 +2,9 @@
 - name: (configure) copy nginx config
   copy:
     content: "{{ takel_nginx_site }}"
-    dest: "{{ takel_nginx_config_path }}/sites-available/{{ project['project'] }}"   # yamllint disable-line rule:line-length
+    dest: >-
+      {{ takel_nginx_config_path }}/sites-available/{{ takel_nginx_site_name }}
   notify: reload nginx
-  tags:
-    - test
 
 - name: (configure) copy basic auth
   copy:
@@ -23,6 +22,7 @@
   file:
     src: >-
       {{ takel_nginx_config_path }}/sites-available/{{ takel_nginx_site_name }}
-    dest: "{{ takel_nginx_config_path }}/sites-enabled/{{ takel_nginx_site_name }}"  # yamllint disable-line rule:line-length
+    dest: >-
+      {{ takel_nginx_config_path }}/sites-enabled/{{ takel_nginx_site_name }}
     state: link
   notify: restart nginx

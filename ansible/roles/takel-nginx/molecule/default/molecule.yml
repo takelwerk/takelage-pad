@@ -20,9 +20,9 @@ provisioner:
   inventory:
     group_vars:
       all:
-        takel_ssl_self_signed_common_name: >-
+        takel_ssl_common_name: >-
           molecule-takel-nginx
-        takel_ssl_self_signed_subject_alt_name: >-
+        takel_ssl_subject_alt_name: >-
           molecule-takel-nginx.local
         takel_nginx_server_names:
           - molecule-takel-nginx
