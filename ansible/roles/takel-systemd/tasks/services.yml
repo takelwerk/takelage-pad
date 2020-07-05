@@ -9,7 +9,6 @@
     - reload daemon
     - enable services
 
-
 - name: (services) fetch changed services
   set_fact:
     takel_systemd_handler_services_list: >-

@@ -13,9 +13,9 @@
     - takel_etherpad
     - takel_etherpad_configure
 
-#- name: (main) include systemd tasks
-#  import_tasks: systemd.yml
-#  tags:
-#    - takel
-#    - takel_etherpad
-#    - takel_etherpad_systemd
+- name: (main) include systemd tasks
+  import_tasks: systemd.yml
+  tags:
+    - takel
+    - takel_etherpad
+    - takel_etherpad_systemd

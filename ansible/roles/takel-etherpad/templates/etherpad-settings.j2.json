@@ -25,8 +25,8 @@
   //You shouldn't use "dirty" for for anything else than testing or development
    "dbType": "mysql",
    "dbSettings": {
-                    "user"    : "{{ takel_etherpad_mysql_user }}",
                     "host"    : "{{ takel_etherpad_mysql_host }}",
+                    "user"    : "{{ takel_etherpad_mysql_user }}",
                     "password": "{{ takel_etherpad_mysql_password }}",
                     "database": "{{ takel_etherpad_mysql_database }}",
                     "charset" : "{{ takel_etherpad_mysql_charset }}"

@@ -11,14 +11,29 @@ takel_etherpad_deb_install_packages:
   - python
   - tidy
 
+takel_etherpad_user: etherpad
+
 takel_etherpad_lib: /var/opt/etherpad/lib
+takel_etherpad_run: "{{ takel_etherpad_lib }}/bin/run.sh"
 takel_etherpad_shell: /bin/bash
 takel_etherpad_repo: git://github.com/ether/etherpad-lite.git
 
-takel_etherpad_mysql_user: etherpad
 takel_etherpad_mysql_host: localhost
+takel_etherpad_mysql_user: etherpad
 takel_etherpad_mysql_password: REPLACE_WITH_DATABASE_PASSWORD
 takel_etherpad_mysql_database: etherpad
 takel_etherpad_mysql_charset: utf8mb4
 
 takel_etherpad_admin_password: REPLACE_WITH_ADMIN_PASSWORD
+
+takel_etherpad_systemd_service_list:
+  - name: etherpad
+    descripton: Run an etherpad lite server
+    type: exec
+    run_after:
+      - network-online.target
+    wanted_by: multi-user.target
+    user: "{{ takel_etherpad_user }}"
+    group: "{{ takel_etherpad_user }}"
+    working_directory: "{{ takel_etherpad_lib }}"
+    exec_start: "{{ takel_etherpad_run }}"

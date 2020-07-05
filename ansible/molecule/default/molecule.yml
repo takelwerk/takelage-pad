@@ -12,6 +12,9 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+    published_ports:
+      - 127.0.0.1:${TAKELAGE_PAD_PORT_HTTP:-80}:80/tcp
+      - 127.0.0.1:${TAKELAGE_PAD_PORT_HTTPS:-443}:443/tcp
     groups:
       - ${TAKELAGE_PROJECT_ENV:-prod}
       - private

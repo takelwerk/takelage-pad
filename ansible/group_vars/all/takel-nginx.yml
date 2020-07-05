@@ -30,6 +30,10 @@ takel_nginx_site: |
     ssl_prefer_server_ciphers on;
     ssl_ciphers {{ takel_nginx_ssl_ciphers | join(':') }};
 
+    location = / {
+        return 301 /etherpad;
+    }
+
     location /etherpad {
       proxy_pass http://localhost:9001/;
       rewrite /etherpad/(.*) /$1 break;

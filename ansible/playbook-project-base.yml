@@ -9,4 +9,5 @@
     - takel-nodejs
     - takel-ssl
     - takel-nginx
+    - takel-etherpad
     - takel-cleanup
