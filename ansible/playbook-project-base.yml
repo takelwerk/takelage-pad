@@ -5,6 +5,7 @@
   roles:
     - takel-base
     - takel-anarchism
+    - takel-ufw
     - takel-mysql
     - takel-nodejs
     - takel-ssl

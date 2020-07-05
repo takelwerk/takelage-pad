@@ -1,0 +1,14 @@
+---
+- name: (main) include install tasks
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_ufw
+    - takel_ufw_install
+
+- name: (main) include rules tasks
+  import_tasks: rules.yml
+  tags:
+    - takel
+    - takel_ufw
+    - takel_ufw_rules

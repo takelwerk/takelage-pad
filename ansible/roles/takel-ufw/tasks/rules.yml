@@ -1,0 +1,13 @@
+---
+- name: (rules) set default policy
+  ufw:
+    direction: incoming
+    policy: reject
+    state: enabled
+
+- name: (rules) configure rules
+  ufw:
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+    rule: "{{ item.rule }}"
+  loop: "{{ takel_ufw_rules }}"
