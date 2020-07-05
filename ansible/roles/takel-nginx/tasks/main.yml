@@ -1,12 +1,12 @@
 ---
-- name: (main) include install
+- name: (main) include install tasks
   import_tasks: install.yml
   tags:
     - takel
     - takel_nginx
     - takel_nginx
 
-- name: (main) include configure
+- name: (main) include configure tasks
   import_tasks: configure.yml
   tags:
     - takel

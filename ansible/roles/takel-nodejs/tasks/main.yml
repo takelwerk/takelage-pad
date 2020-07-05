@@ -1,5 +1,5 @@
 ---
-- name: (main) include install
+- name: (main) include install tasks
   import_tasks: install.yml
   tags:
     - takel

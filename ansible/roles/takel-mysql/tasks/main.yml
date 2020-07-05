@@ -1,12 +1,12 @@
 ---
-- name: (main) include install
+- name: (main) include install tasks
   import_tasks: install.yml
   tags:
     - takel
     - takel_mysql
     - takel_mysql_install
 
-- name: (main) include loop_users
+- name: (main) include loop_users tasks
   include_tasks: loop_users.yml
   loop: "{{ takel_mysql_user_my_cnf }}"
   loop_control:
@@ -16,21 +16,21 @@
     - takel_mysql
     - takel_mysql_loop_user
 
-- name: (main) include configure
+- name: (main) include configure tasks
   import_tasks: configure.yml
   tags:
     - takel
     - takel_mysql
     - takel_mysql_configure
 
-- name: (main) include secure
+- name: (main) include secure tasks
   import_tasks: secure.yml
   tags:
     - takel
     - takel_mysql
     - takel_mysql_secure
 
-- name: (main) include databases
+- name: (main) include databases tasks
   import_tasks: databases.yml
   tags:
     - takel
