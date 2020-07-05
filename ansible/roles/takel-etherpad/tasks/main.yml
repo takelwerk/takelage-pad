@@ -13,6 +13,13 @@
     - takel_etherpad
     - takel_etherpad_configure
 
+- name: (main) include admin tasks
+  import_tasks: admin.yml
+  tags:
+    - takel
+    - takel_etherpad
+    - takel_etherpad_admin
+
 - name: (main) include systemd tasks
   import_tasks: systemd.yml
   tags:

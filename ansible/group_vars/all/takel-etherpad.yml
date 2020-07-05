@@ -3,3 +3,7 @@ takel_etherpad_mysql_host: "{{ takel_mysql_host }}"
 takel_etherpad_mysql_user: "{{ takel_mysql_etherpad_user }}"
 takel_etherpad_mysql_password: "{{ takel_mysql_etherpad_password }}"
 takel_etherpad_mysql_database: "{{ takel_mysql_etherpad_database }}"
+
+takel_etherpad_admin_password: >-
+  {{ lookup('password',
+  '/tmp/etherpad_admin_password length=30 chars=ascii_letters,digits') }}

@@ -118,6 +118,9 @@
   "indentationOnNewLine": false,
   */
 
+  // Skin Variants (see /etherpad/p/test#skinvariantsbuilder)
+  "skinVariants": "super-dark-toolbar dark-background super-dark-editor full-width-editor",
+  
   "ep_delete_after_delay": {
     "delay": 864000, // ten days, in seconds
     "loop": true,

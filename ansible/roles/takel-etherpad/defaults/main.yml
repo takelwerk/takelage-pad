@@ -13,7 +13,8 @@ takel_etherpad_deb_install_packages:
 
 takel_etherpad_user: etherpad
 
-takel_etherpad_lib: /var/opt/etherpad/lib
+takel_etherpad_home: /var/opt/etherpad
+takel_etherpad_lib: "{{ takel_etherpad_home }}/lib"
 takel_etherpad_run: "{{ takel_etherpad_lib }}/bin/run.sh"
 takel_etherpad_shell: /bin/bash
 takel_etherpad_repo: git://github.com/ether/etherpad-lite.git
@@ -25,10 +26,12 @@ takel_etherpad_mysql_database: etherpad
 takel_etherpad_mysql_charset: utf8mb4
 
 takel_etherpad_admin_password: REPLACE_WITH_ADMIN_PASSWORD
+takel_etherpad_admin_password_file: >-
+  {{ takel_etherpad_home }}/.etherpad_admin_password
 
 takel_etherpad_systemd_service_list:
   - name: etherpad
-    descripton: Run an etherpad lite server
+    descripton: an etherpad lite server
     type: exec
     run_after:
       - network-online.target
@@ -37,3 +40,4 @@ takel_etherpad_systemd_service_list:
     group: "{{ takel_etherpad_user }}"
     working_directory: "{{ takel_etherpad_lib }}"
     exec_start: "{{ takel_etherpad_run }}"
+    exec_stop: "/usr/bin/pkill -f 'node {{ takel_etherpad_lib }}/node_modules/ep_etherpad-lite/node/server.js'"

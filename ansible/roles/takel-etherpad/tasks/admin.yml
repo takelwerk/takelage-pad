@@ -1,0 +1,6 @@
+---
+- name: (admin) write admin password to disk
+  copy:
+    content: "{{ takel_etherpad_admin_password }}\n"
+    dest: "{{ takel_etherpad_admin_password_file }}"
+  become_user: etherpad
