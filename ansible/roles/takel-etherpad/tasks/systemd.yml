@@ -1,0 +1,7 @@
+---
+- name: (systemd) create etherpad systemd service
+  include_role:
+    name: takel-systemd-service
+  vars:
+    name: etherpad
+    path: takel_etherpad_lib

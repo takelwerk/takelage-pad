@@ -1,0 +1,53 @@
+---
+- name: (configure) copy etherpad configuration
+  template:
+    src: etherpad-settings.j2.json
+    dest: "{{ takel_etherpad_lib }}/settings.json"
+    owner: etherpad
+    group: etherpad
+    mode: 0640
+  notify: restart etherpad
+
+- name: (configure) remove chat labels
+  lineinfile:
+    dest:  "{{ takel_etherpad_lib }}/src/locales/{{ item }}.json"
+    regexp: '"pad.chat"'
+    line: '  "pad.chat": "",'
+  loop:
+    - de
+    - en
+    - en-gb
+    - fr
+  notify: restart etherpad
+
+- name: (configure) git set user.name
+  git_config:
+    name: user.name
+    value: etherpad
+    scope: global
+  become_user: etherpad
+
+- name: (configure) git set user.email
+  git_config:
+    name: user.email
+    value: "etherpad@{{ rol_sys_postfix_domain | default('pad.local') }}"
+    scope: global
+  become_user: etherpad
+
+- name: (configure) git set push.default
+  git_config:
+    name: push.default
+    value: simple
+    scope: global
+  become_user: etherpad
+
+- name: (configure) check git status of configfile
+  command: "git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} status --porcelain"
+  changed_when: False
+  become_user: etherpad
+  register: git_status
+
+- name: (configure) git create commit
+  shell: "git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} add --all; git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} commit --message='[Ansible] Commit changes'"
+  become_user: etherpad
+  when: "git_status.stdout.find(' M ') != -1"

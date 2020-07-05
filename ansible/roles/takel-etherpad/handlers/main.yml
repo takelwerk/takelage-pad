@@ -1,0 +1,8 @@
+---
+- name: restart etherpad
+  systemd:
+    name: etherpad
+    state: restarted
+    daemon_reload: true
+    enabled: true
+    masked: false

@@ -1,0 +1,24 @@
+---
+takel_etherpad_deb_install_packages:
+  - abiword
+  - build-essential
+  - curl
+  - dumb-init
+  - gzip
+  - git
+  - libssl-dev
+  - pkg-config
+  - python
+  - tidy
+
+takel_etherpad_lib: /var/opt/etherpad/lib
+takel_etherpad_shell: /bin/bash
+takel_etherpad_repo: git://github.com/ether/etherpad-lite.git
+
+takel_etherpad_mysql_user: etherpad
+takel_etherpad_mysql_host: localhost
+takel_etherpad_mysql_password: REPLACE_WITH_DATABASE_PASSWORD
+takel_etherpad_mysql_database: etherpad
+takel_etherpad_mysql_charset: utf8mb4
+
+takel_etherpad_admin_password: REPLACE_WITH_ADMIN_PASSWORD

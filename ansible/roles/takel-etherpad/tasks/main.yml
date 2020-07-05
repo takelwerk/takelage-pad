@@ -1,0 +1,21 @@
+---
+- name: (main) include install tasks
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_etherpad
+    - takel_etherpad_install
+
+- name: (main) include configure tasks
+  import_tasks: configure.yml
+  tags:
+    - takel
+    - takel_etherpad
+    - takel_etherpad_configure
+
+#- name: (main) include systemd tasks
+#  import_tasks: systemd.yml
+#  tags:
+#    - takel
+#    - takel_etherpad
+#    - takel_etherpad_systemd
