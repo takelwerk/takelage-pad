@@ -1,0 +1,21 @@
+---
+- name: (main) include services
+  import_tasks: services.yml
+  tags:
+    - takel
+    - takel_systemd
+    - takel_systemd_services
+
+- name: (main) include tree
+  import_tasks: tree.yml
+  tags:
+    - takel
+    - takel_systemd
+    - takel_systemd_tree
+
+- name: (main) include env
+  import_tasks: env.yml
+  tags:
+    - takel
+    - takel_systemd
+    - takel_systemd_env

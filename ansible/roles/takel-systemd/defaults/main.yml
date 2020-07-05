@@ -1,0 +1,6 @@
+---
+takel_systemd_hatch_env: /takelage/hatch/etc/systemd/env
+takel_systemd_hold_env: /takelage/hold/etc/systemd/env
+takel_systemd_origin_env: /etc/systemd/env
+
+takel_systemd_service_list: []

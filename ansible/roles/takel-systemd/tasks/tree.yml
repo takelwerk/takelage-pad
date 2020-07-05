@@ -1,0 +1,28 @@
+---
+- name: (tree) create directory for environment file
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ takel_systemd_hatch_env | dirname }}"
+    - "{{ takel_systemd_hold_env }}"
+    - "{{ takel_systemd_origin_env | dirname }}"
+
+- name: "(tree) check {{ takel_systemd_hatch_env }}"
+  stat:
+    path: "{{ takel_systemd_hatch_env }}"
+  register: hatch_env
+
+- name: (tree) create hatch systemd env symlink
+  file:
+    src: "{{ takel_systemd_hold_env }}"
+    dest: "{{ takel_systemd_hatch_env }}"
+    state: link
+  when:
+    - not hatch_env.stat.exists
+
+- name: (tree) create origin systemd env symlink
+  file:
+    src: "{{ takel_systemd_hatch_env }}"
+    dest: "{{ takel_systemd_origin_env }}"
+    state: link

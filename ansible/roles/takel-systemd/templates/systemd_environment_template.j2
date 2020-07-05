@@ -1,0 +1,5 @@
+{% if item.environment_file_vars is defined %}
+{% for env_var, value in item.environment_file_vars.items() %}
+{{ env_var }}={{ value }}
+{% endfor %}
+{% endif %}

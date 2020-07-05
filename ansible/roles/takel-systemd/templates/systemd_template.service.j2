@@ -1,0 +1,44 @@
+[Unit]
+Description={{ item.descripton }}
+{% if item.requires is defined %}
+{% for service in item.requires %}
+Requires={{ service }}
+{% endfor %}
+{% endif %}
+{% if item.run_after is defined %}
+{% for service in item.run_after %}
+After={{ service }}
+{% endfor %}
+{% endif %}
+
+[Service]
+Type={{ item.type }}
+{% if item.remain_after_exit is defined %}
+RemainAfterExit={{ item.remain_after_exit }}
+{% endif %}
+{% if item.environment_file is defined %}
+EnvironmentFile={{ takel_systemd_origin_env }}/{{ item.environment_file }}
+{% endif %}
+{% if item.environment_vars is defined %}
+{% for env_var, value in item.environment_vars.items() %}
+Environment={{ env_var }}={{ value }}
+{% endfor %}
+{% endif %}
+User={{ item.user }}
+Group={{ item.group }}
+WorkingDirectory={{ item.working_directory }}
+{% if item.exec_start_pre is defined %}
+ExecStartPre=/bin/bash -c '{{ item.exec_start_pre }}'
+{% endif %}
+ExecStart=/bin/bash -c '{{ item.exec_start }}'
+{% if item.exec_stop is defined %}
+ExecStop=/bin/bash -c '{{ item.exec_stop }}'
+{% endif %}
+TimeoutSec={{ timeout_sec | default(60) }}
+RestartSec={{ restart_sec | default(60) }}
+{% if item.restart is defined %}
+Restart={{ item.restart }}
+{% endif %}
+
+[Install]
+WantedBy={{ item.wanted_by | default('multi-user.target') }}
