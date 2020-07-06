@@ -18,7 +18,7 @@
       "type": "ansible",
       "user": "vagrant",
       "playbook_file": "../ansible/{{ user `ansible_playbook` }}",
-      "groups": [ "all", "private", "users", "image", "{{ user `ansible_environment` }}"],
+      "groups": [ "all", "private", "users", "image", "vbox", "{{ user `ansible_environment` }}"],
       "ansible_env_vars" : [
         "ANSIBLE_HOST_KEY_CHECKING=False",
         "ANSIBLE_SSH_ARGS='-v -o ControlMaster=auto -o ControlPersist=15m'"
@@ -30,7 +30,7 @@
     {
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash -eux '{{.Path}}'",
       "scripts": [
-        "templates/vbox/project/prod/bin/ssh.sh"
+        "templates/vbox/takelbase/project/bin/ssh.sh"
       ],
       "type": "shell"
     }

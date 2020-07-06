@@ -1,6 +1,7 @@
 ---
 takel_etherpad_deb_install_packages:
   - abiword
+  - acl  # needed for vagrant user to become_user: etherpad
   - build-essential
   - curl
   - dumb-init
