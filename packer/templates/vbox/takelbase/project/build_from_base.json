@@ -6,7 +6,7 @@
   "builders": [
     {
       "communicator": "ssh",
-      "output_dir": "images/vbox/project/prod",
+      "output_dir": "images/vbox/takelbase/project/prod",
       "provider": "virtualbox",
       "source_path": "takelwerk/takelbase",
       "type": "vagrant"

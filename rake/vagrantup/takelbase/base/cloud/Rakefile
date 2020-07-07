@@ -6,6 +6,7 @@ cmd_vagrantup_takelbase_base_cloud_login = 'vagrant cloud auth login'
 
 cmd_vagrantup_takelbase_base_cloud_publish = 'cd packer && ' \
     'vagrant cloud publish ' \
+    '--release ' \
     "#{@project['vagrantup_base_user']}/#{@project['vagrantup_base_repo']} " \
     "#{@project['vagrantup_base_version']} " \
     'virtualbox ' \
