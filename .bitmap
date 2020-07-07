@@ -765,5 +765,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "takelage.rake/rake/vagrantup/takelbase/project/cloud@0.0.1": {
+        "files": [
+            {
+                "relativePath": "rake/vagrantup/takelbase/project/cloud/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "rake/vagrantup/takelbase/project/cloud/Rakefile",
+                "test": false,
+                "name": "Rakefile"
+            }
+        ],
+        "mainFile": "rake/vagrantup/takelbase/project/cloud/README.bit",
+        "trackDir": "rake/vagrantup/takelbase/project/cloud",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.8.3"
 }
