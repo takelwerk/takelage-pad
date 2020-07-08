@@ -531,6 +531,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "takelage.rake/rake/ansible/docker/takelbase/project/prod@0.0.1": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "Rakefile",
+                "relativePath": "Rakefile",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "rake/ansible/docker/takebase/project/prod",
+        "origin": "IMPORTED",
+        "originallySharedDir": "rake/ansible/docker/takelbase/project/prod"
+    },
     "takelage.rake/rake/dockerhub/takelbase/base/registry@0.0.2": {
         "files": [
             {
