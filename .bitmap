@@ -190,7 +190,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
-    "takelage.ansible/ansible/roles/takel-nginx@0.0.2": {
+    "takelage.ansible/ansible/roles/takel-nginx@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
@@ -258,7 +258,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-nginx"
     },
-    "takelage.ansible/ansible/roles/takel-ssl@0.0.2": {
+    "takelage.ansible/ansible/roles/takel-ssl@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
@@ -346,7 +346,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-ssl"
     },
-    "takelage.ansible/ansible/roles/takel-systemd@0.0.1": {
+    "takelage.ansible/ansible/roles/takel-systemd@0.0.2": {
         "files": [
             {
                 "name": "README.bit",
@@ -470,7 +470,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "packer/templates/docker/takelbase/project"
     },
-    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.2": {
+    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.3": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/base/README.bit",
@@ -508,7 +508,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.1": {
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.2": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/project/README.bit",
@@ -747,7 +747,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/rubylint"
     },
-    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.3": {
+    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.4": {
         "files": [
             {
                 "relativePath": "rake/vagrantup/takelbase/base/cloud/README.bit",
