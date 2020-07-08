@@ -1,5 +1,5 @@
 ---
-takel_mysql_host: localhost
+takel_mysql_host: 127.0.0.1
 takel_mysql_port: 3306
 takel_mysql_etherpad_user: etherpad
 takel_mysql_etherpad_database: etherpad
