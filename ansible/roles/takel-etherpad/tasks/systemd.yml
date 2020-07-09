@@ -4,8 +4,3 @@
     name: takel-systemd
   vars:
     takel_systemd_service_list: "{{ takel_etherpad_systemd_service_list }}"
-
-- name: (systemd) start etherpad systemd service once
-  service:
-    name: etherpad
-    state: started

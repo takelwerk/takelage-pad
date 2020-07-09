@@ -3,6 +3,8 @@
   systemd:
     name: etherpad
     state: restarted
-    daemon_reload: true
-    enabled: true
-    masked: false
+  notify: wait for etherpad port
+
+- name: wait for etherpad port
+  wait_for:
+    port: 9001
