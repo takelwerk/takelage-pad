@@ -19,6 +19,8 @@ takel_etherpad_run: "{{ takel_etherpad_lib }}/bin/run.sh"
 takel_etherpad_shell: /bin/bash
 takel_etherpad_repo: git://github.com/ether/etherpad-lite.git
 
+takel_etherpad_port: 9001
+
 takel_etherpad_mysql_host: localhost
 takel_etherpad_mysql_user: etherpad
 takel_etherpad_mysql_password: REPLACE_WITH_DATABASE_PASSWORD

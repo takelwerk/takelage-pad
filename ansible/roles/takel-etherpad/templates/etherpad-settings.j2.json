@@ -16,7 +16,7 @@
 
   //IP and port which etherpad should bind at
   "ip": "127.0.0.1",
-  "port": 9001,
+  "port": {{ takel_etherpad_port }},
 
   // Option to hide/show the settings.json in admin page, default option is set to true
   "showSettingsInAdminPage": true,

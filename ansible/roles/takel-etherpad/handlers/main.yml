@@ -7,4 +7,4 @@
 
 - name: wait for etherpad port
   wait_for:
-    port: 9001
+    port: "{{ takel_etherpad_port }}"
