@@ -2,4 +2,5 @@
 - name: default
   hosts: all
   roles:
+    - takel-mysql
     - takel-etherpad
