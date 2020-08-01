@@ -6,14 +6,18 @@ takel_etherpad_deb_install_packages:
   - dumb-init
   - gzip
   - git
+  - jq
   - libssl-dev
+  - moreutils
   - pkg-config
+  - pwgen
   - python
   - tidy
 
 takel_etherpad_user: etherpad
 
 takel_etherpad_home: /var/opt/etherpad
+takel_etherpad_bin: "{{ takel_etherpad_home }}/bin"
 takel_etherpad_lib: "{{ takel_etherpad_home }}/lib"
 takel_etherpad_run: "{{ takel_etherpad_lib }}/bin/run.sh"
 takel_etherpad_shell: /bin/bash
@@ -27,10 +31,6 @@ takel_etherpad_mysql_password: REPLACE_WITH_DATABASE_PASSWORD
 takel_etherpad_mysql_database: etherpad
 takel_etherpad_mysql_charset: utf8mb4
 
-takel_etherpad_admin_password: REPLACE_WITH_ADMIN_PASSWORD
-takel_etherpad_admin_password_file: >-
-  {{ takel_etherpad_home }}/.etherpad_admin_password
-
 takel_etherpad_systemd_service_list:
   - name: etherpad
     descripton: an etherpad lite server
@@ -41,5 +41,10 @@ takel_etherpad_systemd_service_list:
     user: "{{ takel_etherpad_user }}"
     group: "{{ takel_etherpad_user }}"
     working_directory: "{{ takel_etherpad_lib }}"
-    exec_start: "{{ takel_etherpad_run }}"
-    exec_stop: "/usr/bin/pkill -f 'node {{ takel_etherpad_lib }}/node_modules/ep_etherpad-lite/node/server.js'"
+    exec_start: >-
+       {{ takel_etherpad_bin }}/etherpad-admin-password-dice &&
+       {{ takel_etherpad_run }}
+    exec_stop: >-
+      {{ takel_etherpad_bin }}/etherpad-admin-password-dice &&
+      /usr/bin/pkill -f 'node
+      {{ takel_etherpad_lib }}/node_modules/ep_etherpad-lite/node/server.js'"

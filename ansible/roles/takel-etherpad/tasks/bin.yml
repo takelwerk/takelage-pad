@@ -1,0 +1,18 @@
+---
+- name: (bin) create bin directory
+  file:
+    path: "{{ takel_etherpad_bin }}"
+    state: directory
+  become_user: etherpad
+
+- name: (bin) copy scrpts
+  template:
+    src: "{{ item }}.j2.sh"
+    dest: "{{ takel_etherpad_bin }}/{{ item }}"
+    mode: 0700
+  become_user: etherpad
+  loop:
+    - etherpad-admin-password-dice
+    - etherpad-admin-password-get
+    - etherpad-admin-password-set
+    - takelpad

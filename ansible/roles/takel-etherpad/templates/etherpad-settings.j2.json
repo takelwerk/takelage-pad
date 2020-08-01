@@ -1,41 +1,18 @@
-/*
-  This file must be valid JSON. But comments are allowed
-
-  Please edit settings.json, not settings.json.template
-
-  To still commit settings without credentials you can
-  store any credential settings in credentials.json
-*/
 {
-  // Name your instance!
   "title": "Etherpad",
-
-  // favicon default name
-  // alternatively, set up a fully specified Url to your own favicon
   "favicon": "favicon.ico",
-
-  //IP and port which etherpad should bind at
   "ip": "127.0.0.1",
   "port": {{ takel_etherpad_port }},
-
-  // Option to hide/show the settings.json in admin page, default option is set to true
   "showSettingsInAdminPage": true,
-
-  //The Type of the database. You can choose between dirty, postgres, sqlite and mysql
-  //You shouldn't use "dirty" for for anything else than testing or development
-   "dbType": "mysql",
-   "dbSettings": {
-                    "host"    : "{{ takel_etherpad_mysql_host }}",
-                    "user"    : "{{ takel_etherpad_mysql_user }}",
-                    "password": "{{ takel_etherpad_mysql_password }}",
-                    "database": "{{ takel_etherpad_mysql_database }}",
-                    "charset" : "{{ takel_etherpad_mysql_charset }}"
-                  },
-
-  //the default text of a pad
+  "dbType": "mysql",
+  "dbSettings": {
+    "host"    : "{{ takel_etherpad_mysql_host }}",
+    "user"    : "{{ takel_etherpad_mysql_user }}",
+    "password": "{{ takel_etherpad_mysql_password }}",
+    "database": "{{ takel_etherpad_mysql_database }}",
+    "charset" : "{{ takel_etherpad_mysql_charset }}"
+  },
   "defaultPadText": "",
-
-  /* Default Pad behavior, users can override by changing */
   "padOptions": {
     "noColors": false,
     "showControls": true,
@@ -49,101 +26,34 @@
     "chatAndUsers": true,
     "lang": "de-de"
   },
-
-  /* Should we suppress errors from being visible in the default Pad Text? */
   "suppressErrorsInPadText": false,
-
-  /* Users must have a session to access pads. This effectively allows only group pads to be accessed. */
   "requireSession": false,
-
-  /* Users may edit pads but not create new ones. Pad creation is only via the API. This applies both to group pads and regular pads. */
   "editOnly": false,
-
-  /* Users, who have a valid session, automatically get granted access to password protected pads */
   "sessionNoPassword": false,
-
-  /* if true, all css & js will be minified before sending to the client. This will improve the loading performance massivly,
-     but makes it impossible to debug the javascript/css */
   "minify": true,
-
-  /* How long may clients use served javascript code (in seconds)? Without versioning this
-     may cause problems during deployment. Set to 0 to disable caching */
-  "maxAge": 21600, // 60 * 60 * 6 = 6 hours
-
-  /* This is the absolute path to the Abiword executable. Setting it to null, disables abiword.
-     Abiword is needed to advanced import/export features of pads*/
+  "maxAge": 21600,
   "abiword": "/usr/bin/abiword",
-
-  /* This is the absolute path to the soffice executable. Setting it to null, disables LibreOffice exporting.
-     LibreOffice can be used in lieu of Abiword to export pads */
   "soffice": null,
-
-  /* This is the path to the Tidy executable. Setting it to null, disables Tidy.
-     Tidy is used to improve the quality of exported pads*/
   "tidyHtml": "/usr/bin/tidy",
-
-  /* Allow import of file types other than the supported types: txt, doc, docx, rtf, odt, html & htm */
   "allowUnknownFileEnds": true,
-
-  /* This setting is used if you require authentication of all users.
-     Note: /admin always requires authentication. */
   "requireAuthentication": false,
-
-  /* Require authorization by a module, or a user with is_admin set, see below. */
   "requireAuthorization": false,
-
-  /*when you use NginX or another proxy/ load-balancer set this to true*/
   "trustProxy": false,
-
-  /* Privacy: disable IP logging */
   "disableIPlogging": true,
-
-  /* Users for basic authentication. is_admin = true gives access to /admin.
-     If you do not uncomment this, /admin will not be available! */
   "users": {
     "admin": {
-      "password": "{{ takel_etherpad_admin_password }}",
+      "password": "REPLACE_WITH_ADMIN_PASSWORD",
       "is_admin": true
     }
   },
-
-  // restrict socket.io transport methods
   "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
-
-  // Allow Load Testing tools to hit the Etherpad Instance.  Warning this will disable security on the instance.
   "loadTest": false,
-
-  // Disable indentation on new line when previous line ends with some special chars (':', '[', '(', '{')
-  /*
-  "indentationOnNewLine": false,
-  */
-
-  // Dark skin variant (see /etherpad/p/test#skinvariantsbuilder)
-  /*
-  "skinVariants": "super-dark-toolbar dark-background super-dark-editor full-width-editor",
-  */
-  
-  "ep_delete_after_delay": {
-    "delay": 864000, // ten days, in seconds
-    "loop": true,
-    "loopDelay": 3600, // one hour, in seconds
-    "deleteAtStart": true,
-    "text": "The content of this pad has been deleted since it was older than the configured delay."
-  },
-
-  /* The log level we are using, can be: DEBUG, INFO, WARN, ERROR */
   "loglevel": "ERROR",
-
-  // Logging configuration. See log4js documentation for further information
-  // https://github.com/nomiddlename/log4js-node
-  // You can add as many appenders as you want here:
   "logconfig":
     { "appenders": [
-        { 
+        {
           "type": "console"
         }
       ]
     }
-
-
 }

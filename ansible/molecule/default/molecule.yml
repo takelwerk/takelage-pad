@@ -32,6 +32,8 @@ provisioner:
   inventory:
     links:
       group_vars: ../../group_vars/
+  options:
+    vvv: true
 verifier:
   name: testinfra
   options:
