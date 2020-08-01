@@ -63,7 +63,8 @@
       "scripts": [
         "templates/vbox/takelbase/base/debian10/bin/ssh.sh",
         "templates/vbox/takelbase/base/debian10/bin/sudo.sh",
-        "templates/vbox/takelbase/base/debian10/bin/guest.sh"
+        "templates/vbox/takelbase/base/debian10/bin/guest.sh",
+        "templates/vbox/takelbase/base/debian10/bin/apt.sh"
       ],
       "type": "shell"
     }
