@@ -5,11 +5,9 @@ require 'rake'
 namespace :vagrantup do
   namespace :takelbase do
     desc 'Create and deploy base image to vagrantup'
-    task project: %w[git:warn
-                     vagrantup:takelbase:project:cloud:login
+    task project: %w[vagrantup:takelbase:project:cloud:login
                      rubylint
                      image:vbox:takelbase:project:prod:build
-                     git:tag
                      vagrantup:takelbase:project:cloud:publish]
   end
 end
