@@ -14,6 +14,7 @@ takel_etherpad_deb_install_packages:
   - python
   - tidy
 
+takel_etherpad_version_file: /etc/takelpad_version
 takel_etherpad_user: etherpad
 
 takel_etherpad_home: /var/opt/etherpad

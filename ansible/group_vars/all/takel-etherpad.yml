@@ -1,4 +1,6 @@
 ---
+takel_etherpad_version: "{{ project['version'] }}"
+
 takel_etherpad_mysql_host: "{{ takel_mysql_host }}"
 takel_etherpad_mysql_user: "{{ takel_mysql_etherpad_user }}"
 takel_etherpad_mysql_password: "{{ takel_mysql_etherpad_password }}"

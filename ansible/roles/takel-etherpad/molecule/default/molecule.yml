@@ -52,6 +52,9 @@ provisioner:
         takel_etherpad_mysql_password: etherpad
         takel_etherpad_mysql_database: etherpad
         takel_etherpad_admin_password: admin
+        takel_etherpad_version: 0.0.1
+  options:
+    tags: takel_etherpad_bin
 verifier:
   name: testinfra
   additional_files_or_dirs:

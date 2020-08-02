@@ -1,7 +1,7 @@
 ---
 # project settings
 project: takelage-pad
-version: 0.3.0
+version: 0.3.1
 local_user: packer_local
 
 # dockerhub settings for the base image
