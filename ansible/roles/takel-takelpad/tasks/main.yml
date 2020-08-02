@@ -1,0 +1,14 @@
+---
+- name: (main) include install tasks
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_takelpad
+    - takel_takelpad_install
+
+- name: (main) include version tasks
+  import_tasks: version.yml
+  tags:
+    - takel
+    - takel_takelpad
+    - takel_takelpad_version

@@ -11,4 +11,5 @@
     - takel-ssl
     - takel-nginx
     - takel-etherpad
+    - takel-takelpad
     - takel-cleanup

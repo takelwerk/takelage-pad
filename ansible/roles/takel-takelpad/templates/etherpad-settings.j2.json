@@ -1,0 +1,59 @@
+{
+  "title": "Etherpad",
+  "favicon": "favicon.ico",
+  "ip": "127.0.0.1",
+  "port": {{ takel_takelpad_port }},
+  "showSettingsInAdminPage": true,
+  "dbType": "mysql",
+  "dbSettings": {
+    "host"    : "{{ takel_takelpad_mysql_host }}",
+    "user"    : "{{ takel_takelpad_mysql_user }}",
+    "password": "{{ takel_takelpad_mysql_password }}",
+    "database": "{{ takel_takelpad_mysql_database }}",
+    "charset" : "{{ takel_takelpad_mysql_charset }}"
+  },
+  "defaultPadText": "",
+  "padOptions": {
+    "noColors": false,
+    "showControls": true,
+    "showChat": true,
+    "showLineNumbers": true,
+    "useMonospaceFont": false,
+    "userName": false,
+    "userColor": false,
+    "rtl": false,
+    "alwaysShowChat": false,
+    "chatAndUsers": true,
+    "lang": "de-de"
+  },
+  "suppressErrorsInPadText": false,
+  "requireSession": false,
+  "editOnly": false,
+  "sessionNoPassword": false,
+  "minify": true,
+  "maxAge": 21600,
+  "abiword": "/usr/bin/abiword",
+  "soffice": null,
+  "tidyHtml": "/usr/bin/tidy",
+  "allowUnknownFileEnds": true,
+  "requireAuthentication": false,
+  "requireAuthorization": false,
+  "trustProxy": false,
+  "disableIPlogging": true,
+  "users": {
+    "admin": {
+      "password": "REPLACE_WITH_ADMIN_PASSWORD",
+      "is_admin": true
+    }
+  },
+  "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
+  "loadTest": false,
+  "loglevel": "ERROR",
+  "logconfig":
+    { "appenders": [
+        {
+          "type": "console"
+        }
+      ]
+    }
+}

@@ -1,9 +1,0 @@
----
-- name: (version) create version file
-  copy:
-    content: "{{ takel_etherpad_version }}\n"
-    dest: "{{ takel_etherpad_version_file }}"
-    owner: root
-    group: root
-    mode: 0644
-  when: takel_etherpad_version is defined

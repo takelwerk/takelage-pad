@@ -1,0 +1,5 @@
+---
+takel_takelpad_deb_install_packages:
+  - vim
+
+takel_takelpad_version_file: /etc/takelpad_version

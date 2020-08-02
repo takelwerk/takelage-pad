@@ -6,13 +6,6 @@
     - takel_etherpad
     - takel_etherpad_install
 
-- name: (main) include version tasks
-  import_tasks: version.yml
-  tags:
-    - takel
-    - takel_etherpad
-    - takel_etherpad_version
-
 - name: (main) include configure tasks
   import_tasks: configure.yml
   tags:
