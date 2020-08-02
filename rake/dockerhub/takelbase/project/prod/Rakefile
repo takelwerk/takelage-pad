@@ -9,7 +9,7 @@ namespace :dockerhub do
                   dockerhub:takelbase:project:prod:registry:login
                   rubylint
                   takelscripts
-                  ansible:project:prod:from_base:converge
+                  ansible:project:prod:from_base:test
                   image:docker:takelbase:project:prod:from_base
                   image:docker:takelbase:project:prod:test
                   git:tag

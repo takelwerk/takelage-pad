@@ -6,7 +6,7 @@ called
 [takelwerk/takelpad](https://app.vagrantup.com/takelwerk/boxes/takelpad) 
 which runs the 
 [etherpad-lite](https://github.com/ether/etherpad-lite) 
-collaborative editor with the
+collaborative editor using the
 [virtual box](https://www.virtualbox.org/) 
 provider.
 
@@ -65,31 +65,38 @@ The IP address of a running takelpad can be printed like so:
 
 ```bash
 vagrant provision
-``` 
+```
 
 The script 
 [```takelpad```](https://github.com/takelwerk/takelage-pad/blob/master/ansible/roles/takel-etherpad/templates/takelpad.j2.sh)
 in the box which is called by 
 ```vagrant provision``` prints the IP of the last network interface.
 
-This is how you can see all IP addresses of the box:
+This is how you can get more information:
 ```bash
-vagrant ssh -c 'ip a'
+vagrant ssh -c takelpad
 ``` 
 
-As *takelage-pad* is a vagrant box you can easily log in to it
-to do further Debugging in the 
-[Debian](https://www.debian.org/) buster environment:
+As *takelage-pad* is a vagrant box you can easily ssh in to it:
 
 ```bash
 vagrant ssh
+```
+
+This is how you become root:
+
+```bash
+vagrant ssh -c 'sudo su -'
 ```
 
 ## Technical context
 
 *takel-pad* is made with 
 [*takelage-dev*](https://github.com/geospin-takelage/takelage-dev).
-It is the prototype for the vagrant/virtual box platform.
+It is the prototype for the vagrant/VirtualBox platform.
+
 *takel-pad* is based on
-[takelwerk/takelbase](https://app.vagrantup.com/takelwerk/boxes/takelbase)  
+[takelwerk/takelbase](https://app.vagrantup.com/takelwerk/boxes/takelbase)
+ which is based on
+ [Debian](https://www.debian.org/) buster.
  

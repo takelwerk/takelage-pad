@@ -7,6 +7,6 @@ Vagrant.configure(2) do |config|
     vb.name = 'takelpad'
   end
   config.vm.provision 'shell', run: 'always', inline: <<-SHELL
-    /usr/local/bin/takelpad
+    /usr/local/bin/takelpad --summary
   SHELL
 end
