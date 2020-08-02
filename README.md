@@ -44,9 +44,10 @@ Now you can start the box
 vagrant up
 ```
 
-vagrant will tell you the IP address of the etherpad 
+After each start, vagrant will tell you the IP address of the etherpad.
+You can then use a browser to connect to the etherpad via this IP address.
 
-Afterwards you can stop the box:
+When you are finished you can stop the box:
 
 ```bash
 vagrant halt
