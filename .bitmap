@@ -478,6 +478,11 @@
                 "name": "README.bit"
             },
             {
+                "relativePath": "packer/templates/vbox/takelbase/base/debian10/bin/apt.sh",
+                "test": false,
+                "name": "apt.sh"
+            },
+            {
                 "relativePath": "packer/templates/vbox/takelbase/base/debian10/bin/guest.sh",
                 "test": false,
                 "name": "guest.sh"
@@ -524,6 +529,11 @@
                 "relativePath": "packer/templates/vbox/takelbase/project/build_from_base.json",
                 "test": false,
                 "name": "build_from_base.json"
+            },
+            {
+                "relativePath": "packer/templates/vbox/takelbase/project/vagrantfile/takelpad.rb",
+                "test": false,
+                "name": "takelpad.rb"
             }
         ],
         "mainFile": "packer/templates/vbox/takelbase/project/README.bit",
