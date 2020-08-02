@@ -9,7 +9,7 @@ fi
 ETHERPAD_IP=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad address: $ETHERPAD_IP"
 
-if [ "$1" == "root" ] = 0 ]; then
+if [ "$1" == "root" ]; then
   ETHERPAD_ADMIN_PASSWORD=$({{ takel_etherpad_bin }}/etherpad-admin-password-get)
   MYSQL_ETHERPAD_USER=$(grep user {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ETHERPAD_PASSWORD=$(grep password {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
