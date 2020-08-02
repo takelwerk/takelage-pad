@@ -470,7 +470,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "packer/templates/docker/takelbase/project"
     },
-    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.3": {
+    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.4": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/base/README.bit",
@@ -513,7 +513,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.2": {
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.3": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/project/README.bit",
@@ -757,7 +757,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/rubylint"
     },
-    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.4": {
+    "takelage.rake/rake/vagrantup/takelbase/base/cloud@0.0.5": {
         "files": [
             {
                 "relativePath": "rake/vagrantup/takelbase/base/cloud/README.bit",
@@ -775,7 +775,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.rake/rake/vagrantup/takelbase/project/cloud@0.0.1": {
+    "takelage.rake/rake/vagrantup/takelbase/project/cloud@0.0.2": {
         "files": [
             {
                 "relativePath": "rake/vagrantup/takelbase/project/cloud/README.bit",
