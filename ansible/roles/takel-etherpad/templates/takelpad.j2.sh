@@ -1,21 +1,27 @@
 #!/usr/bin/env bash
 
-VERSION_FILE={{ takel_etherpad_version_file }}
+VERSION_FILE={{ takel_takelpad_version_file }}
 if test -f "$VERSION_FILE"; then
   VERSION=$(head -n 1 "$VERSION_FILE")
-  echo "takelpad version: $VERSION"
+  HEADER="takelpad: $VERSION"
 fi
 
-ETHERPAD_IP=$(ip --json address | jq -r '.[-1].addr_info[0].local')
-echo "takelpad address: $ETHERPAD_IP"
+echo "$HEADER | for details run: vagrant ssh -c takelpad"
 
-if [ "$1" == "debug" ]; then
-  ETHERPAD_ADMIN_PASSWORD=$({{ takel_etherpad_bin }}/etherpad-admin-password-get)
-  MYSQL_ETHERPAD_USER=$(grep user {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
-  MYSQL_ETHERPAD_PASSWORD=$(grep password {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
-  MYSQL_ROOT_USER=$(grep user /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
-  MYSQL_ROOT_PASSWORD=$(grep password /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
+echo "takelpad ip address: $IP_ETHERPAD"
 
+if [ "$1" != "--summary" ]; then
+  IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local')
+  ETHERPAD_ADMIN_PASSWORD=$(sudo {{ takel_takelpad_bin }}/etherpad-admin-password-get)
+  MYSQL_ETHERPAD_USER=$(sudo grep user {{ takel_takelpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+  MYSQL_ETHERPAD_PASSWORD=$(sudo grep password {{ takel_takelpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+  MYSQL_ROOT_USER=$(sudo grep user /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+  MYSQL_ROOT_PASSWORD=$(sudo grep password /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+
+  echo
+  echo "box ip addresses:"
+  echo $IP_ADDRESSES | tr " " "\n"
   echo
   echo "etherpad admin user: admin"
   echo "etherpad admin password: $ETHERPAD_ADMIN_PASSWORD"
@@ -23,6 +29,12 @@ if [ "$1" == "debug" ]; then
   echo "mysql etherpad user: $MYSQL_ETHERPAD_USER"
   echo "mysql etherpad password: $MYSQL_ETHERPAD_PASSWORD"
   echo
-  echo "root etherpad user: $MYSQL_ROOT_USER"
-  echo "root etherpad password: $MYSQL_ROOT_PASSWORD"
+  echo "mysql root user: $MYSQL_ROOT_USER"
+  echo "mysql root password: $MYSQL_ROOT_PASSWORD"
+  echo
+  echo "start: vagrant up"
+  echo "stop: vagrant halt"
+  echo "destroy: vagrant destroy"
+  echo "login user: vagrant ssh"
+  echo "login root: vagrant ssh -c 'sudo su -'"
 fi
