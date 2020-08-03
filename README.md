@@ -67,16 +67,6 @@ The IP address of a running takelpad can be printed like so:
 vagrant provision
 ```
 
-The script 
-[```takelpad```](https://github.com/takelwerk/takelage-pad/blob/master/ansible/roles/takel-etherpad/templates/takelpad.j2.sh)
-in the box which is called by 
-```vagrant provision``` prints the IP of the last network interface.
-
-This is how you can get more information:
-```bash
-vagrant ssh -c takelpad
-``` 
-
 As *takelage-pad* is a vagrant box you can easily ssh in to it:
 
 ```bash
@@ -88,6 +78,16 @@ This is how you become root:
 ```bash
 vagrant ssh -c 'sudo su -'
 ```
+
+The script 
+[```takelpad```](https://github.com/takelwerk/takelage-pad/blob/master/ansible/roles/takel-etherpad/templates/takelpad.j2.sh)
+in the box which is called by 
+```vagrant provision``` prints the IP of the last network interface.
+
+This is how you can get more information:
+```bash
+vagrant ssh -c takelpad
+``` 
 
 ## Technical context
 
