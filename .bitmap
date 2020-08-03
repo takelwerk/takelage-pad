@@ -69,7 +69,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-anarchism"
     },
-    "takelage.ansible/ansible/roles/takel-base@0.0.14": {
+    "takelage.ansible/ansible/roles/takel-base@0.0.15": {
         "files": [
             {
                 "name": "README.bit",
@@ -102,11 +102,6 @@
                 "test": false
             },
             {
-                "name": "test_takel-base_version.py",
-                "relativePath": "molecule/default/tests/test_takel-base_version.py",
-                "test": false
-            },
-            {
                 "name": "configure.yml",
                 "relativePath": "tasks/configure.yml",
                 "test": false
@@ -124,11 +119,6 @@
             {
                 "name": "upgrade.yml",
                 "relativePath": "tasks/upgrade.yml",
-                "test": false
-            },
-            {
-                "name": "version.yml",
-                "relativePath": "tasks/version.yml",
                 "test": false
             },
             {
