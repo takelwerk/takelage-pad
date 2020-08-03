@@ -1,0 +1,2 @@
+---
+takel_takelpad_version: "{{ project['version'] }}"
