@@ -38,7 +38,8 @@ vagrant init takelwerk/takelpad
 ````
 
 Now you can start the box 
-(and maybe you want to watch the VirtualBox GUI while doing so):
+(and maybe you want to watch the VirtualBox GUI 
+while doing so for the first time):
 
 ```bash
 vagrant up
@@ -81,8 +82,9 @@ vagrant ssh -c 'sudo su -'
 
 The script 
 [```takelpad```](https://github.com/takelwerk/takelage-pad/blob/master/ansible/roles/takel-etherpad/templates/takelpad.j2.sh)
-in the box which is called by 
-```vagrant provision``` prints the IP of the last network interface.
+in the box which is invoked by 
+```vagrant provision``` with the parameter ```--summary```
+prints the IP of the last network interface.
 
 This is how you can get more information:
 ```bash
@@ -91,12 +93,11 @@ vagrant ssh -c takelpad
 
 ## Technical context
 
-*takel-pad* is made with 
-[*takelage-dev*](https://github.com/geospin-takelage/takelage-dev).
-It is the prototype for the vagrant/VirtualBox platform.
-
 *takel-pad* is based on
 [takelwerk/takelbase](https://app.vagrantup.com/takelwerk/boxes/takelbase)
  which is based on
  [Debian](https://www.debian.org/) buster.
  
+*takel-pad* is made with 
+[*takelage-dev*](https://github.com/geospin-takelage/takelage-dev).
+It is the prototype for the vagrant/VirtualBox platform.
