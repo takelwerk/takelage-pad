@@ -15,11 +15,11 @@ But online does not mean you have to have an uplink to the internet.
 You can run this vagrant box on your computer locally.
 Others can then connect to your machine locally.
 You only need to be in the same local network which allows peer-to-peer 
-connection.
+connections.
 This is the case for most default settings of consumer routers
 and cell phone hotspots.
 This box is for the data cautious who want to store their data
-locally rather than in the cloud, i.e. on either people's computers.
+locally rather than in the cloud, i.e. on other people's computers.
 
 ## Prerequisites
 
