@@ -1,0 +1,5 @@
+---
+takel_unattended_upgrades_deb_install_packages:
+  - unattended-upgrades
+
+takel_unattended_upgrades_autoupgrade: true

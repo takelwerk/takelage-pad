@@ -1,0 +1,21 @@
+---
+- name: (main) include upgrade
+  import_tasks: upgrade.yml
+  tags:
+    - takel
+    - takel_base
+    - takel_base_upgrade
+
+- name: (main) include install
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_base
+    - takel_base_install
+
+- name: (main) include configure
+  import_tasks: configure.yml
+  tags:
+    - takel
+    - takel_base
+    - takel_base_configure

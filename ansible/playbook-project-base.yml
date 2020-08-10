@@ -6,6 +6,7 @@
     - takel-base
     - takel-anarchism
     - takel-ufw
+    - takel-unattended-upgrades
     - takel-mysql
     - takel-nodejs
     - takel-ssl

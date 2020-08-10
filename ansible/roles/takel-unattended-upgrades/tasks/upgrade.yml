@@ -1,0 +1,21 @@
+---
+- name: (upgrade) try apt-get update && apt-get dist-upgrade
+  block:
+    - name: (upgrade) apt-get update && apt-get dist-upgrade
+      apt:
+        upgrade: dist
+        update_cache: true
+        cache_valid_time: 3600
+
+  rescue:
+    - name: (upgrade) workaround - apt-get update  # noqa 303
+      command: apt-get update
+      args:
+        warn: false
+      changed_when: false
+
+    - name: (upgrade) apt-get update && apt-get dist-upgrade
+      apt:
+        upgrade: dist
+        update_cache: true
+        cache_valid_time: 3600
