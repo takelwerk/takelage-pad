@@ -497,6 +497,44 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-systemd"
     },
+    "takelage.ansible/ansible/roles/takel-ufw@0.0.1": {
+        "files": [
+            {
+                "relativePath": "ansible/roles/takel-ufw/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/defaults/main.yml",
+                "test": false,
+                "name": "main.yml"
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/tasks/install.yml",
+                "test": false,
+                "name": "install.yml"
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/tasks/main.yml",
+                "test": false,
+                "name": "main.yml"
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/tasks/rules.yml",
+                "test": false,
+                "name": "rules.yml"
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/templates/default_ufw.j2",
+                "test": false,
+                "name": "default_ufw.j2"
+            }
+        ],
+        "mainFile": "ansible/roles/takel-ufw/README.bit",
+        "trackDir": "ansible/roles/takel-ufw",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "takelage.ansible/ansible/roles/takel-unattended-upgrades@0.0.1": {
         "files": [
             {
