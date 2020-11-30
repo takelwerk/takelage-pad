@@ -874,6 +874,24 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/image/docker/takelbase/project/prod"
     },
+    "takelage.rake/rake/image/vbox/takelbase/base@0.0.1": {
+        "files": [
+            {
+                "relativePath": "rake/image/vbox/takelbase/base/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "rake/image/vbox/takelbase/base/Rakefile",
+                "test": false,
+                "name": "Rakefile"
+            }
+        ],
+        "mainFile": "rake/image/vbox/takelbase/base/README.bit",
+        "trackDir": "rake/image/vbox/takelbase/base",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "takelage.rake/rake/local/lib@0.0.1": {
         "files": [
             {
