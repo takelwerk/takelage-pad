@@ -13,9 +13,9 @@ cmd_git_tag = 'git rev-parse ' \
 cmd_git_warn = 'git rev-parse ' \
     "#{@project['version']} " \
     '>/dev/null 2>&1 && ' \
-    'echo -e "\e[31m' \
+    'echo -e "\n\n\e[31m' \
     "git tag #{@project['version']} already exists! " \
-    '\e[0m"; ' \
+    '\e[0m\n"; ' \
     'true'
 
 namespace :git do

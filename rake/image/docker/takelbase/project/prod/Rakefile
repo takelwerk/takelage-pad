@@ -1,18 +1,15 @@
 # frozen_string_literal: true
 
 require 'rake'
-require 'active_support/core_ext/hash/except'
-
-# frozen_string_literal: true
-
-require 'rake'
 
 namespace :image do
   namespace :docker do
     namespace :takelbase do
       namespace :project do
         namespace :prod do |env|
-          @cmd_image_project.except(:from_prod).each do |task, command|
+          @cmd_image_project.each do |task, command|
+            next if %i[from_prod].include? task
+
             desc 'Build takelbase project image with packer'
             task task do
               @commands << format(

@@ -12,11 +12,11 @@ cmd_dockerhub_prod_registry_push = 'docker push ' \
     'latest'
 
 cmd_dockerhub_prod_registry_tag = 'docker tag ' \
-    "#{@project['local_user']}/#{@project['project']}:prod " \
+    "#{@project['local_user']}/#{@project['name']}:prod " \
     "#{@project['dockerhub_prod_user']}/#{@project['dockerhub_prod_repo']}:" \
     "#{@project['version']} && " \
     'docker tag ' \
-    "#{@project['local_user']}/#{@project['project']}:prod " \
+    "#{@project['local_user']}/#{@project['name']}:prod " \
     "#{@project['dockerhub_prod_user']}/#{@project['dockerhub_prod_repo']}:" \
     'latest'
 

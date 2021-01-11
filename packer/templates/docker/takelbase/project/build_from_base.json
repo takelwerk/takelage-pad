@@ -45,7 +45,6 @@
         "ANSIBLE_SSH_ARGS='-v -o ControlMaster=auto -o ControlPersist=15m'"
       ],
       "extra_arguments": [
-        "-vvv",
         "--extra-vars",
         "ansible_host={{ user `target_repo` }} ansible_connection={{ user `ansible_connection` }}"
         ]

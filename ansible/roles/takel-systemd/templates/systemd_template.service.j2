@@ -25,8 +25,10 @@ Environment={{ env_var }}={{ value }}
 {% endfor %}
 {% endif %}
 User={{ item.user }}
-Group={{ item.group }}
+Group={{ item.group | default(item.user)}}
+{% if item.working_directory is defined %}
 WorkingDirectory={{ item.working_directory }}
+{% endif %}
 {% if item.exec_start_pre is defined %}
 ExecStartPre=/bin/bash -c '{{ item.exec_start_pre }}'
 {% endif %}
@@ -34,8 +36,8 @@ ExecStart=/bin/bash -c '{{ item.exec_start }}'
 {% if item.exec_stop is defined %}
 ExecStop=/bin/bash -c '{{ item.exec_stop }}'
 {% endif %}
-TimeoutSec={{ timeout_sec | default(60) }}
-RestartSec={{ restart_sec | default(60) }}
+TimeoutSec={{ item.timeout_sec | default(60) }}
+RestartSec={{ item.restart_sec | default(60) }}
 {% if item.restart is defined %}
 Restart={{ item.restart }}
 {% endif %}

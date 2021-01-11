@@ -18,7 +18,7 @@
   [
     {
       "type": "shell",
-      "script": "templates/base/debian_10_systemd/bin/install-debian.bash"
+      "script": "templates/docker/takelbase/base/debian10/bin/install-debian.bash"
     }
   ],
   "post-processors": [
