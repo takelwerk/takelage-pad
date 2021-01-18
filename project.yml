@@ -12,7 +12,7 @@ dockerhub_base_tag: debian-buster
 # vagrantup settings for the base image
 vagrantup_base_user: takelwerk
 vagrantup_base_repo: takelbase
-vagrantup_base_version: 0.2.6
+vagrantup_base_version: 0.2.7
 
 # dockerhub settings
 dockerhub_prod_user: takelwerk
