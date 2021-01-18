@@ -659,7 +659,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "packer/templates/docker/takelbase/project"
     },
-    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.4": {
+    "takelage.packer/packer/templates/vbox/takelbase/base@0.0.5": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/base/README.bit",
@@ -702,7 +702,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.3": {
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.4": {
         "files": [
             {
                 "relativePath": "packer/templates/vbox/takelbase/project/README.bit",
