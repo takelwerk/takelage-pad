@@ -702,7 +702,7 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.5": {
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.6": {
         "files": [
             {
                 "name": "README.bit",
@@ -717,11 +717,6 @@
             {
                 "name": "build_from_base.json",
                 "relativePath": "packer/templates/vbox/takelbase/project/build_from_base.json",
-                "test": false
-            },
-            {
-                "name": "takelpad.rb",
-                "relativePath": "packer/templates/vbox/takelbase/project/vagrantfile/takelpad.rb",
                 "test": false
             }
         ],
