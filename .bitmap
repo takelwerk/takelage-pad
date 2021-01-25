@@ -702,27 +702,27 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.4": {
+    "takelage.packer/packer/templates/vbox/takelbase/project@0.0.5": {
         "files": [
             {
+                "name": "README.bit",
                 "relativePath": "packer/templates/vbox/takelbase/project/README.bit",
-                "test": false,
-                "name": "README.bit"
+                "test": false
             },
             {
+                "name": "ssh.sh",
                 "relativePath": "packer/templates/vbox/takelbase/project/bin/ssh.sh",
-                "test": false,
-                "name": "ssh.sh"
+                "test": false
             },
             {
+                "name": "build_from_base.json",
                 "relativePath": "packer/templates/vbox/takelbase/project/build_from_base.json",
-                "test": false,
-                "name": "build_from_base.json"
+                "test": false
             },
             {
+                "name": "takelpad.rb",
                 "relativePath": "packer/templates/vbox/takelbase/project/vagrantfile/takelpad.rb",
-                "test": false,
-                "name": "takelpad.rb"
+                "test": false
             }
         ],
         "mainFile": "packer/templates/vbox/takelbase/project/README.bit",
