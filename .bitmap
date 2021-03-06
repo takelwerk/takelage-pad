@@ -752,6 +752,24 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "takelage.rake/rake/ansible/docker/takelbase/project/lib@0.0.6": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "project.rb",
+                "relativePath": "project.rb",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "rake/ansible/docker/takelbase/project/lib",
+        "origin": "IMPORTED",
+        "originallySharedDir": "rake/ansible/docker/takelbase/project/lib"
+    },
     "takelage.rake/rake/ansible/docker/takelbase/roles/role@0.0.3": {
         "files": [
             {
