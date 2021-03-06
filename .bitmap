@@ -180,7 +180,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
-    "takelage.ansible/ansible/roles/takel-mysql@0.0.2": {
+    "takelage.ansible/ansible/roles/takel-mysql@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
@@ -522,7 +522,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-systemd"
     },
-    "takelage.ansible/ansible/roles/takel-ufw@0.0.2": {
+    "takelage.ansible/ansible/roles/takel-ufw@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
