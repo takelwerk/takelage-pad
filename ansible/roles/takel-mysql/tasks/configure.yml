@@ -1,5 +1,5 @@
 ---
-- name: (configure) copy my.cnf template
+- name: "(configure) [{{ takel_mysql_site }}] copy my.cnf template"
   template:
     src: etc_mysql_my_cnf.j2
     dest: /etc/mysql/my.cnf

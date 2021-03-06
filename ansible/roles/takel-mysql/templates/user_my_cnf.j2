@@ -2,3 +2,6 @@
 host="{{ item.mysql_host }}"
 user="{{ item.mysql_user }}"
 password="{{ item.mysql_password }}"
+{% if item.mysql_database is defined and item.mysql_database|length %}
+database="{{ item.mysql_database }}"
+{% endif %}

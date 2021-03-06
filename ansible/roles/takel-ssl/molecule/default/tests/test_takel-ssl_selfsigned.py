@@ -62,6 +62,6 @@ def test_takel_ssl_selfsigned_subject_alt_name(host, testvars):
             subject_alt_name = \
                 re.search(r'DNS:(.*)\n', cert_infos)
             if subject_alt_name is not None:
-                assert subject_alt_name.group(1) == expected_subject_alt_name
+                assert expected_subject_alt_name in subject_alt_name.group(1)
             else:
                 assert False

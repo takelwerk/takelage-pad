@@ -8,6 +8,12 @@
   post_tasks:
     - name: (converge) start services
       service:
-        name: "{{ item.name }}"
+        name: "{{ item.name }}.service"
         state: started
       loop: "{{ takel_systemd_service_list }}"
+
+    - name: (converge) start timer
+      service:
+        name: "{{ item.name }}.timer"
+        state: started
+      loop: "{{ takel_systemd_timer_list }}"

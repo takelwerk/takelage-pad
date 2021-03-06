@@ -4,9 +4,7 @@ takel_mysql_deb_install_packages:
   - python3-mysqldb
   - python-pymysql
 
-takel_mysql_root_password: >-
-  {{ lookup('password',
-  '/tmp/mysql_root_password length=30 chars=ascii_letters,digits') }}
+takel_msyql_default_shell: /bin/bash
 
 takel_mysql_user_my_cnf:
   - sys_home: /root
@@ -15,6 +13,8 @@ takel_mysql_user_my_cnf:
     mysql_host: localhost
     mysql_user: root
     mysql_password: "{{ takel_mysql_root_password }}"
+
+takel_mysql_site: default
 
 takel_mysql_conf_dir: /etc/mysql/conf.d/
 

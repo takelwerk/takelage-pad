@@ -2,4 +2,4 @@
 - name: default
   hosts: all
   roles:
-    - takel-nodejs
+    - takel-mysql

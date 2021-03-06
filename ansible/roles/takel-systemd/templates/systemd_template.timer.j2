@@ -1,0 +1,26 @@
+[Unit]
+Description={{ item.descripton }}
+
+[Timer]
+{% if item.timer.on_active_sec is defined and item.timer.on_active_sec %}
+OnActiveSec={{ item.timer.on_active_sec }}
+{% endif %}
+{% if item.timer.on_boot_sec is defined and item.timer.on_boot_sec %}
+OnBootSec={{ item.timer.on_active_sec }}
+{% endif %}
+{% if item.timer.on_startup_sec is defined and item.timer.on_startup_sec %}
+OnStartupSec={{ item.timer.on_startup_sec }}
+{% endif %}
+{% if item.timer.on_unit_active_sec is defined and item.timer.on_unit_active_sec %}
+OnUnitActiveSec={{ item.timer.on_unit_active_sec }}
+{% endif %}
+{% if item.timer.on_unit_inactive_sec is defined and item.timer.on_unit_inactive_sec %}
+OnUnitInactiveSec={{ item.timer.on_unit_inactive_sec }}
+{% endif %}
+Unit={{ item.service }}
+{% if item.persistent is defined and item.persistent != "" %}
+Persistent={{ item.persistent }}
+{% endif %}
+
+[Install]
+WantedBy={{ item.wanted_by | default('multi-user.target') }}

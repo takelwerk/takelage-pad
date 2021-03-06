@@ -7,7 +7,7 @@ lint: |
   ansible-lint molecule/*/*.yml
   flake8
 platforms:
-  - name: molecule-takel-nodejs
+  - name: molecule-takel-mysql
     image: takelage/takelbase
     command: /lib/systemd/systemd
     privileged: true

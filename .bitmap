@@ -238,6 +238,11 @@
                 "test": false
             },
             {
+                "relativePath": "ansible/roles/takel-mysql/tasks/loop_users.yml",
+                "test": false,
+                "name": "loop_users.yml"
+            },
+            {
                 "name": "main.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/main.yml",
                 "test": false
@@ -563,6 +568,11 @@
                 "name": "main.yml",
                 "relativePath": "ansible/roles/takel-ufw/tasks/main.yml",
                 "test": false
+            },
+            {
+                "relativePath": "ansible/roles/takel-ufw/tasks/rules.yml",
+                "test": false,
+                "name": "rules.yml"
             },
             {
                 "name": "default_ufw.j2",

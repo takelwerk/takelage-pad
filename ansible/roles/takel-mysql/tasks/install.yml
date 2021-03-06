@@ -1,12 +1,12 @@
 ---
-- name: (install) install packages
+- name: "(install) [{{ takel_mysql_site }}] install packages"
   apt:
     name: "{{ takel_mysql_deb_install_packages }}"
     state: present
     update_cache: true
     cache_valid_time: 3600
 
-- name: (install) create include directory
+- name: "(install) [{{ takel_mysql_site }}] create include directory"
   file:
     path: /etc/mysql/conf.d
     state: directory
@@ -14,7 +14,7 @@
     group: root
     mode: 0755
 
-- name: (install) delete mysql log files in /var/log
+- name: "(install) [{{ takel_mysql_site }}] delete mysql log files in /var/log"
   file:
     path: "{{ item }}"
     state: absent
@@ -22,7 +22,7 @@
     - /var/log/mysql.err
     - /var/log/mysql.log
 
-- name: (install) start and enable mysql
+- name: "(install) [{{ takel_mysql_site }}] start and enable mysql"
   service:
     name: mysql
     state: started

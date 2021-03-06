@@ -8,6 +8,5 @@
   systemd:
     name: "{{ item }}"
     enabled: true
-    masked: false
     force: true
   loop: "{{ takel_systemd_handler_services_list }}"

@@ -1,0 +1,14 @@
+---
+- name: (configure) set default policy
+  ufw:
+    direction: "{{ item.direction }}"
+    policy: "{{ item.policy }}"
+    state: "{{ item.state }}"
+  loop: "{{ takel_ufw_policies }}"
+
+- name: (configure) configure rules
+  ufw:
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+    rule: "{{ item.rule }}"
+  loop: "{{ takel_ufw_rules }}"

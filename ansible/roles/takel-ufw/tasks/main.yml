@@ -6,9 +6,9 @@
     - takel_ufw
     - takel_ufw_install
 
-- name: (main) include rules tasks
-  import_tasks: rules.yml
+- name: (main) include configure tasks
+  import_tasks: configure.yml
   tags:
     - takel
     - takel_ufw
-    - takel_ufw_rules
+    - takel_ufw_configure

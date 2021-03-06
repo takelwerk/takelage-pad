@@ -1,0 +1,3 @@
+---
+- name: "(flush) [{{ takel_mysql_site }}] run notified handlers now"
+  meta: flush_handlers

@@ -2,18 +2,6 @@
 
 require 'rake'
 
-@cmd_image_base = {
-  debian10: 'docker pull debian:buster-slim && ' \
-        'mkdir -p packer/images/debian/buster && ' \
-        'cd packer && packer build ' \
-        "--var 'base_repo=debian' " \
-        "--var 'base_tag=buster-slim' " \
-        "--var 'target_user=#{@project['local_user']}' " \
-        "--var 'target_repo=#{@project['dockerhub_base_tag']}' " \
-        "--var 'target_tag=latest' " \
-        'templates/docker/takelbase/base/debian10/packer.json'
-}
-
 @cmd_image_project = {
   from_base: 'cd packer && packer build ' \
              "--var 'ansible_environment=%<project_environment>s' " \

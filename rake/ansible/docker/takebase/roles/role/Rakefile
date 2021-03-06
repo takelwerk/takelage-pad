@@ -2,14 +2,19 @@
 
 require 'rake'
 
+# rubocop:disable Metrics/BlockLength
 namespace :ansible do
   namespace :docker do
     namespace :takelbase do
-      desc 'Run molecule tests for all roles'
-      task :roles do
-        @commands << @cmd_ansible_docker_takelbase_test_all_roles
-      end
       namespace :roles do
+        desc 'Run molecule tests for all roles skipping errors'
+        task :all do
+          @commands << @cmd_ansible_docker_takelbase_test_roles_all
+        end
+        desc 'Run molecule tests for each role failing in case of errors'
+        task :each do
+          @commands << @cmd_ansible_docker_takelbase_test_roles_each
+        end
         Dir.glob('ansible/roles/*/molecule').each do |role_path|
           role = role_path.match(%r{roles/(?<role_name>.*)/molecule})
           namespace role[:role_name] do
@@ -29,3 +34,4 @@ namespace :ansible do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

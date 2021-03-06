@@ -1,19 +1,24 @@
 ---
-- name: (databases) create mysql databases
+- name: "(databases) [{{ takel_mysql_site }}] create mysql databases"
   mysql_db:
-    name: "{{ item.name }}"
-    collation: "{{ item.collation | default('utf8mb4_unicode_ci') }}"
-    encoding: "{{ item.encoding | default('utf8mb4') }}"
-    state: present
+    name: "{{ database.name }}"
+    collation: "{{ database.collation | default('utf8mb4_unicode_ci') }}"
+    encoding: "{{ database.encoding | default('utf8mb4') }}"
+    state: "{{ database.state | default('present') }}"
+    target: "{{ database.target | default(omit) }}"
   loop: "{{ takel_mysql_mysql_databases | default([]) }}"
-  no_log: true
+  loop_control:
+    loop_var: database
+  changed_when: false
 
-- name: (databases) create mysql users
+- name: "(databases) [{{ takel_mysql_site }}] create mysql users"
   mysql_user:
-    name: "{{ item.name }}"
-    password: "{{ item.password }}"
-    priv: "{{ item.priv | default('*.*:USAGE') }}"
-    state: "{{ item.state | default('present') }}"
-    append_privs: "{{ item.append_privs | default('no') }}"
+    name: "{{ user.name }}"
+    password: "{{ user.password }}"
+    priv: "{{ user.priv | default('*.*:USAGE') }}"
+    state: "{{ user.state | default('present') }}"
+    append_privs: "{{ user.append_privs | default('no') }}"
   loop: "{{ takel_mysql_mysql_users | default([]) }}"
+  loop_control:
+    loop_var: user
   no_log: true

@@ -1,5 +1,5 @@
 ---
-- name: (secure) update mariadb root password for root accounts
+- name: "(secure) [{{ takel_mysql_site }}] update mariadb root password"
   command: >-
     sudo mysql --user root --password={{ takel_mysql_root_password }}
     --batch --skip-column-names --execute "{{ item }}"
@@ -21,17 +21,16 @@
 #     update_password: on_create
 #   no_log: false
 
-- name: (secure) copy user password credentials
+- name: "(secure) [{{ takel_mysql_site }}] copy root password credentials"
   template:
-    src: user_my_cnf.j2
-    dest: "{{ item.sys_home }}/.my.cnf"
-    owner: "{{ item.sys_user }}"
-    group: "{{ item.sys_group }}"
+    src: root_my_cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
     mode: 0600
-  loop: "{{ takel_mysql_user_my_cnf }}"
   no_log: true
 
-- name: (secure) disallow root login remotely
+- name: "(secure) [{{ takel_mysql_site }}] disallow root login remotely"
   command: 'mysql --batch --skip-column-names --execute="{{ item }}"'
   loop:
     - |
@@ -41,14 +40,14 @@
   no_log: true
   changed_when: false
 
-- name: (secure) remove anonymous user account
+- name: "(secure) [{{ takel_mysql_site }}] remove anonymous user account"
   mysql_user:
     name: ''
     host_all: true
     state: absent
   no_log: true
 
-- name: (secure) remove mysql test database
+- name: "(secure) [{{ takel_mysql_site }}] remove mysql test database"
   mysql_db:
     name: test
     state: absent

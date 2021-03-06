@@ -12,7 +12,7 @@
 - name: (services) fetch changed services
   set_fact:
     takel_systemd_handler_services_list: >-
-       {{ takel_systemd_handler_services_list + [item.item['name']] }}
+       {{ takel_systemd_handler_services_list + [ item['dest'] | basename ] }}
   loop: "{{ new_installed_services['results'] }}"
   when:
     - item['changed'] is defined
