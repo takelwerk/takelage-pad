@@ -132,7 +132,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-base"
     },
-    "takelage.ansible/ansible/roles/takel-cleanup@0.0.8": {
+    "takelage.ansible/ansible/roles/takel-cleanup@0.0.9": {
         "files": [
             {
                 "name": "README.bit",
@@ -180,82 +180,92 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-cleanup"
     },
-    "takelage.ansible/ansible/roles/takel-mysql@0.0.1": {
+    "takelage.ansible/ansible/roles/takel-mysql@0.0.2": {
         "files": [
             {
+                "name": "README.bit",
                 "relativePath": "ansible/roles/takel-mysql/README.bit",
-                "test": false,
-                "name": "README.bit"
+                "test": false
             },
             {
+                "name": "main.yml",
                 "relativePath": "ansible/roles/takel-mysql/defaults/main.yml",
-                "test": false,
-                "name": "main.yml"
+                "test": false
             },
             {
+                "name": "main.yml",
                 "relativePath": "ansible/roles/takel-mysql/handlers/main.yml",
-                "test": false,
-                "name": "main.yml"
+                "test": false
             },
             {
+                "name": "converge.yml",
                 "relativePath": "ansible/roles/takel-mysql/molecule/default/converge.yml",
-                "test": false,
-                "name": "converge.yml"
+                "test": false
             },
             {
+                "name": "molecule.yml",
                 "relativePath": "ansible/roles/takel-mysql/molecule/default/molecule.yml",
-                "test": false,
-                "name": "molecule.yml"
+                "test": false
             },
             {
+                "name": "test_takel-mysql_system.py",
                 "relativePath": "ansible/roles/takel-mysql/molecule/default/system/test_takel-mysql_system.py",
-                "test": false,
-                "name": "test_takel-mysql_system.py"
+                "test": false
             },
             {
+                "name": "test_takel-mysql_install.py",
                 "relativePath": "ansible/roles/takel-mysql/molecule/default/tests/test_takel-mysql_install.py",
-                "test": false,
-                "name": "test_takel-mysql_install.py"
+                "test": false
             },
             {
+                "name": "configure.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/configure.yml",
-                "test": false,
-                "name": "configure.yml"
+                "test": false
             },
             {
+                "name": "databases.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/databases.yml",
-                "test": false,
-                "name": "databases.yml"
+                "test": false
             },
             {
+                "name": "flush.yml",
+                "relativePath": "ansible/roles/takel-mysql/tasks/flush.yml",
+                "test": false
+            },
+            {
+                "name": "install.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/install.yml",
-                "test": false,
-                "name": "install.yml"
+                "test": false
             },
             {
-                "relativePath": "ansible/roles/takel-mysql/tasks/loop_users.yml",
-                "test": false,
-                "name": "loop_users.yml"
-            },
-            {
+                "name": "main.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/main.yml",
-                "test": false,
-                "name": "main.yml"
+                "test": false
             },
             {
+                "name": "secure.yml",
                 "relativePath": "ansible/roles/takel-mysql/tasks/secure.yml",
-                "test": false,
-                "name": "secure.yml"
+                "test": false
             },
             {
+                "name": "users.yml",
+                "relativePath": "ansible/roles/takel-mysql/tasks/users.yml",
+                "test": false
+            },
+            {
+                "name": "etc_mysql_my_cnf.j2",
                 "relativePath": "ansible/roles/takel-mysql/templates/etc_mysql_my_cnf.j2",
-                "test": false,
-                "name": "etc_mysql_my_cnf.j2"
+                "test": false
             },
             {
+                "name": "root_my_cnf.j2",
+                "relativePath": "ansible/roles/takel-mysql/templates/root_my_cnf.j2",
+                "test": false
+            },
+            {
+                "name": "user_my_cnf.j2",
                 "relativePath": "ansible/roles/takel-mysql/templates/user_my_cnf.j2",
-                "test": false,
-                "name": "user_my_cnf.j2"
+                "test": false
             }
         ],
         "mainFile": "ansible/roles/takel-mysql/README.bit",
@@ -331,7 +341,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-nginx"
     },
-    "takelage.ansible/ansible/roles/takel-ssl@0.0.3": {
+    "takelage.ansible/ansible/roles/takel-ssl@0.0.4": {
         "files": [
             {
                 "name": "README.bit",
@@ -419,7 +429,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-ssl"
     },
-    "takelage.ansible/ansible/roles/takel-systemd@0.0.5": {
+    "takelage.ansible/ansible/roles/takel-systemd@0.0.8": {
         "files": [
             {
                 "name": "README.bit",
@@ -472,6 +482,11 @@
                 "test": false
             },
             {
+                "name": "timer.yml",
+                "relativePath": "tasks/timer.yml",
+                "test": false
+            },
+            {
                 "name": "tree.yml",
                 "relativePath": "tasks/tree.yml",
                 "test": false
@@ -487,6 +502,11 @@
                 "test": false
             },
             {
+                "name": "systemd_template.timer.j2",
+                "relativePath": "templates/systemd_template.timer.j2",
+                "test": false
+            },
+            {
                 "name": "main.yml",
                 "relativePath": "vars/main.yml",
                 "test": false
@@ -497,37 +517,57 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-systemd"
     },
-    "takelage.ansible/ansible/roles/takel-ufw@0.0.1": {
+    "takelage.ansible/ansible/roles/takel-ufw@0.0.2": {
         "files": [
             {
+                "name": "README.bit",
                 "relativePath": "ansible/roles/takel-ufw/README.bit",
-                "test": false,
-                "name": "README.bit"
+                "test": false
             },
             {
+                "name": "main.yml",
                 "relativePath": "ansible/roles/takel-ufw/defaults/main.yml",
-                "test": false,
-                "name": "main.yml"
+                "test": false
             },
             {
+                "name": "converge.yml",
+                "relativePath": "ansible/roles/takel-ufw/molecule/default/converge.yml",
+                "test": false
+            },
+            {
+                "name": "molecule.yml",
+                "relativePath": "ansible/roles/takel-ufw/molecule/default/molecule.yml",
+                "test": false
+            },
+            {
+                "name": "test_takel-ufw_configure.py",
+                "relativePath": "ansible/roles/takel-ufw/molecule/default/tests/test_takel-ufw_configure.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-ufw_install.py",
+                "relativePath": "ansible/roles/takel-ufw/molecule/default/tests/test_takel-ufw_install.py",
+                "test": false
+            },
+            {
+                "name": "configure.yml",
+                "relativePath": "ansible/roles/takel-ufw/tasks/configure.yml",
+                "test": false
+            },
+            {
+                "name": "install.yml",
                 "relativePath": "ansible/roles/takel-ufw/tasks/install.yml",
-                "test": false,
-                "name": "install.yml"
+                "test": false
             },
             {
+                "name": "main.yml",
                 "relativePath": "ansible/roles/takel-ufw/tasks/main.yml",
-                "test": false,
-                "name": "main.yml"
+                "test": false
             },
             {
-                "relativePath": "ansible/roles/takel-ufw/tasks/rules.yml",
-                "test": false,
-                "name": "rules.yml"
-            },
-            {
+                "name": "default_ufw.j2",
                 "relativePath": "ansible/roles/takel-ufw/templates/default_ufw.j2",
-                "test": false,
-                "name": "default_ufw.j2"
+                "test": false
             }
         ],
         "mainFile": "ansible/roles/takel-ufw/README.bit",
@@ -738,7 +778,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/docker/takelbase/project/prod"
     },
-    "takelage.rake/rake/ansible/docker/takelbase/roles/lib@0.0.1": {
+    "takelage.rake/rake/ansible/docker/takelbase/roles/lib@0.0.2": {
         "files": [
             {
                 "name": "README.bit",
@@ -756,7 +796,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/docker/takelbase/roles/lib"
     },
-    "takelage.rake/rake/ansible/docker/takelbase/roles/role@0.0.1": {
+    "takelage.rake/rake/ansible/docker/takelbase/roles/role@0.0.3": {
         "files": [
             {
                 "name": "README.bit",
@@ -810,7 +850,7 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/git"
     },
-    "takelage.rake/rake/image/docker/takelbase/lib@0.0.4": {
+    "takelage.rake/rake/image/docker/takelbase/lib@0.0.5": {
         "files": [
             {
                 "name": "README.bit",
