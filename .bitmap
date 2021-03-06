@@ -820,7 +820,7 @@
             }
         ],
         "mainFile": "README.bit",
-        "rootDir": "rake/ansible/docker/takebase/roles/role",
+        "rootDir": "rake/ansible/docker/takelbase/roles/role",
         "origin": "IMPORTED",
         "originallySharedDir": "rake/ansible/docker/takelbase/roles/role"
     },
