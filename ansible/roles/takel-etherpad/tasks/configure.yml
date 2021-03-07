@@ -8,18 +8,6 @@
     mode: 0640
   notify: restart etherpad
 
-- name: (configure) remove chat labels
-  lineinfile:
-    dest:  "{{ takel_etherpad_lib }}/src/locales/{{ item }}.json"
-    regexp: '"pad.chat"'
-    line: '  "pad.chat": "",'
-  loop:
-    - de
-    - en
-    - en-gb
-    - fr
-  notify: restart etherpad
-
 - name: (configure) git set user.name
   git_config:
     name: user.name
