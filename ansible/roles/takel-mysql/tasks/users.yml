@@ -9,7 +9,7 @@
     takel_user_shell: >-
       {{ user.sys_shell | default(takel_mysql_default_groups) }}
     takel_user_groups: >-
-      {{ user.sys_groups | default(takel_loios_groups_default) }}
+      {{ user.sys_groups | default(takel_mysql_default_groups) }}
   loop: "{{ takel_mysql_user_my_cnf | default([]) }}"
   loop_control:
     loop_var: user
