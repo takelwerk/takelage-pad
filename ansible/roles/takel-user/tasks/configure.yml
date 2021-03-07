@@ -1,0 +1,21 @@
+---
+- name: "(configure: {{ takel_user_name }}) copy dot files"
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ takel_user_home }}/{{ item.dest }}"
+    owner: "{{ takel_user_name }}"
+    group: "{{ takel_user_group }}"
+    mode: 0644
+  with_items:
+    - {src: bashrc.j2, dest: .bashrc}
+    - {src: bash_aliases.j2, dest: .bash_aliases}
+    - {src: vimrc.j2, dest: .vimrc}
+
+- name: "(configure: {{ takel_user_name }}) add ssh key to authorized keys"
+  authorized_key:
+    user: "{{ takel_user_name }}"
+    key: "{{ takel_user_sshpubkeys | join('\n') }}"
+    exclusive: true
+  when:
+    - takel_user_sshpubkeys | length > 0
+    - takel_user_sshpubkeys | join('\n') | regex_search("^ssh")
