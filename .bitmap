@@ -860,6 +860,24 @@
         "origin": "IMPORTED",
         "originallySharedDir": "rake/git"
     },
+    "takelage.rake/rake/image/docker/takelbase/lib@0.0.5": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "common.rb",
+                "relativePath": "common.rb",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "rake/image/docker/takelbase/lib",
+        "origin": "IMPORTED",
+        "originallySharedDir": "rake/image/docker/takelbase/lib"
+    },
     "takelage.rake/rake/image/docker/takelbase/project/prod@0.0.4": {
         "files": [
             {
