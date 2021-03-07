@@ -7,7 +7,7 @@
     takel_user_group: "{{ user.sys_group }}"
     takel_user_home: "{{ user.sys_home }}"
     takel_user_shell: >-
-      {{ user.sys_shell | default(takel_msyql_default_shell) }}
+      {{ user.sys_shell | default(takel_mysql_default_groups) }}
     takel_user_groups: >-
       {{ user.sys_groups | default(takel_loios_groups_default) }}
   loop: "{{ takel_mysql_user_my_cnf | default([]) }}"
