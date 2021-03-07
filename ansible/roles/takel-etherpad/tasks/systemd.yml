@@ -4,3 +4,4 @@
     name: takel-systemd
   vars:
     takel_systemd_service_list: "{{ takel_etherpad_systemd_service_list }}"
+    takel_systemd_timer_list: []
