@@ -346,6 +346,84 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-nginx"
     },
+    "takelage.ansible/ansible/roles/takel-root@0.0.7": {
+        "files": [
+            {
+                "name": "README.bit",
+                "relativePath": "README.bit",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "defaults/main.yml",
+                "test": false
+            },
+            {
+                "name": "bash_aliases",
+                "relativePath": "files/bash_aliases",
+                "test": false
+            },
+            {
+                "name": "bashrc",
+                "relativePath": "files/bashrc",
+                "test": false
+            },
+            {
+                "name": "vimrc",
+                "relativePath": "files/vimrc",
+                "test": false
+            },
+            {
+                "name": "converge.yml",
+                "relativePath": "molecule/default/converge.yml",
+                "test": false
+            },
+            {
+                "name": "molecule.yml",
+                "relativePath": "molecule/default/molecule.yml",
+                "test": false
+            },
+            {
+                "name": "test_takel-root_bashrc.py",
+                "relativePath": "molecule/default/tests/test_takel-root_bashrc.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-root_configure.py",
+                "relativePath": "molecule/default/tests/test_takel-root_configure.py",
+                "test": false
+            },
+            {
+                "name": "test_takel-root_install.py",
+                "relativePath": "molecule/default/tests/test_takel-root_install.py",
+                "test": false
+            },
+            {
+                "name": "bashrc.yml",
+                "relativePath": "tasks/bashrc.yml",
+                "test": false
+            },
+            {
+                "name": "configure.yml",
+                "relativePath": "tasks/configure.yml",
+                "test": false
+            },
+            {
+                "name": "install.yml",
+                "relativePath": "tasks/install.yml",
+                "test": false
+            },
+            {
+                "name": "main.yml",
+                "relativePath": "tasks/main.yml",
+                "test": false
+            }
+        ],
+        "mainFile": "README.bit",
+        "rootDir": "ansible/roles/takel-root",
+        "origin": "IMPORTED",
+        "originallySharedDir": "ansible/roles/takel-root"
+    },
     "takelage.ansible/ansible/roles/takel-ssl@0.0.5": {
         "files": [
             {
