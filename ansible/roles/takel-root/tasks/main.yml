@@ -1,0 +1,21 @@
+---
+- name: (main) include install
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_root
+    - takel_root_install
+
+- name: (main) include bashrc
+  import_tasks: bashrc.yml
+  tags:
+    - takel
+    - takel_root
+    - takel_root_bashrc
+
+- name: (main) include configure
+  import_tasks: configure.yml
+  tags:
+    - takel
+    - takel_root
+    - takel_root_configure
