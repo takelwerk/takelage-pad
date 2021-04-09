@@ -17,7 +17,7 @@ takel_base_deb_install_packages:
   - tmux
   - tree
   - vim
-  - whois
+  - wget
 
 takel_base_locales:
   - en_US.UTF-8
