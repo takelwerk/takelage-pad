@@ -30,12 +30,20 @@
   become_user: etherpad
 
 - name: (configure) check git status of configfile
-  command: "git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} status --porcelain"
-  changed_when: False
+  command: >
+    git --git-dir {{
+    takel_etherpad_lib }}/.git --work-tree {{
+    takel_etherpad_lib }} status --porcelain
+  changed_when: false
   become_user: etherpad
   register: git_status
 
 - name: (configure) git create commit
-  shell: "git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} add --all; git --git-dir {{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} commit --message='[Ansible] Commit changes'"
+  shell: >-
+    git --git-dir {{
+    takel_etherpad_lib }}/.git --work-tree {{
+    takel_etherpad_lib }} add --all; git --git-dir {{
+    takel_etherpad_lib }}/.git --work-tree {{
+    takel_etherpad_lib }} commit --message='[Ansible] Commit changes'
   become_user: etherpad
   when: "git_status.stdout.find(' M ') != -1"

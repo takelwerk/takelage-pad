@@ -3,7 +3,7 @@
   apt:
     name: "{{ takel_etherpad_deb_install_packages }}"
     state: latest
-    update_cache: yes
+    update_cache: true
     cache_valid_time: 3600
 
 - name: (install) is this the first run?
@@ -13,20 +13,20 @@
 
 - name: (install) git fetch etherpad-lite
   command: "git --git-dir={{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} fetch"
-  changed_when: False
+  changed_when: false
   when: etherpad_lib_git.stat.exists
   become_user: etherpad
 
 - name: (install) get the latest git id from origin develop branch
   command: "git --git-dir={{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} rev-parse origin/develop"
-  changed_when: False
+  changed_when: false
   when: etherpad_lib_git.stat.exists
   register: git_rev_parse_origin_master
   become_user: etherpad
 
 - name: (install) get the last but one git id from local develop branch
   command: "git --git-dir={{ takel_etherpad_lib }}/.git --work-tree {{ takel_etherpad_lib }} rev-parse HEAD^"
-  changed_when: False
+  changed_when: false
   when: etherpad_lib_git.stat.exists
   register: git_rev_parse_master_up
   become_user: etherpad

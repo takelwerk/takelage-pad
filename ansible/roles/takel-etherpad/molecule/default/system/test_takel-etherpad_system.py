@@ -1,4 +1,3 @@
-import re
 import takeltest
 
 testinfra_hosts = takeltest.hosts()

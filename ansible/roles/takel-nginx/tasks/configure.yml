@@ -4,12 +4,14 @@
     content: "{{ takel_nginx_site }}"
     dest: >-
       {{ takel_nginx_config_path }}/sites-available/{{ takel_nginx_site_name }}
+    mode: 0644
   notify: reload nginx
 
 - name: (configure) copy basic auth
   copy:
     content: "{{ takel_nginx_basic_auth }}"
     dest: "{{ takel_nginx_config_path }}/.htpasswd"
+    mode: 0644
   when: "'stage' in group_names"
 
 - name: (configure) remove nginx default config

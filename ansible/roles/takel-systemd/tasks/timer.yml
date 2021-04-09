@@ -3,13 +3,14 @@
   template:
     src: systemd_template.timer.j2
     dest: "/etc/systemd/system/{{ item.name }}.timer"
+    mode: 0644
   loop: "{{ takel_systemd_timer_list }}"
   register: new_installed_timer
   notify:
     - reload daemon
     - enable services
 
-- name: (timer) fetch changed services
+- name: (timer) fetch changed services  # noqa 503
   set_fact:
     takel_systemd_handler_services_list: >-
        {{ takel_systemd_handler_services_list + [ item['dest'] | basename ] }}

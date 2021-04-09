@@ -3,6 +3,7 @@
   file:
     path: "{{ takel_etherpad_bin }}"
     state: directory
+    mode: 0755
   become_user: etherpad
 
 - name: (bin) copy scripts

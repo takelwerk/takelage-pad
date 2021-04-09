@@ -9,10 +9,16 @@
   copy:
     dest: "{{ takel_ssl_certs_path }}/{{ takel_ssl_cert_file }}"
     content: "{{ cert_chain }}"
+    owner: "{{ takel_ssl_owner }}"
+    group: "{{ takel_ssl_group }}"
+    mode: "{{ takel_ssl_mode_nonkey }}"
   notify: "{{ takel_ssl_services_handler | default ([]) }}"
 
 - name: (casigned) copy ssl key
   copy:
     dest: "{{ takel_ssl_key_path }}/{{ takel_ssl_key_file }}"
     content: "{{ takel_ssl_key }}"
+    owner: "{{ takel_ssl_owner }}"
+    group: "{{ takel_ssl_group }}"
+    mode: "{{ takel_ssl_mode_key }}"
   notify: "{{ takel_ssl_services_handler | default ([]) }}"

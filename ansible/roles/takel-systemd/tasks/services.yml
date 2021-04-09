@@ -3,13 +3,14 @@
   template:
     src: systemd_template.service.j2
     dest: "/etc/systemd/system/{{ item.name }}.service"
+    mode: 0644
   loop: "{{ takel_systemd_service_list }}"
   register: new_installed_services
   notify:
     - reload daemon
     - enable services
 
-- name: (services) fetch changed services
+- name: (services) fetch changed services  # noqa 503
   set_fact:
     takel_systemd_handler_services_list: >-
        {{ takel_systemd_handler_services_list + [ item['dest'] | basename ] }}
