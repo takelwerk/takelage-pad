@@ -14,6 +14,7 @@ takel_mysql_user_my_cnf:
   - sys_home: /root
     sys_user: root
     sys_group: root
+    sys_shell: /bin/bash
     mysql_host: localhost
     mysql_user: root
     mysql_password: "{{ takel_mysql_root_password }}"
