@@ -8,6 +8,7 @@ cmd_vagrantup_takelbase_project_cloud_publish = 'cd packer && ' \
     'vagrant cloud publish ' \
     '--force ' \
     '--release ' \
+    "--description #{@project['vagrantup_prod_description']} " \
     "#{@project['vagrantup_prod_user']}/#{@project['vagrantup_prod_repo']} " \
     "#{@project['version']} " \
     'virtualbox ' \

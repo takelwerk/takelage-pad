@@ -21,3 +21,4 @@ dockerhub_prod_repo: takelpad
 # vagrantup settings
 vagrantup_prod_user: takelwerk
 vagrantup_prod_repo: takelpad
+vagrantup_prod_description: https://github.com/takelwerk/takelage-pad
