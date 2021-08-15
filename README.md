@@ -99,5 +99,5 @@ vagrant ssh -c takelpad
  [Debian](https://www.debian.org/) buster.
  
 *takel-pad* is made with 
-[*takelage-dev*](https://github.com/geospin-takelage/takelage-dev).
+[*takelage-dev*](https://github.com/takelwerk/takelage-dev).
 It is the prototype for the vagrant/VirtualBox platform.
