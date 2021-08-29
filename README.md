@@ -27,7 +27,7 @@ The prerequisites are fairly low. You need to install
 [vagrant](https://www.vagrantup.com/downloads) from HashiCorp
 and
 [VirtualBox](https://www.virtualbox.org/wiki/Downloads) from Oracle
-in a recent version (vagrant in the Debian buster repos won't work!)
+in a recent version.
 
 ## Getting started
 
@@ -96,7 +96,7 @@ vagrant ssh -c takelpad
 *takel-pad* is based on
 [takelwerk/takelbase](https://app.vagrantup.com/takelwerk/boxes/takelbase)
  which is based on
- [Debian](https://www.debian.org/) buster.
+ [Debian](https://www.debian.org/) bullseye.
  
 *takel-pad* is made with 
 [*takelage-dev*](https://github.com/takelwerk/takelage-dev).
