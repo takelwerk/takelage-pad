@@ -6,6 +6,6 @@ namespace :project do
   desc 'Create and deploy base image to vagrantup'
   task base: %w[vagrantup:takelbase:base]
 
-  desc 'Create and deploy prod image to vagrantup'
-  task prod: %w[vagrantup:takelbase:project]
+  desc 'Create and deploy project image to vagrantup'
+  task project: %w[vagrantup:takelbase:project]
 end

@@ -7,7 +7,7 @@ namespace :vagrantup do
     desc 'Create and deploy base image to vagrantup'
     task base: %w[vagrantup:takelbase:base:cloud:login
                   rubylint
-                  image:vbox:takelbase:base:debian10
+                  image:vbox:takelbase:base:debian11
                   vagrantup:takelbase:base:cloud:publish]
   end
 end

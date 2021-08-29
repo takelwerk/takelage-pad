@@ -1,5 +1,5 @@
 ---
-- name: (playbook-project-prod) create project prod
+- name: (site) create project prod
   hosts: all
   become: true
   roles:

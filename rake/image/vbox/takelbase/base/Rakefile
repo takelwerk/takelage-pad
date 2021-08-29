@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-cmd_image_vbox_takelbase_base_debian10 = \
-  'mkdir -p packer/images/vbox/takelbase/base/debian10 && ' \
+cmd_image_vbox_takelbase_base_debian11 = \
+  'mkdir -p packer/images/vbox/takelbase/base/debian11 && ' \
   'cd packer && ' \
-  'packer build templates/vbox/takelbase/base/debian10/packer.json'
+  'packer build templates/vbox/takelbase/base/debian11/main.pkr.hcl'
 
 namespace :image do
   namespace :vbox do
     namespace :takelbase do
       namespace :base do
         desc 'Build Debian buster image with packer'
-        task :debian10 do
-          @commands << cmd_image_vbox_takelbase_base_debian10
+        task :debian11 do
+          @commands << cmd_image_vbox_takelbase_base_debian11
         end
       end
     end

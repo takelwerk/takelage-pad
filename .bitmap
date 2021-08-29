@@ -794,29 +794,6 @@
         "origin": "IMPORTED",
         "originallySharedDir": "ansible/roles/takel-user"
     },
-    "takelage.packer/packer/templates/docker/takelbase/project@0.0.3": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "build_from_base.json",
-                "relativePath": "build_from_base.json",
-                "test": false
-            },
-            {
-                "name": "build_from_prod.json",
-                "relativePath": "build_from_prod.json",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "packer/templates/docker/takelbase/project",
-        "origin": "IMPORTED",
-        "originallySharedDir": "packer/templates/docker/takelbase/project"
-    },
     "takelage.packer/packer/templates/vbox/takelbase/base@0.0.5": {
         "files": [
             {
@@ -883,96 +860,6 @@
         "origin": "AUTHORED",
         "exported": true
     },
-    "takelage.rake/rake/ansible/docker/takelbase/project/lib@0.0.6": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "project.rb",
-                "relativePath": "project.rb",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/ansible/docker/takelbase/project/lib",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/ansible/docker/takelbase/project/lib"
-    },
-    "takelage.rake/rake/ansible/docker/takelbase/project/prod@0.0.2": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "Rakefile",
-                "relativePath": "Rakefile",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/ansible/docker/takelbase/project/prod",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/ansible/docker/takelbase/project/prod"
-    },
-    "takelage.rake/rake/ansible/docker/takelbase/roles/lib@0.0.2": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "roles.rb",
-                "relativePath": "roles.rb",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/ansible/docker/takelbase/roles/lib",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/ansible/docker/takelbase/roles/lib"
-    },
-    "takelage.rake/rake/ansible/docker/takelbase/roles/role@0.0.3": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "Rakefile",
-                "relativePath": "Rakefile",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/ansible/docker/takelbase/roles/role",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/ansible/docker/takelbase/roles/role"
-    },
-    "takelage.rake/rake/dockerhub/takelbase/project/prod/registry@0.0.2": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "Rakefile",
-                "relativePath": "Rakefile",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/dockerhub/takelbase/project/prod/registry",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/dockerhub/takelbase/project/prod/registry"
-    },
     "takelage.rake/rake/git@0.0.7": {
         "files": [
             {
@@ -990,42 +877,6 @@
         "rootDir": "rake/git",
         "origin": "IMPORTED",
         "originallySharedDir": "rake/git"
-    },
-    "takelage.rake/rake/image/docker/takelbase/lib@0.0.5": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "common.rb",
-                "relativePath": "common.rb",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/image/docker/takelbase/lib",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/image/docker/takelbase/lib"
-    },
-    "takelage.rake/rake/image/docker/takelbase/project/prod@0.0.4": {
-        "files": [
-            {
-                "name": "README.bit",
-                "relativePath": "README.bit",
-                "test": false
-            },
-            {
-                "name": "Rakefile",
-                "relativePath": "Rakefile",
-                "test": false
-            }
-        ],
-        "mainFile": "README.bit",
-        "rootDir": "rake/image/docker/takelbase/project/prod",
-        "origin": "IMPORTED",
-        "originallySharedDir": "rake/image/docker/takelbase/project/prod"
     },
     "takelage.rake/rake/image/vbox/takelbase/base@0.0.1": {
         "files": [

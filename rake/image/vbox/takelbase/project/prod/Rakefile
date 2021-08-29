@@ -1,22 +1,19 @@
 # frozen_string_literal: true
 
-cmd_image_vbox_takelbase_project_prod_build = \
-  'rm -fr packer/images/vbox/takelbase/project/prod && ' \
+cmd_image_vbox_takelbase_project_build = \
+  'rm -fr packer/images/vbox/takelbase/project && ' \
   'cd packer && ' \
   'packer build ' \
-  "--var 'ansible_environment=prod' " \
-  "--var 'ansible_playbook=playbook-project-base.yml' " \
-  'templates/vbox/takelbase/project/build_from_base.json'
+  "--var 'ansible_playbook=site.yml' " \
+  'templates/vbox/takelbase/project/main.pkr.hcl'
 
 namespace :image do
   namespace :vbox do
     namespace :takelbase do
       namespace :project do
-        namespace :prod do
-          desc 'Build virtualbox production image'
-          task :build do
-            @commands << cmd_image_vbox_takelbase_project_prod_build
-          end
+        desc 'Build virtualbox project image'
+        task :build do
+          @commands << cmd_image_vbox_takelbase_project_build
         end
       end
     end

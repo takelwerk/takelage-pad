@@ -11,7 +11,7 @@ cmd_vagrantup_takelbase_base_cloud_publish = 'cd packer && ' \
     "#{@project['vagrantup_base_user']}/#{@project['vagrantup_base_repo']} " \
     "#{@project['vagrantup_base_version']} " \
     'virtualbox ' \
-    'images/vbox/takelbase/base/debian10/takelwerk-takelbase.box'
+    'images/vbox/takelbase/base/debian11/takelwerk-takelbase.box'
 
 namespace :vagrantup do
   namespace :takelbase do

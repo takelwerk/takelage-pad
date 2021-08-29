@@ -2,7 +2,7 @@
 takel_mysql_deb_install_packages:
   - mariadb-server
   - python3-mysqldb
-  - python-pymysql
+  - python3-pymysql
 
 takel_msyql_default_shell: /bin/bash
 takel_mysql_default_groups: []

@@ -1,6 +1,6 @@
 ---
 - name: (install) install packages
-  package:
+  apt:
     name: "{{ takel_base_deb_install_packages }}"
     state: present
     update_cache: true
