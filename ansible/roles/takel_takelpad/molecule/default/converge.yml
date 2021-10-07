@@ -1,0 +1,6 @@
+---
+- name: default
+  hosts: all
+  become: true
+  roles:
+    - takel_takelpad

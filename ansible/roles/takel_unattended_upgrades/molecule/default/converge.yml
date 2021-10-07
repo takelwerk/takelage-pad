@@ -1,0 +1,5 @@
+---
+- name: default
+  hosts: all
+  roles:
+    - takel_unattended_upgrades

@@ -1,0 +1,8 @@
+---
+- name: default
+  hosts: all
+  become: true
+  roles:
+    - takel_mysql
+    - takel_nodejs
+    - takel_etherpad
