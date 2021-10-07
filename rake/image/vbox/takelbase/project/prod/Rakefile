@@ -4,7 +4,7 @@ cmd_image_vbox_takelbase_project_build = \
   'rm -fr packer/images/vbox/takelbase/project && ' \
   'cd packer && ' \
   'packer build ' \
-  "--var 'ansible_playbook=site.yml' " \
+  "--var 'ansible_playbook=playbook-site.yml' " \
   'templates/vbox/takelbase/project/main.pkr.hcl'
 
 namespace :image do

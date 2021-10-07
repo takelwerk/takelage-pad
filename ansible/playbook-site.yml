@@ -6,12 +6,12 @@
     - takel_base
     - takel_root
     - takel_anarchism
-    - takel-ufw
-    - takel-unattended-upgrades
-    - takel-mysql
+    - takel_ufw
+    - takel_unattended_upgrades
+    - takel_mysql
     - takel_nodejs
-    - takel-ssl
-    - takel-nginx
-    - takel-etherpad
-    - takel-takelpad
+    - takel_ssl
+    - takel_nginx
+    - takel_etherpad
+    - takel_takelpad
     - takel_cleanup
