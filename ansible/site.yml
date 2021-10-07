@@ -1,17 +1,17 @@
 ---
-- name: (site) create project prod
+- name: (site) create project
   hosts: all
   become: true
   roles:
-    - takel-base
-    - takel-root
-    - takel-anarchism
+    - takel_base
+    - takel_root
+    - takel_anarchism
     - takel-ufw
     - takel-unattended-upgrades
     - takel-mysql
-    - takel-nodejs
+    - takel_nodejs
     - takel-ssl
     - takel-nginx
     - takel-etherpad
     - takel-takelpad
-    - takel-cleanup
+    - takel_cleanup

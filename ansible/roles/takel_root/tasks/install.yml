@@ -1,0 +1,7 @@
+---
+- name: (install) install packages
+  apt:
+    name: "{{ takel_root_deb_install_packages }}"
+    state: present
+    update_cache: true
+    cache_valid_time: 3600

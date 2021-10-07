@@ -1,0 +1,13 @@
+---
+- name: (completion) create completion dir
+  file:
+    path: "{{ takel_nodejs_completion_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: (completion) add nodejs autocompletion
+  shell: "node --completion-bash > {{ takel_nodejs_bash_completion }}"
+  args:
+    creates: "{{ takel_nodejs_bash_completion }}"

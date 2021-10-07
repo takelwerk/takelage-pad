@@ -1,0 +1,9 @@
+---
+- name: (repository) add nodejs key
+  apt_key:
+    url: "{{ takel_nodejs_repository_key }}"
+
+- name: (repository) add nodejs repo
+  apt_repository:
+    repo: "{{ takel_nodejs_repository }}"
+    filename: "{{ takel_nodejs_repository_filename }}"

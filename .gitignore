@@ -1,5 +1,6 @@
 ansible-devel.log
 .DS_Store
+**/.hg/cache/*
 .idea
 *.iml
 *.iso
