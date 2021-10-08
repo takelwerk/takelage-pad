@@ -12,3 +12,6 @@ data/defaults/main.yml.i
 data/molecule/default/tests/test_takel_root_configure.py.i
 data/tasks/install.yml.i
 data/files/bash_aliases.i
+data/molecule/default/tests/__pycache__/test_takel_root_install.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_root_bashrc.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_root_configure.cpython-39-pytest-6.2.5.pyc.i

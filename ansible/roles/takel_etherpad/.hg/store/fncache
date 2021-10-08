@@ -23,3 +23,6 @@ data/molecule/default/tests/__pycache__/test_takel-etherpad_install.cpython-37-p
 data/molecule/default/converge.yml.i
 data/templates/etherpad-admin-password-get.j2.sh.i
 data/molecule/default/tests/__pycache__/test_takel-nodejs_install.cpython-37-pytest-5.4.3.pyc.i
+data/molecule/default/system/__pycache__/test_takel_etherpad_system.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_etherpad_install.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_etherpad_version.cpython-39-pytest-6.2.5.pyc.i

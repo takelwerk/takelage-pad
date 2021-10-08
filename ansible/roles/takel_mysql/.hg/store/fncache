@@ -21,3 +21,5 @@ data/tasks/flush.yml.i
 data/molecule/default/tests/__pycache__/test_takel-mysql_install.cpython-37-pytest-5.4.3.pyc.i
 data/tasks/databases.yml.i
 data/molecule/default/system/__pycache__/test_takel-mysql_system.cpython-37-pytest-5.4.3.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_mysql_install.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/system/__pycache__/test_takel_mysql_system.cpython-39-pytest-6.2.5.pyc.i

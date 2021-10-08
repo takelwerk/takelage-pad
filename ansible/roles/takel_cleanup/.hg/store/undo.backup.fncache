@@ -1,0 +1,7 @@
+data/molecule/default/converge.yml.i
+data/tasks/cleanup.yml.i
+data/molecule/default/tests/test_takel-cleanup_cleanup.py.i
+data/handlers/main.yml.i
+data/tasks/main.yml.i
+data/defaults/main.yml.i
+data/molecule/default/molecule.yml.i

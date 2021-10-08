@@ -10,3 +10,5 @@ data/tasks/main.yml.i
 data/defaults/main.yml.i
 data/molecule/default/tests/__pycache__/test_takel-ufw_configure.cpython-37-pytest-6.2.2.pyc.i
 data/tasks/configure.yml.i
+data/molecule/default/tests/__pycache__/test_takel_ufw_configure.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_ufw_install.cpython-39-pytest-6.2.5.pyc.i

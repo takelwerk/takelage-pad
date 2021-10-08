@@ -1,0 +1,10 @@
+data/molecule/default/tests/test_takel_base_configure.py.i
+data/defaults/main.yml.i
+data/molecule/default/molecule.yml.i
+data/templates/locale.j2.i
+data/tasks/upgrade.yml.i
+data/tasks/main.yml.i
+data/tasks/install.yml.i
+data/tasks/configure.yml.i
+data/molecule/default/converge.yml.i
+data/molecule/default/tests/test_takel_base_install.py.i

@@ -5,3 +5,4 @@ data/handlers/main.yml.i
 data/tasks/main.yml.i
 data/defaults/main.yml.i
 data/molecule/default/molecule.yml.i
+data/molecule/default/tests/__pycache__/test_takel-cleanup_cleanup.cpython-39-pytest-6.2.5.pyc.i

@@ -1,0 +1,16 @@
+data/templates/50unattended-upgrades.j2.i
+data/molecule/default/tests/test_takel_unattended_upgrades_autoupgrade.py.i
+data/molecule/default/tests/test_takel_unattended_upgrades_install.py.i
+data/molecule/default/converge.yml.i
+data/tasks/main.yml.i
+data/molecule/default/tests/__pycache__/test_takel-unattended-upgrades_configure.cpython-37-pytest-6.2.2.pyc.i
+data/tasks/install.yml.i
+data/molecule/default/tests/test_takel_unattended_upgrades_configure.py.i
+data/molecule/default/molecule.yml.i
+data/molecule/default/tests/__pycache__/test_takel-unattended-upgrades_autoupgrade.cpython-37-pytest-6.2.2.pyc.i
+data/tasks/configure.yml.i
+data/tasks/upgrade.yml.i
+data/templates/20auto-upgrades.j2.i
+data/molecule/default/tests/__pycache__/test_takel-unattended-upgrades_install.cpython-37-pytest-6.2.2.pyc.i
+data/defaults/main.yml.i
+data/handlers/main.yml.i
