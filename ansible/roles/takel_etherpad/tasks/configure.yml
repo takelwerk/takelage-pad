@@ -7,6 +7,8 @@
     group: etherpad
     mode: 0640
   notify: restart etherpad
+  tags:
+    - molecule-idempotence-notest
 
 - name: (configure) git set user.name
   git_config:

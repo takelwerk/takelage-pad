@@ -1,9 +1,9 @@
 ---
 - name: default
-  hosts: molecule-takel-systemd
+  hosts: molecule_takel_systemd
 
   roles:
-    - takel-systemd
+    - takel_systemd
 
   post_tasks:
     - name: (converge) start services

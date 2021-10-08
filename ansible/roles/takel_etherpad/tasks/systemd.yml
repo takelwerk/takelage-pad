@@ -1,7 +1,7 @@
 ---
 - name: (systemd) create etherpad systemd service
   include_role:
-    name: takel-systemd
+    name: takel_systemd
   vars:
     takel_systemd_service_list: "{{ takel_etherpad_systemd_service_list }}"
     takel_systemd_timer_list: []

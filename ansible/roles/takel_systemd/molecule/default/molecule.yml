@@ -18,6 +18,57 @@ provisioner:
   config_options:
     defaults:
       interpreter_python: auto_silent
+  inventory:
+    group_vars:
+      all:
+        takel_systemd_service_list:
+          - name: example-service
+            type: simple
+            descripton: >-
+              This Service prints every tweo seconds
+              a environment variable to stdout
+            wanted_by: multi-user.target
+            user: root
+            group: root
+            environment_file: example.env
+            environment_file_vars:
+              TAKEL_SYSTEMD_EXAMPLE: 'takel_example01_service'
+              PATH: "/bin:/usr/bin:/usr/local/bin"
+            working_directory: /tmp
+            exec_start: >-
+              while true; do echo $TAKEL_SYSTEMD_EXAMPLE; sleep 2; done
+          - name: example-service-timer
+            type: oneshot
+            descripton: >-
+              This example service schould be triggert by a systemd-timer
+            wanted_by: multi-user.target
+            run_after:
+              - network-online.target
+            user: root
+            group: root
+            working_directory: /tmp
+            exec_start: >-
+              echo "`date` - service triggert by timer"
+            environment_vars:
+              PATH: "/bin:/usr/bin:/usr/local/bin"
+
+        takel_systemd_timer_list:
+          - name: example-timer
+            descripton: 'a example timer'
+            service: example-service-timer.service
+            wanted_by: multi-user.target
+            persistent: false
+            timer:
+              # relative to the time when the Timer Unit was last activated.
+              on_active_sec: 2s
+              # relative to the time when the computer was started.
+              on_boot_sec: 10s
+              # relative to the time when systemd was started.
+              on_startup_sec: 20s
+              # relative to the time when the service unit was last activated.
+              on_unit_active_sec: 30s
+              # relative to the time when the service unit was last deactivated.
+              on_unit_inactive_sec: 40s
 verifier:
   name: testinfra
   additional_files_or_dirs:

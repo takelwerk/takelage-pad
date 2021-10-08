@@ -14,7 +14,7 @@ def test_takel_nginx_system_nginx_service_running(host):
 
 
 def test_takel_nginx_system_nginx_http(testvars):
-    nginx_host = testvars['ansible_hostname']
+    nginx_host = testvars['inventory_hostname']
     valid_return_codes = [
         '200',
         'HTTP/1.1 301 Moved Permanently'
@@ -44,7 +44,7 @@ def test_takel_nginx_system_nginx_http(testvars):
 
 
 def test_takel_nginx_system_nginx_https(testvars):
-    nginx_host = testvars['ansible_hostname']
+    nginx_host = testvars['inventory_hostname']
     context = ssl.create_default_context()
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE

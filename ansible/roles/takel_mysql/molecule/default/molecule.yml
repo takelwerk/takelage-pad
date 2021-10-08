@@ -18,6 +18,16 @@ provisioner:
   config_options:
     defaults:
       interpreter_python: auto_silent
+  inventory:
+    group_vars:
+      all:
+        takel_mysql_root_password: root
+        takel_mysql_mysql_databases:
+          - name: my_database
+        takel_mysql_mysql_users:
+          - name: my_user
+            password: my_password
+            priv: my_database.*:ALL
 verifier:
   name: testinfra
   additional_files_or_dirs:

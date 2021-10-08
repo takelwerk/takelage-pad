@@ -21,12 +21,12 @@ provisioner:
     group_vars:
       all:
         takel_ssl_common_name: >-
-          molecule-takel-nginx
+          molecule_takel_nginx
         takel_ssl_subject_alt_name: >-
-          molecule-takel-nginx.local
+          molecule_takel_nginx.local
         takel_nginx_server_names:
-          - molecule-takel-nginx
-          - molecule-takel-nginx.local
+          - molecule_takel_nginx
+          - molecule_takel_nginx.local
 verifier:
   name: testinfra
   options:
