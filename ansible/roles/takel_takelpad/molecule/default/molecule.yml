@@ -7,7 +7,7 @@ lint: |
   ansible-lint .
   flake8
 platforms:
-  - name: molecule_takel_takelpad
+  - name: molecule-takel-takelpad
     image: takelage/takelbase
     command: /lib/systemd/systemd
     privileged: true

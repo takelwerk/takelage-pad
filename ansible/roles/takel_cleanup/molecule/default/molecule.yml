@@ -7,7 +7,7 @@ lint: |
   ansible-lint .
   flake8
 platforms:
-  - name: molecule_takel_cleanup
+  - name: molecule-takel-cleanup
     image: takelwerk/takelslim
     command: /usr/bin/tail -f /dev/null
     privileged: false
@@ -24,7 +24,6 @@ verifier:
     - ../system/test_*.py
   options:
     s: true
-    v: true
 scenario:
   create_sequence:
     - create

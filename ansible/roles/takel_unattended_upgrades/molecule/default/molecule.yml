@@ -7,7 +7,7 @@ lint: |
   ansible-lint .
   flake8
 platforms:
-  - name: molecule_takel_unattended_upgrades
+  - name: molecule-takel-unattended-upgrades
     image: takelage/takelslim
     command: /usr/bin/tail -f /dev/null
     privileged: false
