@@ -7,7 +7,7 @@
     group: root
     mode: 0644
 
-- name: (bahsrc) create .bashrc.d directory
+- name: (bashrc) create .bashrc.d directory
   file:
     path: /root/.bashrc.d
     state: directory

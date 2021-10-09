@@ -9,3 +9,9 @@ takel_user_groups: []
 takel_user_shell: /bin/false
 takel_user_password: '*'
 takel_user_sshpubkeys: []
+
+takel_user_create: true
+
+takel_user_bashrc_d:
+  - bash_aliases
+  - profile
