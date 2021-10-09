@@ -1,0 +1,49 @@
+---
+driver:
+  name: docker
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .
+  flake8
+platforms:
+  - name: molecule-takelage-pad-test-image
+    image: ${TAKELAGE_PROJECT_BASE_IMAGE:-takelwerk/takelbase}
+    command: /lib/systemd/systemd
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  playbooks:
+    converge: >-
+      ../../${TAKELAGE_MOLECULE_CONVERGE_PLAYBOOK:-playbook-site.yml}
+  config_options:
+    defaults:
+      interpreter_python: auto_silent
+      stdout_callback: yaml
+      bin_ansible_callbacks: true
+  inventory:
+    links:
+      group_vars: ../../group_vars/
+verifier:
+  name: testinfra
+  options:
+    s: true
+  env:
+    TESTVARS_ROLES_PLAYBOOKS: >-
+      ${TAKELAGE_MOLECULE_VERIFIER_PLAYS:-../../playbook-site.yml}
+  additional_files_or_dirs: ${TAKELAGE_MOLECULE_VERIFIER_FILES:-[]}
+scenario:
+  create_sequence:
+    - create
+  converge_sequence:
+    - create
+  destroy_sequence:
+    - destroy
+  test_sequence:
+    - lint
+    - destroy
+    - create
+    - verify
+    - syntax
+    - destroy
