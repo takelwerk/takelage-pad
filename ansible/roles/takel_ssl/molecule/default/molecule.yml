@@ -12,6 +12,8 @@ platforms:
     command: /usr/bin/tail -f /dev/null
     privileged: false
     pre_build_image: true
+    networks:
+      - name: ${HOSTNAME}
 provisioner:
   name: ansible
   config_options:

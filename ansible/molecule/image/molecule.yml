@@ -12,6 +12,8 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+    networks:
+      - name: ${HOSTNAME}
 provisioner:
   name: ansible
   playbooks:
@@ -29,10 +31,11 @@ verifier:
   name: testinfra
   options:
     s: true
+  additional_files_or_dirs: ${TAKELAGE_MOLECULE_VERIFIER_FILES:-[]}
   env:
     TESTVARS_ROLES_PLAYBOOKS: >-
       ${TAKELAGE_MOLECULE_VERIFIER_PLAYS:-../../playbook-site.yml}
-  additional_files_or_dirs: ${TAKELAGE_MOLECULE_VERIFIER_FILES:-[]}
+    TESTVARS_ROLES_INCLUDE: takel_user:takel_systemd
 scenario:
   create_sequence:
     - create

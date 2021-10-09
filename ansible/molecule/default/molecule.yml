@@ -12,6 +12,9 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+    network_mode: default
+    networks:
+      - name: ${HOSTNAME}
 provisioner:
   name: ansible
   playbooks:
@@ -34,6 +37,8 @@ verifier:
     - ../../../roles/*/molecule/default/tests/test_*.py
     # system
     - ../../../roles/*/molecule/default/system/test_*.py
+  env:
+    TESTVARS_ROLES_INCLUDE: takel_user:takel_systemd
 scenario:
   create_sequence:
     - create
