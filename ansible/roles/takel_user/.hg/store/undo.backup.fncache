@@ -1,0 +1,8 @@
+data/tasks/configure.yml.i
+data/defaults/main.yml.i
+data/templates/bashrc.j2.i
+data/templates/bash_aliases.j2.i
+data/templates/vimrc.j2.i
+data/templates/bash_takel.j2.i
+data/tasks/create.yml.i
+data/tasks/main.yml.i
