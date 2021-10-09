@@ -11,7 +11,7 @@ takel_etherpad_deb_install_packages:
   - moreutils
   - pkg-config
   - pwgen
-  - python
+  - python3-minimal
   - tidy
 
 takel_etherpad_version_file: /etc/takelpad_version
