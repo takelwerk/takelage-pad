@@ -1,7 +1,7 @@
 ---
 takel_nginx_server_names:
   - pad
-takel_nginx_site_name: "{{ project['project'] }}"
+takel_nginx_site_name: "{{ project['name'] }}"
 
 takel_nginx_site: |
   server {
