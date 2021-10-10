@@ -38,8 +38,5 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
-      - name: Test mysql role
-        run: tau docker container command "ANSIBLE_ROLES_PATH=/project/ansible/roles rake ansible:roles:takel_mysql:test"
-
       - name: Test roles
         run: tau docker container command "ANSIBLE_ROLES_PATH=/project/ansible/roles rake ansible:roles:each"

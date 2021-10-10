@@ -8,9 +8,9 @@ lint: |
   flake8
 platforms:
   - name: molecule-takel-etherpad
-    image: takelage/takelbase
-    command: /lib/systemd/systemd
-    privileged: true
+    image: takelage/takelslim
+    command: /usr/bin/tail -f /dev/null
+    privileged: false
     pre_build_image: true
 provisioner:
   name: ansible
