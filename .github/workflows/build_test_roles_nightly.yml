@@ -38,5 +38,10 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
-      - name: Test roles
-        run: tau docker container command "ANSIBLE_ROLES_PATH=/project/ansible/roles rake ansible:roles:each"
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+
+#      - name: Test roles
+#        run: tau docker container command "ANSIBLE_ROLES_PATH=/project/ansible/roles rake ansible:roles:each"
