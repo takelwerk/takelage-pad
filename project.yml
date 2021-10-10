@@ -1,22 +1,13 @@
 ---
-project: takelage-pad
+name: takelage-pad
 version: 0.7.1
 
 local_user: packer_local
-
-# dockerhub settings for the base image
-dockerhub_base_user: takelage
-dockerhub_base_repo: takelbase
-dockerhub_base_tag: debian-bullseye
 
 # vagrantup settings for the base image
 vagrantup_base_user: takelwerk
 vagrantup_base_repo: takelbase
 vagrantup_base_version: 0.4.0
-
-# dockerhub settings
-dockerhub_project_user: takelwerk
-dockerhub_project_repo: takelpad
 
 # vagrantup settings
 vagrantup_project_user: takelwerk

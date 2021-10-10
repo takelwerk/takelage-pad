@@ -39,7 +39,7 @@ variable "target_tag" {
 
 variable "privileged" {
   type = string
-  default = ""
+  default = "false"
 }
 
 variable "packer_command" {
@@ -54,7 +54,7 @@ variable "command" {
 
 locals {
   ansible_host = "${var.target_repo}"
-  privileged_list = "${var.privileged}" == "" ? [] : ["${var.privileged}"]
+  privileged_list = "${var.privileged}" == "true" ? ["--privileged"] : []
   run_command_arguments = [
     "--detach",
     "--interactive",
