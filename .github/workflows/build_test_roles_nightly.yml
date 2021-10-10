@@ -1,5 +1,5 @@
 ---
-name: Test roles
+name: Build and test roles
 
 on:
   schedule:  # run daily at 2 pm CET
