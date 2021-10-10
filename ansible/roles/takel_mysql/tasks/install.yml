@@ -22,6 +22,11 @@
     - /var/log/mysql.err
     - /var/log/mysql.log
 
+- name: "(install) [{{ takel_mysql_site }}] remove mysql service file"
+  file:
+    path: /etc/systemd/system/mysql.service
+    state: absent
+
 - name: "(install) [{{ takel_mysql_site }}] start and enable mysql"
   service:
     name: mysql

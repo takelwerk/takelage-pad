@@ -8,10 +8,11 @@ lint: |
   flake8
 platforms:
   - name: molecule-takelage-pad-test-image
-    image: ${TAKELAGE_PROJECT_BASE_IMAGE:-takelwerk/takelbase}
+    image: packer_local/takelage-pad-${TAKELAGE_PROJECT_IMG:-non}
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+    network_mode: default
     networks:
       - name: ${HOSTNAME}
 provisioner:
