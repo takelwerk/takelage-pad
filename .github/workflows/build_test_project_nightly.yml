@@ -44,9 +44,6 @@ jobs:
       - name: Lint project
         run: tau docker container command "rake images:project:molecule:lint"
 
-      - name: Test takelscripts
-        run: tau docker container command "rake takelscripts"
-
       - name: Build takelage project image with packer
         run: tau docker container command "rake images:project:build"
 
