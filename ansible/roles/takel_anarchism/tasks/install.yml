@@ -5,11 +5,3 @@
     state: present
     update_cache: true
     cache_valid_time: 3600
-
-- name: (install) copy anarchism .bashrc.d file
-  copy:
-    src: anarchism
-    dest: /root/.bashrc.d/anarchism
-    owner: root
-    group: root
-    mode: 0644

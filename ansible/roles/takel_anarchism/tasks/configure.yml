@@ -7,3 +7,11 @@
     takel_user_group: root
     takel_user_home: /root
     takel_user_create: false
+
+- name: (install) copy anarchism .bashrc.d file
+  copy:
+    src: anarchism
+    dest: /root/.bashrc.d/anarchism
+    owner: root
+    group: root
+    mode: 0644
