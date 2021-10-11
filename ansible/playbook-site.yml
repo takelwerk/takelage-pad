@@ -4,7 +4,6 @@
   become: true
   roles:
     - takel_base
-    - takel_root
     - takel_anarchism
     - takel_ufw
     - takel_unattended_upgrades
