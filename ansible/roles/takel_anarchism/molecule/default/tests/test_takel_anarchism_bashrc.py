@@ -15,7 +15,7 @@ if [ -d ~/.bashrc.d ]; then
   done
   unset i
 fi'''
-            assert expected in file.content_string
+        assert expected in file.content_string
 
 
 def test_takel_anarchism_bashrc_file(host, testvars):
@@ -41,10 +41,10 @@ def test_takel_anarchism_bashrc_directory(host, testvars):
 
 
 def test_takel_anarchism_bashrc_files(host, testvars):
-    bashrc_files = testvars['takel_anarchism_bashrc']
-    for bashrc_file in bashrc_files:
+    bashrc_d_files = testvars['takel_anarchism_bashrc_d']
+    for bashrc_d_file in bashrc_d_files:
         with host.sudo():
-            file = host.file(f"/root/.bashrc.d/{bashrc_file}")
+            file = host.file(f"/root/.bashrc.d/{bashrc_d_file}")
             assert file.exists
             assert file.is_file
             assert file.user == 'root'
