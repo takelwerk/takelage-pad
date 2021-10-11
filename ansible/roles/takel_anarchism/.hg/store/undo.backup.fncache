@@ -9,3 +9,6 @@ data/defaults/main.yml.i
 data/molecule/default/tests/test_takel_anarchism_bashrc.py.i
 data/molecule/default/molecule.yml.i
 data/molecule/default/converge.yml.i
+data/molecule/default/tests/__pycache__/test_takel_anarchism_bashrc.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/system/__pycache__/test_takel_anarchism_system.cpython-39-pytest-6.2.5.pyc.i
+data/molecule/default/tests/__pycache__/test_takel_anarchism_install.cpython-39-pytest-6.2.5.pyc.i
