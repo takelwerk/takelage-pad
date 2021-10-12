@@ -15,6 +15,7 @@
     name: user.name
     value: etherpad
     scope: global
+  become: true
   become_user: etherpad
 
 - name: (configure) git set user.email
@@ -22,6 +23,7 @@
     name: user.email
     value: "etherpad@{{ rol_sys_postfix_domain | default('pad.local') }}"
     scope: global
+  become: true
   become_user: etherpad
 
 - name: (configure) git set push.default
@@ -29,6 +31,7 @@
     name: push.default
     value: simple
     scope: global
+  become: true
   become_user: etherpad
 
 - name: (configure) check git status of configfile
@@ -37,6 +40,7 @@
     takel_etherpad_lib }}/.git --work-tree {{
     takel_etherpad_lib }} status --porcelain
   changed_when: false
+  become: true
   become_user: etherpad
   register: git_status
 
@@ -47,5 +51,6 @@
     takel_etherpad_lib }} add --all; git --git-dir {{
     takel_etherpad_lib }}/.git --work-tree {{
     takel_etherpad_lib }} commit --message='[Ansible] Commit changes'
+  become: true
   become_user: etherpad
   when: "git_status.stdout.find(' M ') != -1"

@@ -17,6 +17,7 @@
     --work-tree {{ takel_etherpad_lib }} fetch
   changed_when: false
   when: etherpad_lib_git.stat.exists
+  become: true
   become_user: etherpad
 
 - name: (install) get the latest git id from origin develop branch
@@ -26,6 +27,7 @@
   changed_when: false
   when: etherpad_lib_git.stat.exists
   register: git_rev_parse_origin_master
+  become: true
   become_user: etherpad
 
 - name: (install) get the last but one git id from local develop branch
@@ -35,6 +37,7 @@
   changed_when: false
   when: etherpad_lib_git.stat.exists
   register: git_rev_parse_master_up
+  become: true
   become_user: etherpad
 
 - name: >-
@@ -48,4 +51,5 @@
     not etherpad_lib_git.stat.exists or
     (etherpad_lib_git.stat.exists and
     (git_rev_parse_origin_master.stdout != git_rev_parse_master_up.stdout))
+  become: true
   become_user: etherpad
