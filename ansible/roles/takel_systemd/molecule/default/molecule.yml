@@ -68,7 +68,7 @@ provisioner:
               # relative to the time when the service unit was last activated.
               on_unit_active_sec: 30s
               # relative to the time when the service unit was last deactivated.
-              on_unit_inactive_sec: 10s
+              on_unit_inactive_sec: 4s
 verifier:
   name: testinfra
   additional_files_or_dirs:
