@@ -17,3 +17,5 @@
         name: "{{ item.name }}.timer"
         state: started
       loop: "{{ takel_systemd_timer_list }}"
+      tags:
+        - molecule-idempotence-notest
