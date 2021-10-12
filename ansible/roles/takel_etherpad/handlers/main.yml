@@ -8,4 +8,4 @@
 - name: wait for etherpad port
   wait_for:
     port: "{{ takel_etherpad_port }}"
-    timeout: 600
+    timeout: 1200
