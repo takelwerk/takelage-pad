@@ -1,6 +1,6 @@
 ---
 - name: default
-  hosts: molecule_takel_systemd
+  hosts: all
 
   roles:
     - takel_systemd

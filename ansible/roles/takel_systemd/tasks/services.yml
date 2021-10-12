@@ -10,7 +10,7 @@
     - reload daemon
     - enable services
 
-- name: (services) fetch changed services  # noqa 503
+- name: (services) fetch changed services  # noqa 503 (no-handler)
   set_fact:
     takel_systemd_handler_services_list: >-
        {{ takel_systemd_handler_services_list + [ item['dest'] | basename ] }}

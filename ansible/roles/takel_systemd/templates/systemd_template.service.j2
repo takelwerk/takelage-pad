@@ -17,7 +17,7 @@ Type={{ item.type }}
 RemainAfterExit={{ item.remain_after_exit }}
 {% endif %}
 {% if item.environment_file is defined %}
-EnvironmentFile={{ takel_systemd_origin_env }}/{{ item.environment_file }}
+EnvironmentFile=/etc/systemd/env/{{ item.environment_file }}
 {% endif %}
 {% if item.environment_vars is defined %}
 {% for env_var, value in item.environment_vars.items() %}

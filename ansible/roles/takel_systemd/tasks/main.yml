@@ -17,13 +17,6 @@
     - takel_systemd
     - takel_systemd_timer
 
-- name: (main) include tree tasks
-  import_tasks: tree.yml
-  tags:
-    - takel
-    - takel_systemd
-    - takel_systemd_tree
-
 - name: (main) include env tasks
   import_tasks: env.yml
   tags:
