@@ -8,9 +8,9 @@ lint: |
   flake8
 platforms:
   - name: molecule-takel-mysql
-    image: takelwerk/takelslim
-    command: /usr/bin/tail -f /dev/null
-    privileged: false
+    image: takelwerk/takelbase
+    command: /lib/systemd/systemd
+    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
