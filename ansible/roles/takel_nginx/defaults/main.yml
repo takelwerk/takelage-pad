@@ -1,6 +1,7 @@
 ---
 takel_nginx_deb_packages:
   - nginx
+  - openssl
 
 takel_nginx_webroot: /var/www/html/
 takel_nginx_config_path: /etc/nginx
