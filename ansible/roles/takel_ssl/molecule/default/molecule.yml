@@ -12,6 +12,7 @@ platforms:
     command: /usr/bin/tail -f /dev/null
     privileged: false
     pre_build_image: true
+    network_mode: default
     networks:
       - name: ${HOSTNAME}
 provisioner:
