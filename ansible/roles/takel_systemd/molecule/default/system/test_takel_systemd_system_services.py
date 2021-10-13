@@ -17,5 +17,4 @@ def test_takel_systemd_services_service_running(host, testvars):
 
 def test_takel_systemd_services_service_triggered(host, testvars):
     log = host.check_output('journalctl -u example-service-timer')
-    print(log)
     assert 'example-service-timer.service: Succeeded.' in log
