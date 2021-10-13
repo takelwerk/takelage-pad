@@ -5,7 +5,7 @@
   pre_tasks:
     - name: attach molecule container to docker network
       docker_container:
-        name: "{{ ansible_hostname }}"
+        name: molecule-takel-nginx
         networks:
           - name: "{{ lookup('env','HOSTNAME') }}"
         networks_cli_compatible: false
