@@ -1,10 +1,8 @@
 [![license](https://img.shields.io/github/license/takelwerk/takelage-padv?color=blueviolet)](https://github.com/takelwerk/takelage-pad/blob/main/LICENSE)
 [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/takelpad/latest?label=hub.docker.com&sort=semver&color=blue)](https://hub.docker.com/r/takelwerk/takelpad)
-[![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-pad/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_deploy_project_on_push.yml)
-[![deploy takelbeta](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Build,%20test%20and%20deploy%20takelbeta?label=deploy%20takelbeta)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_deploy_takelbeta_on_push.yml)
-[![deploy takelbuild](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Build,%20test%20and%20deploy%20takelbuild?label=deploy%20takelbuild)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_deploy_takelbuild_on_push.yml)
-[![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Build%20and%20test%20project?label=test%20project)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_project_nightly.yml)
-[![test roles](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Test%20roles?label=test%20roles)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_roles_nightly.yml)
+[![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-pad/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-pad/actions/workflows/build_test_deploy_project_on_push.yml)
+[![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-pad/Build%20and%20test%20project?label=test%20project)](https://github.com/takelwerk/takelage-pad/actions/workflows/build_test_project_nightly.yml)
+[![test roles](https://img.shields.io/github/workflow/status/takelwerk/takelage-pad/Test%20roles?label=test%20roles)](https://github.com/takelwerk/takelage-pad/actions/workflows/build_test_roles_nightly.yml)
 
 # takelage-pad
 
@@ -28,6 +26,10 @@ This is the case for most default settings of consumer routers
 and cell phone hotspots.
 This box is for the data cautious who want to store their data
 locally rather than in the cloud, i.e. on other people's computers.
+
+There is also a docker image 
+[takelwerk/takelpad](https://hub.docker.com/repository/docker/takelwerk/takelpad)
+but it mainly exists for development purposes.
 
 ## Prerequisites
 
