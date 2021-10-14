@@ -57,20 +57,20 @@ namespace :images do
       subtasks(env.scope.path) do
         desc 'Update docker base image'
         task :update do
-          if images[image].key?('base_repo')
-            @commands << format(
-              cmd_images_docker_pull,
-              base_user: images[image]['base_user'],
-              base_repo: images[image]['base_repo'],
-              base_tag: images[image]['base_tag']
-            )
-          else
-            @commands << format(
-              cmd_images_docker_pull_no_repo,
-              base_user: images[image]['base_user'],
-              base_tag: images[image]['base_tag']
-            )
-          end
+          @commands << if images[image].key?('base_repo')
+                         format(
+                           cmd_images_docker_pull,
+                           base_user: images[image]['base_user'],
+                           base_repo: images[image]['base_repo'],
+                           base_tag: images[image]['base_tag']
+                         )
+                       else
+                         format(
+                           cmd_images_docker_pull_no_repo,
+                           base_user: images[image]['base_user'],
+                           base_tag: images[image]['base_tag']
+                         )
+                       end
         end
 
         layers = images[image]['layers']
@@ -127,7 +127,6 @@ namespace :images do
               target_repo = "#{@project['name']}-#{image}-#{number}-#{layer}"
               # first image
               if index.zero?
-                puts images[image]
                 base_repo = images[image]['base_repo']
                 base_user = images[image]['base_user']
                 base_tag = images[image]['base_tag']
@@ -199,7 +198,7 @@ namespace :images do
           end
         end
 
-        if File.exists?("#{File.dirname(__FILE__)}/../../ansible/molecule/image")
+        if File.exist?("#{File.dirname(__FILE__)}/../../ansible/molecule/image")
           namespace :molecule do
             env_command = ''
             env_command = "TAKELAGE_PROJECT_COMMAND='#{images[image]['command']}' " if images[image].key?('command')
