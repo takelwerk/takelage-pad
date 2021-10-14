@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # allow manual trigger
 
 jobs:
-  build-and-test-project:
+  build-and-test-and-deploy-project:
     runs-on: ubuntu-20.04
     if: startsWith(github.ref, 'refs/tags/')
     steps:
