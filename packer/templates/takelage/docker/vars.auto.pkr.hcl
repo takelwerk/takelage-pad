@@ -37,6 +37,10 @@ variable "target_tag" {
   default = "latest"
 }
 
+variable "packer_template_dir" {
+  type = string
+}
+
 variable "privileged" {
   type = string
   default = "false"
