@@ -16,6 +16,20 @@ collaborative editor using the
 [virtual box](https://www.virtualbox.org/) 
 provider.
 
+The idea of any etherpad is to edit texts together online.
+But online does not mean you have to have an uplink to the internet.
+You can run this vagrant box on your computer locally.
+Others can then connect to your machine locally.
+You only need to be in the same local network which allows peer-to-peer
+connections.
+This is the case for most default settings of consumer routers
+and cell phone hotspots.
+This box is for the data cautious who want to store their data
+locally rather than in the cloud, i.e. on other people's computers.
+
+There is also a docker image
+[takelwerk/takelpad](https://hub.docker.com/repository/docker/takelwerk/takelpad).
+
 ## Framework Versions
 
 | App | Artifact |
@@ -40,23 +54,6 @@ provider.
 | *[takelage-img-takelslim](https://github.com/takelwerk/takelage-img-takelslim)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelslim/Build%20and%20deploy%20takelslim?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelslim/actions/workflows/build_deploy_takelslim_nightly.yml) |
 | *[takelage-img-takelbase](https://github.com/takelwerk/takelage-img-takelbase)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelbase/Build%20and%20deploy%20takelbase?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelbase/actions/workflows/build_deploy_takelbase_nightly.yml) |
 | *[takelage-img-takelruby](https://github.com/takelwerk/takelage-img-takelruby)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelruby/Build%20and%20deploy%20takelruby%20latest?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelruby/actions/workflows/build_deploy_takelruby_nightly.yml) |
-
-# Description
-
-The idea of any etherpad is to edit texts together online.
-But online does not mean you have to have an uplink to the internet.
-You can run this vagrant box on your computer locally.
-Others can then connect to your machine locally.
-You only need to be in the same local network which allows peer-to-peer 
-connections.
-This is the case for most default settings of consumer routers
-and cell phone hotspots.
-This box is for the data cautious who want to store their data
-locally rather than in the cloud, i.e. on other people's computers.
-
-There is also a docker image 
-[takelwerk/takelpad](https://hub.docker.com/repository/docker/takelwerk/takelpad)
-but it mainly exists for development purposes.
 
 ## Prerequisites
 
