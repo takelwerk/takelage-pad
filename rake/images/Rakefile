@@ -7,6 +7,9 @@ default_packer_template_dir = 'templates/takelage/docker'
 cmd_images_docker_pull = 'docker pull ' \
   '%<base_user>s/%<base_repo>s:%<base_tag>s'
 
+cmd_images_docker_pull_no_repo = 'docker pull ' \
+  '%<base_user>s:%<base_tag>s'
+
 cmd_images_docker_remove = 'docker image remove %<image>s'
 
 cmd_images_molecule = \
@@ -29,6 +32,7 @@ cmd_images_packer =
   "-var='base_tag=%<base_tag>s' " \
   "-var='local_user=%<local_user>s' " \
   "-var='target_repo=%<target_repo>s' " \
+  "-var='packer_template_dir='%<packer_template_dir>s'' " \
   '%<var_privileged>s' \
   '%<var_packer_command>s' \
   '%<var_command>s' \
@@ -53,12 +57,20 @@ namespace :images do
       subtasks(env.scope.path) do
         desc 'Update docker base image'
         task :update do
-          @commands << format(
-            cmd_images_docker_pull,
-            base_repo: images[image]['base_repo'],
-            base_user: images[image]['base_user'],
-            base_tag: images[image]['base_tag']
-          )
+          if images[image].key?('base_repo')
+            @commands << format(
+              cmd_images_docker_pull,
+              base_user: images[image]['base_user'],
+              base_repo: images[image]['base_repo'],
+              base_tag: images[image]['base_tag']
+            )
+          else
+            @commands << format(
+              cmd_images_docker_pull_no_repo,
+              base_user: images[image]['base_user'],
+              base_tag: images[image]['base_tag']
+            )
+          end
         end
 
         layers = images[image]['layers']
@@ -115,6 +127,7 @@ namespace :images do
               target_repo = "#{@project['name']}-#{image}-#{number}-#{layer}"
               # first image
               if index.zero?
+                puts images[image]
                 base_repo = images[image]['base_repo']
                 base_user = images[image]['base_user']
                 base_tag = images[image]['base_tag']
@@ -126,7 +139,7 @@ namespace :images do
               # last
               target_repo = "#{@project['name']}-#{image}" if index.next == layers.count
 
-              packer_template_dir = images[image][packer_template_dir] || default_packer_template_dir
+              packer_template_dir = images[image]['packer_template_dir'] || default_packer_template_dir
 
               # rubocop:disable Style/IfUnlessModifier
               var_privileged = ''
@@ -186,29 +199,31 @@ namespace :images do
           end
         end
 
-        namespace :molecule do
-          env_command = ''
-          env_command = "TAKELAGE_PROJECT_COMMAND='#{images[image]['command']}' " if images[image].key?('command')
+        if File.exists?("#{File.dirname(__FILE__)}/../../ansible/molecule/image")
+          namespace :molecule do
+            env_command = ''
+            env_command = "TAKELAGE_PROJECT_COMMAND='#{images[image]['command']}' " if images[image].key?('command')
 
-          begin
-            unique = ENV['HOSTNAME'][-11..-1]
-          rescue StandardError
-            unique = 'nonunique'
-          end
+            begin
+              unique = ENV['HOSTNAME'][-11..-1]
+            rescue StandardError
+              unique = 'nonunique'
+            end
 
-          jobs.each do |job|
-            desc "#{job.capitalize} image #{image}"
-            task job.to_sym do
-              @commands << format(
-                cmd_images_molecule,
-                env_command: env_command,
-                files: molecule_verifier_files(layers),
-                image: image,
-                job: job,
-                name: name,
-                plays: molecule_verifier_plays(layers),
-                unique: unique
-              )
+            jobs.each do |job|
+              desc "#{job.capitalize} image #{image}"
+              task job.to_sym do
+                @commands << format(
+                  cmd_images_molecule,
+                  env_command: env_command,
+                  files: molecule_verifier_files(layers),
+                  image: image,
+                  job: job,
+                  name: name,
+                  plays: molecule_verifier_plays(layers),
+                  unique: unique
+                )
+              end
             end
           end
         end
