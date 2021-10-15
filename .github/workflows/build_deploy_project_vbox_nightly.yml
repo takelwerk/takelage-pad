@@ -13,6 +13,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Export vagrantup.com auth token
+        run: export ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }}"
+
       - name: Install ansible
         run: brew install ansible
 
