@@ -1,6 +1,6 @@
 source "vagrant" "takelage" {
   communicator       = "ssh"
-  output_dir         = "images/vbox"
+  output_dir         = "images/vbox/${var.base_user}-${var.base_repo}"
   output_vagrantfile = "vagrantfile/vagrantfile.rb"
   provider           = "virtualbox"
   source_path        = "${var.base_user}/${var.base_repo}"
