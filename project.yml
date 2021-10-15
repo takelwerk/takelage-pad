@@ -4,15 +4,12 @@ version: 0.7.4
 
 local_user: packer_local
 
-# vagrantup settings for the base image
-vagrantup_base_user: takelwerk
-vagrantup_base_repo: takelbase
-vagrantup_base_version: 0.4.0
-
-# vagrantup settings
-vagrantup_project_user: takelwerk
-vagrantup_project_repo: takelpad
-vagrantup_project_description: https://github.com/takelwerk/takelage-pad
+vboxes:
+  project:
+    base_user: takelwerk
+    base_repo: takelbase
+    target_user: takelwerk
+    target_repo: takelpad
 
 images:
   project:
@@ -26,3 +23,13 @@ images:
     privileged: true
     layers:
       - site
+
+# vagrantup settings for the base image
+vagrantup_base_user: takelwerk
+vagrantup_base_repo: takelbase
+vagrantup_base_version: 0.4.0
+
+# vagrantup settings
+vagrantup_project_user: takelwerk
+vagrantup_project_repo: takelpad
+vagrantup_project_description: https://github.com/takelwerk/takelage-pad
