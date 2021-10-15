@@ -131,7 +131,7 @@ vagrant ssh -c takelpad
 ## Technical context
 
 *takel-pad* is based on
-[takelwerk/takelbase](https://app.vagrantup.com/takelwerk/boxes/takelbase)
+[takelwerk/takelbase](https://github.com/takelwerk/takelage-vbox-takelbase)
  which is based on
  [Debian](https://www.debian.org/) bullseye.
  
