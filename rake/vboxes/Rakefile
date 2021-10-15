@@ -57,11 +57,11 @@ namespace :vboxes do
         target_repo = @project['vboxes'][vbox]['target_repo']
         target_version = @project['version']
         ansible_playbook = 'playbook-site.yml'
-        ansible_playbook = @project['vboxes'][vbox]['ansible_playbook'] if @project['vboxes'][vbox].key?('ansible_playbook')
+        if @project['vboxes'][vbox].key?('ansible_playbook')
+          ansible_playbook = @project['vboxes'][vbox]['ansible_playbook']
+        end
         ansible_ssh_legacy = '-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
         packer_template_dir = vboxes[vbox]['packer_template_dir'] || default_packer_template_dir
-
-
 
         desc 'Build virtualbox'
         task :build do
