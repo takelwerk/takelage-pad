@@ -26,3 +26,8 @@ variable "ansible_playbook" {
   type    = string
   default = "playbook-site.yml"
 }
+
+variable "ansible_ssh_legacy" {
+  type    = string
+  default = ""
+}

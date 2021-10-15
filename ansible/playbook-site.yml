@@ -5,12 +5,12 @@
   roles:
     - takel_base
     - takel_anarchism
-    - takel_ufw
-    - takel_unattended_upgrades
-    - takel_mysql
-    - takel_nodejs
-    - takel_ssl
-    - takel_nginx
-    - takel_etherpad
-    - takel_takelpad
-    - takel_cleanup
+#    - takel_ufw
+#    - takel_unattended_upgrades
+#    - takel_mysql
+#    - takel_nodejs
+#    - takel_ssl
+#    - takel_nginx
+#    - takel_etherpad
+#    - takel_takelpad
+#    - takel_cleanup

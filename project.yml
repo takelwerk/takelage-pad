@@ -1,6 +1,6 @@
 ---
 name: takelage-pad
-version: 0.7.9
+version: 0.7.10
 
 local_user: packer_local
 
@@ -10,6 +10,7 @@ vboxes:
     base_repo: takelbase
     target_user: takelwerk
     target_repo: takelpad
+    ansible_playbook: "playbook-site.yml"
 
 images:
   project:
