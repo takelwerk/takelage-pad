@@ -22,5 +22,10 @@ jobs:
       - name: Build vagrant box
         run: rake vboxes:project:build
 
-      - name: Push vagrant box
-        run: ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }} rake vagrantup:project:push
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
+
+#      - name: Push vagrant box
+#        run: ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }} rake vagrantup:project:push
