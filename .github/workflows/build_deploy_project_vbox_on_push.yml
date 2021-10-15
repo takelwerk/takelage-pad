@@ -2,7 +2,7 @@
 name: Build and deploy project vbox
 
 on:
-  push:  # trigger on git push
+  # push:  # trigger on git push
   workflow_dispatch:  # allow manual trigger
 
 jobs:
