@@ -1,0 +1,3 @@
+data/main.pkr.hcl.i
+data/vars.auto.pkr.hcl.i
+data/bin/ssh.sh.i
