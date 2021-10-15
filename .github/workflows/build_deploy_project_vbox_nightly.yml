@@ -1,5 +1,5 @@
 ---
-name: Build and deploy project virtualbox
+name: Build and deploy project vbox
 
 on:
   schedule: # run daily at 1 pm CET
