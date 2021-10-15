@@ -26,7 +26,7 @@ namespace :vboxes do
     namespace vbox.to_sym do |env|
       subtasks(env.scope.path) do
         if @project['vboxes'][vbox].key?('base_user') &&
-          @project['vboxes'][vbox].key?('base_repo')
+           @project['vboxes'][vbox].key?('base_repo')
           desc 'Update docker base image'
           task :update do
             @commands << format(

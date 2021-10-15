@@ -10,7 +10,7 @@ build {
   sources = ["source.vagrant.takelage"]
 
   provisioner "ansible" {
-    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_SSH_ARGS='-v -o ControlMaster=auto -o ControlPersist=15m -oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'"]
+    ansible_env_vars = ["ANSIBLE_HOST_KEY_CHECKING=False", "ANSIBLE_SSH_ARGS='-v -o ControlMaster=auto -o ControlPersist=15m'"]
     extra_arguments  = ["-vvv"]
     groups           = ["all", "private", "users", "image", "vbox"]
     playbook_file    = "../ansible/${var.ansible_playbook}"
