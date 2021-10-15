@@ -2,19 +2,16 @@
 name: Build and deploy project vbox
 
 on:
-  # push:  # trigger on git push
+  push:  # trigger on git push
   workflow_dispatch:  # allow manual trigger
 
 jobs:
   build-and-deploy-project-vbox:
     runs-on: macos-10.15
-    # if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/')
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-
-      - name: Export vagrantup.com auth token
-        run: export ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }}
 
       - name: Install ansible
         run: brew install ansible
@@ -26,4 +23,4 @@ jobs:
         run: rake vboxes:project:build
 
       - name: Push vagrant box
-        run: rake vagrantup:project:push
+        run: ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }} rake vagrantup:project:push
