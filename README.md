@@ -97,6 +97,8 @@ Or you can destroy it:
 vagrant destroy
 ```
 
+## Update
+
 From time to time you should update the box:
 ```bash
 vagrant box update --box=takelwerk/takelpad
@@ -144,8 +146,8 @@ vagrant ssh -c takelpad
 
 *takel-pad* is based on
 [takelwerk/takelbase](https://github.com/takelwerk/takelage-vbox-takelbase)
- which is based on
- [Debian](https://www.debian.org/) bullseye.
+ which is based o2n
+ [Debian](https:/www.debian.org/) bullseye.
  
 *takel-pad* is made with 
 [*takelage-dev*](https://github.com/takelwerk/takelage-dev).
