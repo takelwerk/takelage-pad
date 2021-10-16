@@ -1,5 +1,5 @@
 ---
-name: Build, test and deploy project
+name: Build, test and deploy project to dockerhub
 
 on:
   push:  # trigger on git push
