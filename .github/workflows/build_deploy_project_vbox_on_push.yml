@@ -1,5 +1,5 @@
 ---
-name: Build and deploy project vbox
+name: Build and deploy project vbox to vagrantup
 
 on:
   push:  # trigger on git push
