@@ -97,6 +97,18 @@ Or you can destroy it:
 vagrant destroy
 ```
 
+From time to time you should update the box:
+```bash
+vagrant box update --box=takelwerk/takelpad
+```
+
+Keep in mind that you have to destroy your old box and create a new one 
+for the update to take effect:
+```bash
+vagrant destroy
+vagrant up
+```
+
 ## Troubleshooting
 
 The IP address of a running takelpad can be printed like so:
