@@ -1,4 +1,28 @@
 ---
+- name: (configure) remove package-lock.json
+  file:
+    path: "{{ takel_etherpad_lib }}/src/package-lock.json"
+    state: absent
+  tags:
+    - molecule-idempotence-notest
+
+- name: (configure) run npm install
+  command: npm install
+  args:
+    chdir: "{{ takel_etherpad_lib }}/src"
+    creates: "{{ takel_etherpad_lib }}/src/package-lock.json"
+  become: true
+  become_user: etherpad
+  tags:
+    - molecule-idempotence-notest
+
+- name: (configure) run npm audit fix
+  command: npm audit fix --force
+  args:
+    chdir: "{{ takel_etherpad_lib }}/src"
+  become: true
+  become_user: etherpad
+
 - name: (configure) copy etherpad configuration
   template:
     src: etherpad-settings.j2.json

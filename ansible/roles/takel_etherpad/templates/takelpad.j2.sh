@@ -18,24 +18,34 @@ if [ "$1" != "--summary" ]; then
   MYSQL_ETHERPAD_PASSWORD=$(sudo grep password {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ROOT_USER=$(sudo grep user /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ROOT_PASSWORD=$(sudo grep password /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
+  IS_VAGRANT=$(test -d /home/vagrant)
+  SSL_FINGERPRINT=$(openssl x509 -in /etc/ssl/certs/ssl.pem -noout -fingerprint)
 
   echo
   echo "box ip addresses:"
   echo $IP_ADDRESSES | tr " " "\n"
   echo
   echo "etherpad admin user: admin"
-  echo "etherpad admin password: $ETHERPAD_ADMIN_PASSWORD"
+  echo "etherpad admin pass: $ETHERPAD_ADMIN_PASSWORD"
   echo
   echo "mysql etherpad user: $MYSQL_ETHERPAD_USER"
-  echo "mysql etherpad password: $MYSQL_ETHERPAD_PASSWORD"
+  echo "mysql etherpad pass: $MYSQL_ETHERPAD_PASSWORD"
   echo
   echo "mysql root user: $MYSQL_ROOT_USER"
-  echo "mysql root password: $MYSQL_ROOT_PASSWORD"
-  echo
-  echo "start box: vagrant up"
-  echo "stop box: vagrant halt"
-  echo "destroy box: vagrant destroy"
-  echo
-  echo "login user: vagrant ssh"
-  echo "login root: vagrant ssh -c 'sudo su -'"
+  echo "mysql root pass: $MYSQL_ROOT_PASSWORD"
+
+  if [ -z "$IS_VAGRANT" ]; then
+
+    echo
+    echo "start box:   vagrant up"
+    echo "stop box:    vagrant halt"
+    echo "destroy box: vagrant destroy"
+    echo "update box:  vagrant box update --box takelwerk/takelpad"
+    echo
+    echo "login user: vagrant ssh"
+    echo "login root: vagrant ssh -c 'sudo su -'"
+    echo
+    echo "ssl fingerprint: $SSL_FINGERPRINT"
+    echo "ssl check: openssl s_client -connect $IP_ETHERPAD:443  < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -in /dev/stdin"
+  fi
 fi
