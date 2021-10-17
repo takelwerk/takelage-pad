@@ -12,13 +12,12 @@ IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad ip address: $IP_ETHERPAD"
 
 if [ "$1" != "--summary" ]; then
-  IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local')
+  IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local' | grep -v null)
   ETHERPAD_ADMIN_PASSWORD=$(sudo {{ takel_etherpad_bin }}/etherpad-admin-password-get)
   MYSQL_ETHERPAD_USER=$(sudo grep user {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ETHERPAD_PASSWORD=$(sudo grep password {{ takel_etherpad_home }}/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ROOT_USER=$(sudo grep user /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
   MYSQL_ROOT_PASSWORD=$(sudo grep password /root/.my.cnf | sed -e 's/.*"\([^"]*\)"/\1/')
-  IS_VAGRANT=$(test -d /home/vagrant)
   SSL_FINGERPRINT=$(openssl x509 -in /etc/ssl/certs/ssl.pem -noout -fingerprint)
 
   echo
@@ -34,7 +33,7 @@ if [ "$1" != "--summary" ]; then
   echo "mysql root user: $MYSQL_ROOT_USER"
   echo "mysql root pass: $MYSQL_ROOT_PASSWORD"
 
-  if [ -z "$IS_VAGRANT" ]; then
+  if [ -d "/home/vagrant" ]; then
 
     echo
     echo "start box:   vagrant up"
