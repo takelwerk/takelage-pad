@@ -20,7 +20,8 @@
   command: npm audit fix --force
   args:
     chdir: "{{ takel_etherpad_lib }}/src"
-  ignore_errors: true
+  failed_when: false
+  changed_when: false
   become: true
   become_user: etherpad
   tags:
