@@ -11,32 +11,34 @@ echo "$HEADER | for details run: vagrant ssh -c takelpad"
 IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad ip address: $IP_ETHERPAD"
 
-PASSWORD_DE_1=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1 | cut -f 2 -d -)
-PASSWORD_DE_2=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1 | cut -f 2 -d -)
-PASSWORD_DE_3=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1 | cut -f 2 -d -)
-PASSWORD_EN_1=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1 | cut -f 2 -d -)
-PASSWORD_EN_2=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1 | cut -f 2 -d -)
-PASSWORD_EN_3=$(gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1 | cut -f 2 -d -)
-PASSPHRASE_DE_1=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1)
-PASSPHRASE_DE_2=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1)
-PASSPHRASE_DE_3=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1)
-PASSPHRASE_EN_1=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1)
-PASSPHRASE_EN_2=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1)
-PASSPHRASE_EN_3=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1)
+password() {
+  gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang "$1" | head -1 | cut -f 2 -d -
+}
+passphrase() {
+  gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang "$1" | head -1
+}
 
 echo "example pad urls:"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_DE_1"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_DE_2"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_DE_3"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_EN_1"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_EN_2"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_EN_3"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_DE_1"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_DE_2"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_DE_3"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_EN_1"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_EN_2"
-echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_EN_3"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
+echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
 
 if [ "$1" != "--summary" ]; then
   IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local' | grep -v null)
