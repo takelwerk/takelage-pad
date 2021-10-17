@@ -17,7 +17,7 @@ PASSPHRASE_DE=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | h
 PASSPHRASE_EN=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1)
 echo "example pad urls:"
 echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_DE"
-echo "https://$IP_ETHERPAD/etherpad/p/$ASSWORD_EN"
+echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_EN"
 echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_DE"
 echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_EN"
 
