@@ -1,0 +1,13 @@
+---
+- name: (completion) create completion dir
+  file:
+    path: "{{ takel_gopass_completion_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: (completion) generate gopass bash autocompletion
+  shell: "gopass completion bash > {{ takel_gopass_bash_completion }}"
+  args:
+    creates: "{{ takel_gopass_bash_completion }}"

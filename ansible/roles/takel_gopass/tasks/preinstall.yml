@@ -1,0 +1,6 @@
+---
+- name: (install) preinstall deb packages
+  apt:
+    name: "{{ takel_gopass_deb_preinstall_packages }}"
+    state: present
+    update_cache: true

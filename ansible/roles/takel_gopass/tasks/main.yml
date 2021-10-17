@@ -1,0 +1,21 @@
+---
+- name: (main) include preinstall
+  import_tasks: preinstall.yml
+  tags:
+    - takel
+    - takel_gopass
+    - takel_gopass_preinstall
+
+- name: (main) include install
+  import_tasks: install.yml
+  tags:
+    - takel
+    - takel_gopass
+    - takel_gopass_install
+
+- name: (main) include completion
+  import_tasks: completion.yml
+  tags:
+    - takel
+    - takel_gopass
+    - takel_gopass_completion

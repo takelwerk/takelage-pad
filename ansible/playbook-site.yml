@@ -7,6 +7,7 @@
     - takel_anarchism
     - takel_ufw
     - takel_unattended_upgrades
+    - takel_gopass
     - takel_mysql
     - takel_nodejs
     - takel_ssl

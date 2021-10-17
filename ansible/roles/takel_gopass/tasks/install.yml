@@ -1,0 +1,24 @@
+---
+- name: (install) download gopass debian package
+  get_url:
+    url: "{{ takel_gopass_url }}"
+    dest: "{{ takel_gopass_tmp }}"
+  changed_when: false
+
+- name: (install) install gopass debian package
+  apt:
+    deb: "{{ takel_gopass_tmp }}"
+
+- name: (install) remove gopass debian package
+  file:
+    path: "{{ takel_gopass_tmp }}"
+    state: absent
+  changed_when: false
+
+- name: (install) copy pass template
+  template:
+    src: pass.j2
+    dest: /usr/local/bin/pass
+    owner: root
+    group: root
+    mode: 0755
