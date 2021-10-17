@@ -11,34 +11,18 @@ echo "$HEADER | for details run: vagrant ssh -c takelpad"
 IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad ip address: $IP_ETHERPAD"
 
-password() {
-  gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep - --xkcdlang "$1" | head -1 | cut -f 2 -d -
-}
-passphrase() {
-  gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang "$1" | head -1
-}
-
-echo "example pad urls:"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(password en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase de)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
-echo "https://$IP_ETHERPAD/etherpad/p/$(passphrase en)"
+echo
+echo "example pad urls (password, de):"
+gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep / --xkcdlang de | parallel echo https://$IP_ETHERPAD/etherpad/p/{/}
+echo
+echo "example pad urls (password, en):"
+gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep / --xkcdlang en | parallel echo https://$IP_ETHERPAD/etherpad/p/{/}
+echo
+echo "example pad urls (passphrase, de):"
+gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
+echo
+echo "example pad urls (passphrase, en):"
+gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
 
 if [ "$1" != "--summary" ]; then
   IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local' | grep -v null)
