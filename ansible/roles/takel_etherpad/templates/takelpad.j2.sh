@@ -11,6 +11,16 @@ echo "$HEADER | for details run: vagrant ssh -c takelpad"
 IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad ip address: $IP_ETHERPAD"
 
+PASSWORD_DE=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1 | cut -f 2 -d -)
+PASSWORD_EN=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1 | cut -f 2 -d -)
+PASSPHRASE_DE=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | head -1)
+PASSPHRASE_EN=$(gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | head -1)
+echo "example pad urls:"
+echo "https://$IP_ETHERPAD/etherpad/p/$PASSWORD_DE"
+echo "https://$IP_ETHERPAD/etherpad/p/$ASSWORD_EN"
+echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_DE"
+echo "https://$IP_ETHERPAD/etherpad/p/$PASSPHRASE_EN"
+
 if [ "$1" != "--summary" ]; then
   IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local' | grep -v null)
   ETHERPAD_ADMIN_PASSWORD=$(sudo {{ takel_etherpad_bin }}/etherpad-admin-password-get)
