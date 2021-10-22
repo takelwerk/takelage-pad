@@ -5,6 +5,7 @@ require 'rake'
 cmd_ansible_molecule_project =
   "cd ansible && bash -c '" \
   '%<env_command>s' \
+  'TAKELAGE_UNIQUE=%<unique>s ' \
   'TAKELAGE_PROJECT_NAME=%<projectname>s ' \
   'TAKELAGE_PROJECT_BASE_IMG=%<image>s ' \
   'TAKELAGE_MOLECULE_VERIFIER_FILES=%<files>s ' \
@@ -52,25 +53,36 @@ jobs_roles = \
 
 # rubocop:disable Metrics/BlockLength
 namespace :ansible do
-  image = @project['images']['project']
-  env_command = ''
-  env_command = "TAKELAGE_PROJECT_COMMAND=#{image['command']} " if image.key?('command')
+  namespace :molecule do |env|
+    subtasks(env.scope.path) do
+      image = @project['images']['project']
+      env_command = ''
+      env_command = "TAKELAGE_PROJECT_COMMAND=#{image['command']} " if image.key?('command')
 
-  jobs_project.each do |job|
-    desc "Run molecule #{job}"
-    task job do
-      @commands << format(
-        cmd_ansible_molecule_project,
-        env_command: env_command,
-        job: job,
-        playbook: 'playbook-site.yml',
-        files: molecule_verifier_files(['site']),
-        projectname: @project['name'],
-        image:
-          "#{@project['images']['project']['base_user']}/" \
+      begin
+        unique = ENV['HOSTNAME'][-11..-1]
+      rescue StandardError
+        unique = 'nonunique'
+      end
+
+      jobs_project.each do |job|
+        desc "Run molecule #{job}"
+        task job do
+          @commands << format(
+            cmd_ansible_molecule_project,
+            env_command: env_command,
+            job: job,
+            playbook: 'playbook-site.yml',
+            files: molecule_verifier_files(['site']),
+            projectname: @project['name'],
+            image:
+              "#{@project['images']['project']['base_user']}/" \
                 "#{@project['images']['project']['base_repo']}:" \
-                "#{@project['images']['project']['base_tag']}"
-      )
+                "#{@project['images']['project']['base_tag']}",
+            unique: unique
+          )
+        end
+      end
     end
   end
 

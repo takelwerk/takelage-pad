@@ -33,9 +33,13 @@ cmd_dockerhub_tag_version = \
 
 # rubocop:disable Metrics/BlockLength
 namespace :dockerhub do
-  desc 'Log in to hub.docker.com'
-  task :login do
-    @commands << cmd_dockerhub_login
+  dockerhub = @project.key?('dockerhub') ? @project['dockerhub'] : true
+
+  if dockerhub
+    desc 'Log in to hub.docker.com'
+    task :login do
+      @commands << cmd_dockerhub_login
+    end
   end
 
   @project['images'].each do |project_image|
@@ -43,7 +47,7 @@ namespace :dockerhub do
     namespace image.to_sym do |env|
       subtasks(env.scope.path) do
         next unless @project['images'][image].key?('target_user') &&
-                    @project['images'][image].key?('target_repo')
+          @project['images'][image].key?('target_repo')
 
         local_user = @project['local_user']
         local_repo = "#{@project['name']}-#{image}"
@@ -51,40 +55,42 @@ namespace :dockerhub do
         target_repo = @project['images'][image]['target_repo']
         version = @project['version']
 
-        desc 'Push image to hub.docker.com'
-        task push: [:"dockerhub:#{image}:push:version",
-                    :"dockerhub:#{image}:push:latest"]
+        if dockerhub
+          desc 'Push image to hub.docker.com'
+          task push: [:"dockerhub:#{image}:push:version",
+                      :"dockerhub:#{image}:push:latest"]
 
-        namespace :push do
-          desc 'Push latest image to hub.docker.com'
-          task :latest do
-            @commands << format(
-              cmd_dockerhub_push_latest,
-              target_user: target_user,
-              target_repo: target_repo
-            )
-          end
-
-          desc 'Push version image to hub.docker.com'
-          task :version do
-            @commands << format(
-              cmd_dockerhub_push_version,
-              target_user: target_user,
-              target_repo: target_repo,
-              version: version
-            )
-          end
-
-          if @project['images'][image].key?('target_tag')
-            target_tag = @project['images'][image]['target_tag']
-            desc 'Push custom tagged image to hub.docker.com'
-            task :custom do
+          namespace :push do
+            desc 'Push latest image to hub.docker.com'
+            task :latest do
               @commands << format(
-                cmd_dockerhub_push_custom,
+                cmd_dockerhub_push_latest,
+                target_user: target_user,
+                target_repo: target_repo
+              )
+            end
+
+            desc 'Push version image to hub.docker.com'
+            task :version do
+              @commands << format(
+                cmd_dockerhub_push_version,
                 target_user: target_user,
                 target_repo: target_repo,
-                target_tag: target_tag
+                version: version
               )
+            end
+
+            if @project['images'][image].key?('target_tag')
+              target_tag = @project['images'][image]['target_tag']
+              desc 'Push custom tagged image to hub.docker.com'
+              task :custom do
+                @commands << format(
+                  cmd_dockerhub_push_custom,
+                  target_user: target_user,
+                  target_repo: target_repo,
+                  target_tag: target_tag
+                )
+              end
             end
           end
         end
