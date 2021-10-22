@@ -47,7 +47,7 @@ namespace :dockerhub do
     namespace image.to_sym do |env|
       subtasks(env.scope.path) do
         next unless @project['images'][image].key?('target_user') &&
-          @project['images'][image].key?('target_repo')
+                    @project['images'][image].key?('target_repo')
 
         local_user = @project['local_user']
         local_repo = "#{@project['name']}-#{image}"
