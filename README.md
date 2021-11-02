@@ -146,7 +146,7 @@ vagrant ssh -c takelpad
 
 *takel-pad* is based on
 [takelwerk/takelbase](https://github.com/takelwerk/takelage-vbox-takelbase)
- which is based o2n
+ which is based on
  [Debian](https:/www.debian.org/) bullseye.
  
 *takel-pad* is made with 
