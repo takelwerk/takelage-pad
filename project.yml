@@ -4,14 +4,6 @@ version: 0.8.5
 
 local_user: packer_local
 
-vboxes:
-  project:
-    base_user: takelwerk
-    base_repo: takelbase
-    target_user: takelwerk
-    target_repo: takelpad
-    ansible_playbook: "playbook-site.yml"
-
 images:
   project:
     base_user: takelwerk
@@ -24,3 +16,19 @@ images:
     privileged: true
     layers:
       - site
+
+pvms:
+  project:
+    base_user: takelwerk
+    base_repo: takelbase
+    target_user: takelwerk
+    target_repo: takelpad
+    ansible_playbook: "playbook-site.yml"
+
+vboxes:
+  project:
+    base_user: takelwerk
+    base_repo: takelbase
+    target_user: takelwerk
+    target_repo: takelpad
+    ansible_playbook: "playbook-site.yml"
