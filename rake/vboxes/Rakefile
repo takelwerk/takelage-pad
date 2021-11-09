@@ -4,7 +4,7 @@ require 'rake'
 
 default_packer_template_dir = 'templates/takelage/virtualbox'
 
-cmd_vboxes_vbpx_update = 'vagrant box update ' \
+cmd_vboxes_vbox_update = 'vagrant box update ' \
   '--box %<base_user>s/%<base_repo>s'
 
 cmd_vboxes_packer = 'cd packer && ' \
@@ -42,7 +42,7 @@ namespace :vboxes do
           desc 'Update docker base image'
           task :update do
             @commands << format(
-              cmd_vboxes_vbpx_update,
+              cmd_vboxes_vbox_update,
               base_repo: vboxes[vbox]['base_repo'],
               base_user: vboxes[vbox]['base_user']
             )
