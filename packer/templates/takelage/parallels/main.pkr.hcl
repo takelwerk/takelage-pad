@@ -1,7 +1,7 @@
 source "vagrant" "takelage" {
   communicator       = "ssh"
   output_dir         = "images/pvm/${var.target_user}-${var.target_repo}"
-  output_vagrantfile = "vagrantfile/vagrantfile.rb"
+  output_vagrantfile = "vagrantfile/parallels/vagrantfile.rb"
   provider           = "parallels"
   source_path        = "${var.base_user}/${var.base_repo}"
 }
@@ -19,6 +19,10 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -S -E bash -eux '{{ .Path }}'"
-    scripts         = ["${var.packer_template_dir}/bin/ssh.sh"]
+    scripts         = [
+      "${var.packer_template_dir}/bin/ssh.sh",
+      "${var.packer_template_dir}/bin/cleanup.sh",
+      "${var.packer_template_dir}/bin/minimize.sh",
+    ]
   }
 }
