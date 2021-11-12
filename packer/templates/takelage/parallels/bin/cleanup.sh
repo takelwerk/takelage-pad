@@ -25,18 +25,6 @@ dpkg --list \
     | grep -- '-dev\(:[a-z0-9]\+\)\?$' \
     | xargs apt-get -y purge;
 
-echo "remove X11 libraries"
-apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6;
-
-echo "remove obsolete networking packages"
-apt-get -y purge ppp pppconfig pppoeconf;
-
-echo "remove popularity-contest package"
-apt-get -y purge popularity-contest;
-
-echo "remove installation-report package"
-apt-get -y purge installation-report;
-
 echo "autoremoving packages and cleaning apt data"
 apt-get -y autoremove;
 apt-get -y clean;

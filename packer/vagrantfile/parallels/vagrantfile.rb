@@ -7,7 +7,6 @@ Vagrant.configure(2) do |config|
     vb.name = 'takelpad'
     vb.memory = 1024
     vb.cpus = 1
-    vb.gui = false
   end
   config.vm.provision 'shell', run: 'always', inline: <<-SHELL
     /usr/local/bin/takelpad --summary
