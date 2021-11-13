@@ -19,6 +19,10 @@ build {
 
   provisioner "shell" {
     execute_command = "echo 'vagrant' | {{ .Vars }} sudo -S -E bash -eux '{{ .Path }}'"
-    scripts         = ["${var.packer_template_dir}/bin/ssh.sh"]
+    scripts         = [
+      "${var.packer_template_dir}/bin/ssh.sh",
+      "${var.packer_template_dir}/bin/cleanup.sh",
+      "${var.packer_template_dir}/bin/minimize.sh",
+    ]
   }
 }
