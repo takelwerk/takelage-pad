@@ -13,6 +13,7 @@ cmd_vagrantup_push = 'cd packer && ' \
     '%<provider>s ' \
     'images/%<image_name>s/%<target_user>s-%<target_repo>s/package.box'
 
+# rubocop:disable Metrics/BlockLength
 namespace :vagrantup do
   desc 'Log in to app.vagrantup.com'
   task :login do
@@ -25,7 +26,7 @@ namespace :vagrantup do
         pvm = project_pvm.first
         namespace pvm.to_sym do
           next unless @project['pvms'][pvm].key?('target_user') &&
-            @project['pvms'][pvm].key?('target_repo')
+                      @project['pvms'][pvm].key?('target_repo')
 
           target_user = @project['pvms'][pvm]['target_user']
           target_repo = @project['pvms'][pvm]['target_repo']
@@ -53,7 +54,7 @@ namespace :vagrantup do
         vbox = project_vbox.first
         namespace vbox.to_sym do
           next unless @project['vboxes'][vbox].key?('target_user') &&
-            @project['vboxes'][vbox].key?('target_repo')
+                      @project['vboxes'][vbox].key?('target_repo')
 
           target_user = @project['vboxes'][vbox]['target_user']
           target_repo = @project['vboxes'][vbox]['target_repo']
@@ -75,3 +76,4 @@ namespace :vagrantup do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
