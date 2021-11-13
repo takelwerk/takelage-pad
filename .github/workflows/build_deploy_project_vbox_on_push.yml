@@ -23,4 +23,4 @@ jobs:
         run: rake vboxes:project:build
 
       - name: Push vagrant box
-        run: ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }} rake vagrantup:project:push
+        run: ATLAS_TOKEN=${{ secrets.ATLAS_TOKEN }} rake vagrantup:virtualbox:project:push
