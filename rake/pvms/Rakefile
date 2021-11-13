@@ -39,7 +39,7 @@ namespace :pvms do
     namespace pvm.to_sym do |env|
       subtasks(env.scope.path) do
         if @project['pvms'][pvm].key?('base_user') &&
-          @project['pvms'][pvm].key?('base_repo')
+           @project['pvms'][pvm].key?('base_repo')
           desc 'Update docker base image'
           task :update do
             @commands << format(
@@ -58,9 +58,7 @@ namespace :pvms do
         target_repo = @project['pvms'][pvm]['target_repo']
         target_version = @project['version']
         ansible_playbook = 'playbook-site.yml'
-        if @project['pvms'][pvm].key?('ansible_playbook')
-          ansible_playbook = @project['pvms'][pvm]['ansible_playbook']
-        end
+        ansible_playbook = @project['pvms'][pvm]['ansible_playbook'] if @project['pvms'][pvm].key?('ansible_playbook')
         ansible_ssh_legacy = '-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedAlgorithms=+ssh-rsa'
         packer_template_dir = pvms[pvm]['packer_template_dir'] || default_packer_template_dir
 
