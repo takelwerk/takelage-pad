@@ -1,3 +1,14 @@
 #!/bin/bash
 
-gopass "$@"
+# suppress "You haven't checked for updates in a while."
+gopass version > /dev/null 2>&1
+
+# if the first parameter is "show"
+if [ "$1" == "show" ]
+then
+  # insert a "--password" to print only the password
+  gopass show --password "${@:2}"
+else
+  # call gopass with all parameters unmodified
+  gopass "$@"
+fi
