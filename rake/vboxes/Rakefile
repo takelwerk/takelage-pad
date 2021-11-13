@@ -5,7 +5,8 @@ require 'rake'
 default_packer_template_dir = 'templates/takelage/virtualbox'
 
 cmd_vboxes_vbox_update = 'vagrant box update ' \
-  '--box %<base_user>s/%<base_repo>s'
+  '--box %<base_user>s/%<base_repo>s ' \
+  '--provider virtualbox'
 
 cmd_vboxes_packer = 'cd packer && ' \
   'mkdir -p images/vbox && ' \
