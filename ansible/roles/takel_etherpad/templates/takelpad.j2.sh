@@ -12,16 +12,10 @@ IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 echo "takelpad ip address: $IP_ETHERPAD"
 
 echo
-echo "example pad urls (password, de):"
-gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep / --xkcdlang de | parallel echo https://$IP_ETHERPAD/etherpad/p/{/}
-echo
-echo "example pad urls (password, en):"
-gopass pwgen --ambiguous --one-per-line --xkcd --xkcdsep / --xkcdlang en | parallel echo https://$IP_ETHERPAD/etherpad/p/{/}
-echo
-echo "example pad urls (passphrase, de):"
+echo "example pad urls (de):"
 gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
 echo
-echo "example pad urls (passphrase, en):"
+echo "example pad urls (en):"
 gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
 
 if [ "$1" != "--summary" ]; then
