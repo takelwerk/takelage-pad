@@ -6,7 +6,7 @@ takel_gopass_deb_preinstall_packages:
 takel_gopass_deb_install_packages:
   - gopass
 
-takel_gopass_version: '1.12.8'
+takel_gopass_version: '1.13.0'
 takel_gopass_deb: gopass_{{ takel_gopass_version }}_linux_amd64.deb
 takel_gopass_tmp: "/tmp/{{ takel_gopass_deb }}"
 takel_gopass_url: >-

@@ -2,6 +2,7 @@
 takel_base_deb_install_packages:
   - apt-transport-https
   - aptitude
+  - bat
   - ca-certificates
   - curl
   - gnupg
