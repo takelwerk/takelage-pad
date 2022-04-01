@@ -46,6 +46,7 @@
   git:
     repo: "{{ takel_etherpad_repo }}"
     dest: "{{ takel_etherpad_lib }}"
+    version: "{{ takel_etherpad_repo_version }}"
   register: git_clone_etherpad_lite
   when: >
     not etherpad_lib_git.stat.exists or
