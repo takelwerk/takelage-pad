@@ -1,1 +1,1 @@
-Update hg repos
+Add .hgignore

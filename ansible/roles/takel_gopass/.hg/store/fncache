@@ -14,3 +14,4 @@ data/defaults/main.yml.i
 data/templates/pass.j2.i
 data/tasks/completion.yml.i
 data/molecule/default/tests/test_takel_gopass_completion.py.i
+data/.hgignore.i

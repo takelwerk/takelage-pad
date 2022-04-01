@@ -21,3 +21,4 @@ data/molecule/default/tests/__pycache__/test_takel_nodejs_completion.cpython-39-
 data/molecule/default/tests/__pycache__/test_takel_nodejs_preinstall.cpython-39-pytest-6.2.5.pyc.i
 data/molecule/default/tests/__pycache__/test_takel_nodejs_install.cpython-39-pytest-6.2.5.pyc.i
 data/molecule/default/tests/__pycache__/test_takel_nodejs_repository.cpython-39-pytest-6.2.5.pyc.i
+data/.hgignore.i

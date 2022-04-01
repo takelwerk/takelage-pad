@@ -1,1 +1,1 @@
-Fix repository url (https://github.blog/changelog/2022-03-15-removed-unencrypted-git-protocol-and-certain-ssh-keys)
+Add version of etherpad; switch fastRun.sh; Refactor dependency installation

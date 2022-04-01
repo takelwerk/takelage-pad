@@ -6,3 +6,8 @@ data/templates/vimrc.j2.i
 data/templates/bash_takel.j2.i
 data/tasks/create.yml.i
 data/tasks/main.yml.i
+data/files/bashrc.i
+data/files/bash_aliases.i
+data/files/profile.i
+data/files/vimrc.i
+data/tasks/bashrc.yml.i
