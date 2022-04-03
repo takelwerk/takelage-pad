@@ -52,3 +52,7 @@ takel_etherpad_systemd_service_list:
       {{ takel_etherpad_bin }}/etherpad-admin-password-dice &&
       /usr/bin/pkill -f 'node
       {{ takel_etherpad_lib }}/node_modules/ep_etherpad-lite/node/server.js'"
+    restart: on-failure
+    StartLimitIntervalSec: 10
+    RestartSec: 30
+    StartLimitBurst: 3

@@ -10,6 +10,10 @@ Requires={{ service }}
 After={{ service }}
 {% endfor %}
 {% endif %}
+{% if item.StartLimitIntervalSec is defined %}
+StartLimitIntervalSec={{ item.StartLimitIntervalSec }}
+{% endif %}
+
 
 [Service]
 Type={{ item.type }}
@@ -40,6 +44,12 @@ TimeoutSec={{ item.timeout_sec | default(60) }}
 RestartSec={{ item.restart_sec | default(60) }}
 {% if item.restart is defined %}
 Restart={{ item.restart }}
+{% endif %}
+{% if item.RestartSec is defined %}
+RestartSec={{ item.RestartSec }}
+{% endif %}
+{% if item.StartLimitBurst is defined %}
+StartLimitBurst={{ item.StartLimitBurst }}
 {% endif %}
 
 [Install]
