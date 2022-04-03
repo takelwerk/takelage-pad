@@ -1,1 +1,1 @@
-Add version of etherpad; switch fastRun.sh; Refactor dependency installation
+Update hg repos
