@@ -29,7 +29,6 @@
   "suppressErrorsInPadText": false,
   "requireSession": false,
   "editOnly": false,
-  "sessionNoPassword": false,
   "minify": true,
   "maxAge": 21600,
   "abiword": "/usr/bin/abiword",
