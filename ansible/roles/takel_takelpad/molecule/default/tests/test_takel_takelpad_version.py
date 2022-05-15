@@ -13,4 +13,4 @@ def test_takel_takelpad_version_file(host, testvars):
         assert file.user == 'root'
         assert file.group == 'root'
         assert file.mode == 0o644
-        assert version == file.content_string
+        assert version == file.content_string.rstrip("\n")
