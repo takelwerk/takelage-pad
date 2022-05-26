@@ -55,4 +55,9 @@
         }
       ]
     }
+  {
+    "socketIo": {
+      "maxHttpBufferSize": 10000
+    }
+  }
 }
