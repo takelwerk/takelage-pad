@@ -48,16 +48,14 @@
   "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
   "loadTest": false,
   "loglevel": "ERROR",
-  "logconfig":
-    { "appenders": [
+  "logconfig": {
+    "appenders": [
         {
           "type": "console"
         }
-      ]
-    }
-  {
-    "socketIo": {
-      "maxHttpBufferSize": 100000
-    }
+    ]
+  }
+  "socketIo": {
+    "maxHttpBufferSize": 100000
   }
 }
