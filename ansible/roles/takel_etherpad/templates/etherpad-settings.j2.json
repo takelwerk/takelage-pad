@@ -50,12 +50,9 @@
   "loglevel": "ERROR",
   "logconfig": {
     "appenders": [
-        {
-          "type": "console"
-        }
+      {
+        "type": "console"
+      }
     ]
-  }
-  "socketIo": {
-    "maxHttpBufferSize": 100000
   }
 }
