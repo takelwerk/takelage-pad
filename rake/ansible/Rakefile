@@ -60,7 +60,7 @@ namespace :ansible do
       env_command = "TAKELAGE_PROJECT_COMMAND=#{image['command']} " if image.key?('command')
 
       begin
-        unique = ENV['HOSTNAME'][-11..-1]
+        unique = ENV['HOSTNAME'][-11..]
       rescue StandardError
         unique = 'nonunique'
       end
