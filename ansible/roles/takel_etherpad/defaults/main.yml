@@ -23,7 +23,7 @@ takel_etherpad_lib: "{{ takel_etherpad_home }}/lib"
 takel_etherpad_run: "{{ takel_etherpad_lib }}/src/bin/fastRun.sh"
 takel_etherpad_shell: /bin/bash
 takel_etherpad_repo: https://github.com/ether/etherpad-lite.git
-takel_etherpad_repo_version: 1.8.17
+takel_etherpad_repo_version: 1.8.18
 
 takel_etherpad_port: 9001
 
