@@ -23,4 +23,4 @@ def test_takel_nodejs_repository_apt_repository(host, testvars):
     file = f"/etc/apt/sources.list.d/{repository_filename}.list"
     sources_list = host.file(file)
 
-    assert nodejs_repository == sources_list.content_string
+    assert nodejs_repository == sources_list.content_string.rstrip("\n")

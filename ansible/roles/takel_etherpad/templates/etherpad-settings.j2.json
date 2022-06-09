@@ -48,11 +48,11 @@
   "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
   "loadTest": false,
   "loglevel": "ERROR",
-  "logconfig":
-    { "appenders": [
-        {
-          "type": "console"
-        }
-      ]
-    }
+  "logconfig": {
+    "appenders": [
+      {
+        "type": "console"
+      }
+    ]
+  }
 }

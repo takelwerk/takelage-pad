@@ -81,7 +81,7 @@ namespace :images do
           # more than one layer
           namespace :build do
             namespace :to do
-              layers[0..-1].each_with_index do |layer, index|
+              layers[0..].each_with_index do |layer, index|
                 number = index.next.to_s.rjust(2, '0')
                 dependencies = []
                 remove_last_layer = nil
@@ -99,11 +99,11 @@ namespace :images do
             end
 
             namespace :from do
-              layers[0..-1].each_with_index do |layer, index|
+              layers[0..].each_with_index do |layer, index|
                 number = index.next.to_s.rjust(2, '0')
                 dependencies = []
                 remove_last_layer = nil
-                layers[0..-1].each_with_index do |sublayer, subindex|
+                layers[0..].each_with_index do |sublayer, subindex|
                   next if index >= subindex
 
                   subnumber = subindex.next.to_s.rjust(2, '0')
@@ -204,7 +204,7 @@ namespace :images do
             env_command = "TAKELAGE_PROJECT_COMMAND='#{images[image]['command']}' " if images[image].key?('command')
 
             begin
-              unique = ENV['HOSTNAME'][-11..-1]
+              unique = ENV['HOSTNAME'][-11..]
             rescue StandardError
               unique = 'nonunique'
             end
