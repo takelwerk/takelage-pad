@@ -46,6 +46,9 @@
     }
   },
   "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
+  "socketIo": {
+    "maxHttpBufferSize": 1000000
+  },
   "loadTest": false,
   "loglevel": "ERROR",
   "logconfig": {
