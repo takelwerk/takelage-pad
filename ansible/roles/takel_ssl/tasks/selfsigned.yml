@@ -17,7 +17,7 @@
     organization_name: "{{ takel_ssl_organization_name }}"
     common_name: "{{ takel_ssl_common_name }}"
     subject_alt_name: >-
-      {{ item.value|map('regex_replace', '^', 'DNS:') | list }}
+      {{ item.value | map('regex_replace', '^', 'DNS:') | list }}
   loop: "{{ takel_ssl_var_subject_alt_name | dict2items }}"
 
 - name: (selfsigned) generate a self-signed ssl certificate
