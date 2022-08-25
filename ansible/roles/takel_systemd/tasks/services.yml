@@ -10,10 +10,10 @@
     - reload daemon
     - enable services
 
-- name: (services) fetch changed services  # noqa 503 (no-handler)
+- name: (services) fetch changed services  # noqa no-handler
   set_fact:
     takel_systemd_handler_services_list: >-
-       {{ takel_systemd_handler_services_list + [ item['dest'] | basename ] }}
+       {{ takel_systemd_handler_services_list + [item['dest'] | basename] }}
   loop: "{{ new_installed_services['results'] }}"
   when:
     - item['changed'] is defined

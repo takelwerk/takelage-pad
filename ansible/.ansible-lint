@@ -2,6 +2,7 @@
 skip_list:
   - command-instead-of-module
   - command-instead-of-shell  # Use shell only when shell functionality is required.
-  - no-changed-when  # Commands should not change things if nothing needs doing.
-  - git-latest
   - fqcn-builtins
+  - git-latest
+  - name[casing]  # All names should start with an uppercase letter.
+  - no-changed-when  # Commands should not change things if nothing needs doing.
