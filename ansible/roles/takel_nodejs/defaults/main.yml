@@ -9,7 +9,7 @@ takel_nodejs_deb_install_packages:
 takel_nodejs_repository_key: >-
   https://deb.nodesource.com/gpgkey/nodesource.gpg.key
 takel_nodejs_repository_filename: nodejs
-takel_nodejs_repository_version: 16
+takel_nodejs_repository_version: 17
 takel_nodejs_repository_codename: bullseye
 takel_nodejs_repository_url: >-
   https://deb.nodesource.com/node_{{ takel_nodejs_repository_version }}.x
