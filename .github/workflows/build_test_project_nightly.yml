@@ -49,3 +49,11 @@ jobs:
 
       - name: Test takelage project image
         run: tau docker container command "rake images:project:molecule:test"
+
+      - name: Test takelage project image
+        uses: nick-fields/retry@v2
+        with:
+          timeout_minutes: 5
+          max_attempts: 5
+          retry_on: error
+          command: tau docker container command "rake images:project:molecule:test"
