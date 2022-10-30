@@ -45,7 +45,7 @@ jobs:
         run: tau docker container command "rake images:project:molecule:lint"
 
       - name: Build takelage project image with packer
-        run: tau docker container command "rake images:project:
+        run: tau docker container command "rake images:project:build"
 
       - name: Test takelage project image
         uses: nick-fields/retry@v2
