@@ -1,0 +1,51 @@
+[Match]
+{% if item.match.name is defined %}
+Name={{ item.match.name }}
+{% endif %}
+{% if item.match.mac is defined %}
+MACAddress={{ item.match.mac }}
+{% endif %}
+{% if item.match.permanent_mac is defined %}
+PermanentMACAddress={{ item.match.permanent_mac }}
+{% endif %}
+{% if item.match.path is defined %}
+Path={{ item.match.path }}
+{% endif %}
+
+[Network]
+{% if item.descripton is defined %}
+Description={{ item.descripton }}
+{% endif %}
+
+{% if item.dhcp is defined  and item.dhcp == true %}
+DHCP={{ item.dhcp }}
+{% endif %}
+{% if item.addresses is defined %}
+{% for address in item.addresses %}
+Address={{ address.ip }}
+{% if address.gateway is defined %}
+Gateway={{ address.gateway }}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if item.dns is defined %}
+{% for dns in item.dns %}
+DNS={{ dns }}
+{% endfor %}
+{% endif %}
+
+{% if item.domains is defined %}
+Domains={{ item.domains | list | join(' ') }}
+{% endif %}
+
+{% if item.routes is defined %}
+{% for route in item.routes %}
+[Route]
+Destination={{ route.destination }}
+Gateway={{ route.gateway }}
+{% if route.metric is defined %}
+Metric={{ route.metric }}
+{% endif %}
+{% endfor %}
+{% endif %}

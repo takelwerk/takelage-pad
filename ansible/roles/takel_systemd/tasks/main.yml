@@ -1,24 +1,31 @@
 ---
 - name: (main) set default
-  set_fact:
+  ansible.builtin.set_fact:
     takel_systemd_handler_services_list: []
 
+- name: (main) include networkd tasks
+  ansible.builtin.import_tasks: networkd.yml
+  tags:
+    - takel
+    - takel_systemd
+    - takel_systemd_networkd
+
 - name: (main) include services tasks
-  import_tasks: services.yml
+  ansible.builtin.import_tasks: services.yml
   tags:
     - takel
     - takel_systemd
     - takel_systemd_services
 
 - name: (main) include timer tasks
-  import_tasks: timer.yml
+  ansible.builtin.import_tasks: timer.yml
   tags:
     - takel
     - takel_systemd
     - takel_systemd_timer
 
 - name: (main) include env tasks
-  import_tasks: env.yml
+  ansible.builtin.import_tasks: env.yml
   tags:
     - takel
     - takel_systemd

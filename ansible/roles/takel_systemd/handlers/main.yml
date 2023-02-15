@@ -1,12 +1,38 @@
 ---
-- name: reload daemon
-  systemd:
+- name: Reload daemon
+  ansible.builtin.systemd:
     daemon_reload: true
     force: true
 
-- name: enable services
-  systemd:
+- name: Enable services
+  ansible.builtin.systemd:
     name: "{{ item }}"
     enabled: true
     force: true
   loop: "{{ takel_systemd_handler_services_list }}"
+
+- name: Activate systemd-networkd
+  ansible.builtin.systemd:
+    name: systemd-networkd
+    enabled: true
+    force: true
+
+- name: Activate systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    enabled: true
+    force: true
+  notify: Remove /etc/resolv.conf
+
+- name: Remove /etc/resolv.conf
+  ansible.builtin.file:
+    path: /etc/resolv.conf
+    state: absent
+  notify: Create symlink /etc/resolv.conf
+
+- name: Create symlink /etc/resolv.conf
+  ansible.builtin.file:
+    path: /etc/resolv.conf
+    src: /run/systemd/resolve/stub-resolv.conf
+    state: link
+    force: true

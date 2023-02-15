@@ -1,0 +1,17 @@
+---
+- name: (networkd) copy systemd network files
+  ansible.builtin.template:
+    src: networkd_network_template.j2
+    dest: "/etc/systemd/network/{{ item.priorty }}-{{ item.name }}.network"
+    mode: 0644
+  loop: "{{ takel_systemd_network_list }}"
+  notify:
+    - Reload daemon
+    - Activate systemd-networkd
+
+- name: (networkd) activate systemd-resolved
+  ansible.builtin.systemd:
+    name: systemd-resolved
+    state: started
+  when: takel_systemd_network_systemd_resolved
+  notify: Activate systemd-resolved

@@ -17,6 +17,9 @@ OnUnitActiveSec={{ item.timer.on_unit_active_sec }}
 {% if item.timer.on_unit_inactive_sec is defined and item.timer.on_unit_inactive_sec %}
 OnUnitInactiveSec={{ item.timer.on_unit_inactive_sec }}
 {% endif %}
+{% if item.timer.OnCalendar is defined and item.timer.OnCalendar %}
+OnCalendar={{ item.timer.OnCalendar }}
+{% endif %}
 Unit={{ item.service }}
 {% if item.persistent is defined and item.persistent != "" %}
 Persistent={{ item.persistent }}
