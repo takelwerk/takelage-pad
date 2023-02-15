@@ -51,6 +51,16 @@ variable "packer_command" {
   default = "/usr/bin/tail -f /dev/null"
 }
 
+variable "entrypoint" {
+  type = string
+  default = "[]"
+}
+
+variable "workdir" {
+  type    = string
+  default = "/root"
+}
+
 variable "command" {
   type = string
   default = "/usr/bin/tail -f /dev/null"

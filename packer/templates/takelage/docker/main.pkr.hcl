@@ -6,10 +6,11 @@ source "docker" "takelage" {
   run_command = "${local.run_command}"
   changes = [
     "CMD ${var.command}",
+    "ENTRYPOINT ${var.entrypoint}",
     "ENV DEBIAN_FRONTEND=noninteractive",
     "ENV LANG=en_US.UTF-8",
     "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-    "WORKDIR /root"
+    "WORKDIR ${var.workdir}"
   ]
 }
 
