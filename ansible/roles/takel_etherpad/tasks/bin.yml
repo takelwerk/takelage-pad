@@ -5,7 +5,7 @@
     state: directory
     owner: etherpad
     group: etherpad
-    mode: 0755
+    mode: '0755'
 
 - name: (bin) copy scripts
   template:
@@ -13,7 +13,7 @@
     dest: "{{ takel_etherpad_bin }}/{{ item }}"
     owner: etherpad
     group: etherpad
-    mode: 0755
+    mode: '0755'
   loop:
     - etherpad-admin-password-dice
     - etherpad-admin-password-get

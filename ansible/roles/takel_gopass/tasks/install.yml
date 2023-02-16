@@ -21,4 +21,4 @@
     dest: /usr/local/bin/pass
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'

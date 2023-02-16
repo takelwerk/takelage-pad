@@ -10,4 +10,4 @@ def test_takel_systemd_services_files_exists(host, testvars):
         assert host.file(expected_path).is_file
         assert host.file(expected_path).user == 'root'
         assert host.file(expected_path).group == 'root'
-        assert host.file(expected_path).mode == 0o0644
+        assert host.file(expected_path).mode == 0o'0644'

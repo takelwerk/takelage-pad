@@ -14,8 +14,8 @@ takel_ssl_key_file: ssl.key
 takel_ssl_csr_file: ssl.csr
 takel_ssl_owner: root
 takel_ssl_group: root
-takel_ssl_mode_nonkey: 0644
-takel_ssl_mode_key: 0644  # consider 0600
+takel_ssl_mode_nonkey: '0644'
+takel_ssl_mode_key: '0644'  # consider 0600
 
 takel_ssl_common_name: takelage
 takel_ssl_country_name: DE

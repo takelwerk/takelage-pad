@@ -3,7 +3,7 @@
   template:
     src: systemd_template.timer.j2
     dest: "/etc/systemd/system/{{ item.name }}.timer"
-    mode: 0644
+    mode: '0644'
   loop: "{{ takel_systemd_timer_list }}"
   register: new_installed_timer
   notify:

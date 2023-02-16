@@ -5,7 +5,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
 
 - name: (completion) generate gopass bash autocompletion
   shell: "gopass completion bash > {{ takel_gopass_bash_completion }}"
