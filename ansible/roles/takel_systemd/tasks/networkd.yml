@@ -6,12 +6,12 @@
     mode: '0644'
   loop: "{{ takel_systemd_network_list }}"
   notify:
-    - Reload daemon
-    - Activate systemd-networkd
+    - reload daemon
+    - activate systemd-networkd
 
 - name: (networkd) activate systemd-resolved
   ansible.builtin.systemd:
     name: systemd-resolved
     state: started
   when: takel_systemd_network_systemd_resolved
-  notify: Activate systemd-resolved
+  notify: activate systemd-resolved
