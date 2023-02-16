@@ -58,5 +58,7 @@ jobs:
 
       - name: Tag and push image
         run: |
-          tau docker container command "rake dockerhub:project:tag"
-          tau docker container command "rake dockerhub:project:push"
+          tau docker container command "rake dockerhub:project:tag:latest"
+          tau docker container command "rake dockerhub:project:push:latest"
+          tau docker container command "rake dockerhub:project:tag:version"
+          tau docker container command "rake dockerhub:project:push:version"
