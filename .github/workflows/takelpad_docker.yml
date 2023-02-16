@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  takelpad docker:
+  takelpad-docker:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     steps:
