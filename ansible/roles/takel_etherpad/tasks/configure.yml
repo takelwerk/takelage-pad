@@ -5,7 +5,7 @@
     dest: "{{ takel_etherpad_lib }}/settings.json"
     owner: etherpad
     group: etherpad
-    mode: 0640
+    mode: '0640'
   notify: restart etherpad
   tags:
     - molecule-idempotence-notest
