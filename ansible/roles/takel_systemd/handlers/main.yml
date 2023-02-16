@@ -10,7 +10,7 @@
     name: "{{ item }}"
     enabled: true
     force: true
-  listen: enable sevices
+  listen: enable services
   loop: "{{ takel_systemd_handler_services_list }}"
 
 - name: (handler) activate systemd-networkd

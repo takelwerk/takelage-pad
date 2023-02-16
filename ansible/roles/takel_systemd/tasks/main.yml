@@ -4,28 +4,28 @@
     takel_systemd_handler_services_list: []
 
 - name: (main) include networkd tasks
-  ansible.builtin.import_tasks: networkd.yml
+  ansible.builtin.include_tasks: networkd.yml
   tags:
     - takel
     - takel_systemd
     - takel_systemd_networkd
 
 - name: (main) include services tasks
-  ansible.builtin.import_tasks: services.yml
+  ansible.builtin.include_tasks: services.yml
   tags:
     - takel
     - takel_systemd
     - takel_systemd_services
 
 - name: (main) include timer tasks
-  ansible.builtin.import_tasks: timer.yml
+  ansible.builtin.include_tasks: timer.yml
   tags:
     - takel
     - takel_systemd
     - takel_systemd_timer
 
 - name: (main) include env tasks
-  ansible.builtin.import_tasks: env.yml
+  ansible.builtin.include_tasks: env.yml
   tags:
     - takel
     - takel_systemd
