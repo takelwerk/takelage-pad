@@ -20,7 +20,7 @@
     dest: "{{ item.sys_home }}/.my.cnf"
     owner: "{{ item.sys_user }}"
     group: "{{ item.sys_group }}"
-    mode: 0600
+    mode: '0600'
   loop: "{{ takel_mysql_user_my_cnf | default([]) }}"
   notify: restart mysql
   no_log: true
