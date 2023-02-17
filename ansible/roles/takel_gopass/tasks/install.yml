@@ -3,6 +3,7 @@
   get_url:
     url: "{{ takel_gopass_url }}"
     dest: "{{ takel_gopass_tmp }}"
+    mode: '0755'
   changed_when: false
 
 - name: (install) install gopass debian package
