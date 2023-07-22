@@ -12,6 +12,10 @@ cmd_images_docker_pull_no_repo = 'docker pull ' \
 
 cmd_images_docker_remove = 'docker image remove %<image>s'
 
+cmd_images_molecule_lint = \
+  'bash -c ' \
+  "'cd ansible && set -e && yamllint . && ansible-lint . && flake8'"
+
 cmd_images_molecule = \
   '%<env_command>s' \
   'TAKELAGE_UNIQUE=%<unique>s ' \
@@ -43,7 +47,6 @@ cmd_images_packer =
 jobs = \
   %i[converge
      destroy
-     lint
      login
      test
      verify]
@@ -237,6 +240,10 @@ namespace :images do
                   unique: unique
                 )
               end
+            end
+            desc "Lint image #{image}"
+            task :lint do
+              @commands << cmd_images_molecule_lint
             end
           end
         end

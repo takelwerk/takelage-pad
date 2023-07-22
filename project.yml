@@ -1,6 +1,6 @@
 ---
 name: takelage-pad
-version: 0.10.23
+version: 0.11.0
 
 local_user: packer_local
 
@@ -11,7 +11,8 @@ images:
     base_tag: latest
     target_user: takelwerk
     target_repo: takelpad
-    command: /lib/systemd/systemd
+    command:
+      - /lib/systemd/systemd
     packer_command: /lib/systemd/systemd
     privileged: true
     layers:
