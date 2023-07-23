@@ -13,6 +13,7 @@ takel_base_deb_install_packages:
   - locales
   - parallel
   - procps
+  - python3-jmespath
   - rsync
   - rsyslog
   - tmux

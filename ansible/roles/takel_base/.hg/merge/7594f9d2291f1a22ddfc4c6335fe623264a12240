@@ -1,0 +1,13 @@
+---
+- name: (configure) copy locale file
+  ansible.builtin.template:
+    src: locale.j2
+    dest: /etc/default/locale
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: (configure) generate locales
+  community.general.locale_gen:
+    name: "{{ item }}"
+  loop: "{{ takel_base_locales }}"

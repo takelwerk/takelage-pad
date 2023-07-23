@@ -1,5 +1,5 @@
 ---
-- name: default
+- name: (molecule) converge
   hosts: all
   roles:
     - takel_base
