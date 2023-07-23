@@ -5,6 +5,7 @@ takel_nodejs_deb_preinstall_packages:
 
 takel_nodejs_deb_install_packages:
   - nodejs
+  - npm
 
 takel_nodejs_repository_key: >-
   https://deb.nodesource.com/gpgkey/nodesource.gpg.key
