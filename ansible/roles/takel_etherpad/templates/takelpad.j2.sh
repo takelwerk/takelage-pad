@@ -9,7 +9,10 @@ fi
 echo "$HEADER | for details run: vagrant ssh -c takelpad"
 
 if [ ! -z "$1" ]; then
-  IP_ETHERPAD="$1"
+  if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    IP_ETHERPAD="$1"
+    shift
+  fi
 else
   IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
 fi

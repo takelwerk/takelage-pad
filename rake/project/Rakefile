@@ -12,7 +12,6 @@ namespace :project do
                    images:project:update
                    images:project:build
                    images:project:molecule:test
-                   git:tag
                    dockerhub:project:tag:latest:arm64
                    dockerhub:project:tag:version:arm64
                    dockerhub:project:push:latest:arm64
@@ -30,7 +29,6 @@ namespace :project do
                    images:project:update
                    images:project:build
                    images:project:molecule:test
-                   git:tag
                    dockerhub:project:tag:latest:amd64
                    dockerhub:project:tag:version:amd64
                    dockerhub:project:push:latest:amd64
