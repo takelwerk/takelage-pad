@@ -1,0 +1,46 @@
+# frozen_string_literal: true
+
+require 'rake'
+
+# rubocop:disable Metrics/BlockLength
+namespace :project do
+  namespace :docker do
+    desc 'Create and deploy takelpad arm64 image to dockerhub'
+    task arm64: %w[git:warn
+                   rubylint
+                   images:project:molecule:lint
+                   images:project:update
+                   images:project:build
+                   images:project:molecule:test
+                   git:tag
+                   dockerhub:project:tag:latest:arm64
+                   dockerhub:project:tag:version:arm64
+                   dockerhub:project:push:latest:arm64
+                   dockerhub:project:push:version:arm64
+                   dockerhub:project:pull:latest:amd64
+                   dockerhub:project:pull:version:amd64
+                   dockerhub:project:manifest:create:latest
+                   dockerhub:project:manifest:push:latest
+                   dockerhub:project:manifest:create:version
+                   dockerhub:project:manifest:push:version]
+    desc 'Create and deploy takelpad amd64 image to dockerhub'
+    task amd64: %w[git:warn
+                   rubylint
+                   images:project:molecule:lint
+                   images:project:update
+                   images:project:build
+                   images:project:molecule:test
+                   git:tag
+                   dockerhub:project:tag:latest:amd64
+                   dockerhub:project:tag:version:amd64
+                   dockerhub:project:push:latest:amd64
+                   dockerhub:project:push:version:amd64
+                   dockerhub:project:pull:latest:arm64
+                   dockerhub:project:pull:version:arm64
+                   dockerhub:project:manifest:create:latest
+                   dockerhub:project:manifest:push:latest
+                   dockerhub:project:manifest:create:version
+                   dockerhub:project:manifest:push:version]
+  end
+end
+# rubocop:enable Metrics/BlockLength

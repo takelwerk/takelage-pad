@@ -8,7 +8,11 @@ fi
 
 echo "$HEADER | for details run: vagrant ssh -c takelpad"
 
-IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
+if [ ! -z "$1" ]; then
+  IP_ETHERPAD="$1"
+else
+  IP_ETHERPAD=$(ip --json address | jq -r '.[-1].addr_info[0].local')
+fi
 echo "takelpad ip address: $IP_ETHERPAD"
 
 echo
