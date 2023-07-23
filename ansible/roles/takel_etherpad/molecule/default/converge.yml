@@ -3,5 +3,4 @@
   hosts: all
   roles:
     - takel_mysql
-    - takel_nodejs
     - takel_etherpad
