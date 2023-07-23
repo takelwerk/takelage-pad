@@ -9,6 +9,8 @@ takel_etherpad_deb_install_packages:
   - jq
   - libssl-dev
   - moreutils
+  - nodejs
+  - npm
   - pkg-config
   - pwgen
   - python3-minimal
