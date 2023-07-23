@@ -27,6 +27,7 @@ cmd_images_molecule = \
   "'cd ansible && molecule %<job>s --scenario-name image'"
 
 cmd_images_packer =
+  'MUTAGEN=$(lastversion https://github.com/mutagen-io/mutagen) && ' \
   'cd packer && ' \
   'packer build ' \
   "-var='ansible_playbook=%<playbook>s' " \
@@ -35,6 +36,7 @@ cmd_images_packer =
   "-var='base_user=%<base_user>s' " \
   "-var='base_tag=%<base_tag>s' " \
   "-var='local_user=%<local_user>s' " \
+  '-var="mutagen=$MUTAGEN" ' \
   "-var='target_repo=%<target_repo>s' " \
   "-var='packer_template_dir='%<packer_template_dir>s'' " \
   '%<var_privileged>s' \
