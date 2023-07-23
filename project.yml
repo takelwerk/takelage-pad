@@ -18,14 +18,6 @@ images:
     layers:
       - site
 
-pvms:
-  project:
-    base_user: takelwerk
-    base_repo: takelbase
-    target_user: takelwerk
-    target_repo: takelpad
-    ansible_playbook: "playbook-site.yml"
-
 vboxes:
   project:
     base_user: takelwerk
