@@ -1,0 +1,16 @@
+---
+- name: (repository) add gopass key
+  ansible.builtin.get_url:
+    url: "{{ takel_gopass_repository_keyring_url }}"
+    dest: "{{ takel_gopass_repository_keyring_path }}"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: (repository) add gopass repo
+  ansible.builtin.copy:
+    content: "{{ takel_gopass_repository_file }}"
+    dest: "/etc/apt/sources.list.d/{{ takel_gopass_repository_filename }}"
+    owner: root
+    group: root
+    mode: '0644'

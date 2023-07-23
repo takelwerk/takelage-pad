@@ -1,6 +1,6 @@
 ---
-- name: converge
+- name: (molecule) converge
   hosts: all
-  gather_facts: false
+  gather_facts: true
   roles:
     - role: takel_gopass

@@ -1,23 +1,12 @@
 ---
-- name: (install) download gopass debian package
-  get_url:
-    url: "{{ takel_gopass_url }}"
-    dest: "{{ takel_gopass_tmp }}"
-    mode: '0755'
-  changed_when: false
-
-- name: (install) install gopass debian package
-  apt:
-    deb: "{{ takel_gopass_tmp }}"
-
-- name: (install) remove gopass debian package
-  file:
-    path: "{{ takel_gopass_tmp }}"
-    state: absent
-  changed_when: false
+- name: (install) install deb packages
+  ansible.builtin.apt:
+    name: "{{ takel_gopass_deb_install_packages }}"
+    state: present
+    update_cache: true
 
 - name: (install) copy pass template
-  template:
+  ansible.builtin.template:
     src: pass.j2
     dest: /usr/local/bin/pass
     owner: root
