@@ -1,16 +1,15 @@
 source "docker" "takelage" {
-  # export_path = "images/docker/${var.target_repo}-${var.target_tag}.tar"
   image = "${var.base_user}/${var.base_repo}:${var.base_tag}"
   commit = true
   pull = false
   run_command = "${local.run_command}"
   changes = [
     "CMD ${var.command}",
-    "ENTRYPOINT ${var.entrypoint}",
     "ENV DEBIAN_FRONTEND=noninteractive",
     "ENV LANG=en_US.UTF-8",
     "ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-    "WORKDIR ${var.workdir}"
+    "LABEL mutagen=${var.mutagen}",
+    "WORKDIR /root"
   ]
 }
 

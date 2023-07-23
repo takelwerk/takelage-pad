@@ -28,6 +28,11 @@ variable "local_user" {
   type = string
 }
 
+variable "mutagen" {
+  type = string
+  default = "invalid"
+}
+
 variable "target_repo" {
   type = string
 }
@@ -49,16 +54,6 @@ variable "privileged" {
 variable "packer_command" {
   type = string
   default = "/usr/bin/tail -f /dev/null"
-}
-
-variable "entrypoint" {
-  type = string
-  default = "[]"
-}
-
-variable "workdir" {
-  type    = string
-  default = "/root"
 }
 
 variable "command" {
