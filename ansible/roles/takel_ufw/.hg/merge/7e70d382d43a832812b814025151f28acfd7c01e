@@ -1,0 +1,49 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: molecule-takel-ufw
+    image: takelwerk/takelbase
+    command: /lib/systemd/systemd
+    privileged: true
+    pre_build_image: true
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      interpreter_python: auto_silent
+  inventory:
+    group_vars:
+      all:
+        takel_ufw_rules:
+          - port: 22
+            proto: tcp
+            rule: allow
+verifier:
+  name: testinfra
+  options:
+    s: true
+  additional_files_or_dirs:
+    - ../system/test_*.py
+scenario:
+  create_sequence:
+    - create
+  check_sequence:
+    - destroy
+    - create
+    - converge
+    - check
+    - destroy
+  converge_sequence:
+    - create
+    - converge
+  destroy_sequence:
+    - destroy
+  test_sequence:
+    - destroy
+    - syntax
+    - create
+    - converge
+    - idempotence
+    - verify
+    - destroy
