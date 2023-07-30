@@ -50,6 +50,9 @@ build:
     # Lint ruby
     - tau docker container command "rake rubylint"
 
+    # Update debian base image
+    - tau docker container command "rake images:project:update"
+
     # Build image with packer
     - tau docker container command "rake images:project:build"
 
