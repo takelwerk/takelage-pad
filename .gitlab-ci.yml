@@ -1,0 +1,76 @@
+default:
+  image: debian:stable-slim
+  services:
+    - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_TLS_VERIFY: 1
+  DOCKER_CERT_PATH: "$DOCKER_TLS_CERTDIR/client"
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    # Install docker and ruby
+    - apt-get update
+    - apt-get --yes install curl gpg
+    - mkdir -m 0755 -p /etc/apt/keyrings
+    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    - echo 'deb [arch=arm64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable' >> /etc/apt/sources.list.d/docker.list
+    - apt-get update
+    - apt-get --yes install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin g++-aarch64-linux-gnu gcc-aarch64-linux-gnu make ruby ruby-dev wget
+
+    # Install and configure tau
+    # Single quotes work around gitlab colon+space yaml problem
+    - gem install takeltau
+    - 'echo "docker_entrypoint_options: --no-git --no-gopass --no-gpg --no-ssh" >> ~/.takelage.yml'
+    - 'echo "docker_repo: takelbuild" >> ~/.takelage.yml'
+    - 'echo "docker_tag: latest-arm64" >> ~/.takelage.yml'
+    - 'echo "cmd_docker_container_create: docker run --detach --env TAKELAGE_PROJECT_BASE_DIR=%{workdir} --env TZ=%{timezone} --env DOCKER_HOST=tcp://localhost:2376 --env DOCKER_TLS_CERTDIR=$DOCKER_TLS_CERTDIR --env DOCKER_TLS_VERIFY=$DOCKER_TLS_VERIFY --env DOCKER_CERT_PATH=$DOCKER_CERT_PATH --hostname %{container} --name %{container} --network %{container} --rm --shm-size %{shmsize} --tty --volume %{homedir}:/hostdir --volume %{workdir}:/project %{volume_dev} --volume $DOCKER_CERT_PATH:$DOCKER_CERT_PATH --workdir /project %{docker_run_options} %{image} %{entrypoint} --gid %{gid} --home %{homedir} --uid %{uid} --username %{username} --extra=%{extra} %{entrypoint_options}" >> ~/.takelage.yml'
+    - 'echo "cmd_mutagen_forward_socket_docker: mutagen forward create --name=%{socketname} --label=%{hostlabel} --label=%{takellabel} --socket-group-source=docker --socket-permission-mode=0660 docker://root@%{container}:tcp:localhost:2376 tcp:localhost:2376" >> ~/.takelage.yml'
+
+    # Pull takelage image
+    - tau update
+
+    # Install mutagen
+    - export MUTAGEN=$(docker inspect --format '{{ index .Config.Labels "mutagen" }}' takelwerk/takelbuild:latest-arm64)
+    - export MUTAGEN_FILE=https://github.com/mutagen-io/mutagen/releases/download/v$MUTAGEN/mutagen_linux_arm64_v$MUTAGEN.tar.gz
+    - wget -O /tmp/mutagen.tar.gz $MUTAGEN_FILE
+    - tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
+    - mutagen daemon start
+    - export USER=root
+
+    # Start an instance of takelage
+    - tau docker container daemon
+
+    # Lint ruby
+    - tau docker container command "rake rubylint"
+
+    # Build image with packer
+    - tau docker container command "rake images:project:build"
+
+    # Test takelage project image
+    - tau docker container command "rake images:project:molecule:test"
+
+    # Login to dockerhub
+    - tau docker container command "docker login --username takelwerk --password $DOCKERHUB_TOKEN"
+
+    # Tag and push image
+    - tau docker container command "rake dockerhub:project:tag:latest:arm64"
+    - tau docker container command "rake dockerhub:project:push:latest:arm64"
+    - tau docker container command "rake dockerhub:project:tag:version:arm64"
+    - tau docker container command "rake dockerhub:project:push:version:arm64"
+
+    # Pull amd64 images
+    - tau docker container command "rake dockerhub:project:pull:latest:amd64"
+    - tau docker container command "rake dockerhub:project:pull:version:amd64"
+
+    # Create and push docker manifests
+    - tau docker container command "rake dockerhub:project:manifest:create:latest"
+    - tau docker container command "rake dockerhub:project:manifest:push:latest"
+    - tau docker container command "rake dockerhub:project:manifest:create:version"
+    - tau docker container command "rake dockerhub:project:manifest:push:version"
