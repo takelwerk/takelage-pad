@@ -9,6 +9,7 @@ default:
 variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ''  # unset means: "unencrypted"
+  GITHUB_API_TOKEN: $GITHUB_API_TOKEN
 
 stages:
   - build
