@@ -44,26 +44,6 @@ cmd_images_packer =
   '%<var_workdir>s' \
   '%<packer_template_dir>s'
 
-cmd_images_packer_mutagen =
-  'MUTAGEN=$(lastversion https://github.com/mutagen-io/mutagen) && ' \
-  'cd packer && ' \
-  'packer build ' \
-  "-var='ansible_playbook=%<playbook>s' " \
-  "-var='image_name=%<image_name>s' " \
-  "-var='base_repo=%<base_repo>s' " \
-  "-var='base_user=%<base_user>s' " \
-  "-var='base_tag=%<base_tag>s' " \
-  "-var='local_user=%<local_user>s' " \
-  '-var="mutagen=$MUTAGEN" ' \
-  "-var='target_repo=%<target_repo>s' " \
-  "-var='packer_template_dir='%<packer_template_dir>s'' " \
-  '%<var_privileged>s' \
-  '%<var_packer_command>s' \
-  '%<var_command>s' \
-  '%<var_entrypoint>s' \
-  '%<var_workdir>s' \
-  '%<packer_template_dir>s'
-
 jobs = \
   %i[converge
      destroy
