@@ -2,29 +2,53 @@
   "title": "Etherpad",
   "favicon": "favicon.ico",
   "ip": "127.0.0.1",
-  "port": {{ takel_etherpad_port }},
+  "port": "{{ takel_etherpad_port }}",
   "showSettingsInAdminPage": true,
   "dbType": "mysql",
   "dbSettings": {
-    "host"    : "{{ takel_etherpad_mysql_host }}",
-    "user"    : "{{ takel_etherpad_mysql_user }}",
+    "host": "{{ takel_etherpad_mysql_host }}",
+    "user": "{{ takel_etherpad_mysql_user }}",
     "password": "{{ takel_etherpad_mysql_password }}",
     "database": "{{ takel_etherpad_mysql_database }}",
-    "charset" : "{{ takel_etherpad_mysql_charset }}"
+    "charset": "{{ takel_etherpad_mysql_charset }}"
   },
-  "defaultPadText": "",
+  "defaultPadText" : "",
   "padOptions": {
-    "noColors": false,
-    "showControls": true,
-    "showChat": true,
-    "showLineNumbers": true,
+    "noColors":         false,
+    "showControls":     true,
+    "showChat":         true,
+    "showLineNumbers":  true,
     "useMonospaceFont": false,
-    "userName": false,
-    "userColor": false,
-    "rtl": false,
-    "alwaysShowChat": false,
-    "chatAndUsers": true,
-    "lang": "de-de"
+    "userName":         null,
+    "userColor":        null,
+    "rtl":              false,
+    "alwaysShowChat":   false,
+    "chatAndUsers":     true,
+    "lang":             "de-de"
+  },
+  "padShortcutEnabled" : {
+    "altF9":     true,
+    "altC":      true,
+    "cmdShift2": true,
+    "delete":    true,
+    "return":    true,
+    "esc":       true,
+    "cmdS":      true,
+    "tab":       true,
+    "cmdZ":      true,
+    "cmdY":      true,
+    "cmdI":      true,
+    "cmdB":      true,
+    "cmdU":      true,
+    "cmd5":      true,
+    "cmdShiftL": true,
+    "cmdShiftN": true,
+    "cmdShift1": true,
+    "cmdShiftC": true,
+    "cmdH":      true,
+    "ctrlHome":  true,
+    "pageUp":    true,
+    "pageDown":  true
   },
   "suppressErrorsInPadText": false,
   "requireSession": false,
@@ -38,24 +62,47 @@
   "requireAuthentication": false,
   "requireAuthorization": false,
   "trustProxy": false,
-  "disableIPlogging": true,
+  "cookie": {
+    "keyRotationInterval": 86400000,
+    "sameSite": "Lax",
+    "sessionLifetime": 864000000,
+    "sessionRefreshInterval": 86400000
+  },
+  "disableIPlogging": false,
+  "automaticReconnectionTimeout": 0,
+  "scrollWhenFocusLineIsOutOfViewport": {
+    "percentage": {
+      "editionAboveViewport": 0,
+      "editionBelowViewport": 0
+    },
+    "duration": 0,
+    "scrollWhenCaretIsInTheLastLineOfViewport": false,
+    "percentageToScrollWhenUserPressesArrowUp": 0
+  },
+  "socketTransportProtocols" : ["xhr-polling", "jsonp-polling", "htmlfile"],
+  "socketIo": {
+    "maxHttpBufferSize": 1000000
+  },
+  "loadTest": false,
+  "dumpOnUncleanExit": false,
+  "importExportRateLimiting": {
+    "windowMs": 90000,
+    "max": 10
+  },
+  "importMaxFileSize": 52428800,
+  "commitRateLimiting": {
+    "duration": 1,
+    "points": 10
+  },
+  "exposeVersion": false,
+  "loglevel": "INFO",
+  "customLocaleStrings": {},
+  "enableAdminUITests": false,
+  "lowerCasePadIds": false,
   "users": {
     "admin": {
       "password": "REPLACE_WITH_ADMIN_PASSWORD",
       "is_admin": true
     }
-  },
-  "socketTransportProtocols": ["xhr-polling", "jsonp-polling", "htmlfile"],
-  "socketIo": {
-    "maxHttpBufferSize": 1000000
-  },
-  "loadTest": false,
-  "loglevel": "ERROR",
-  "logconfig": {
-    "appenders": [
-      {
-        "type": "console"
-      }
-    ]
   }
 }
