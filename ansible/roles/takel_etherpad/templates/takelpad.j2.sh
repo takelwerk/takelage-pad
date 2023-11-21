@@ -20,10 +20,10 @@ echo "takelpad ip address: $IP_ETHERPAD"
 
 echo
 echo "example pad urls (de):"
-gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
+gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang de 4 | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
 echo
 echo "example pad urls (en):"
-gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
+gopass pwgen --one-per-line --xkcd --xkcdsep - --xkcdlang en 4 | parallel echo https://$IP_ETHERPAD/etherpad/p/{}
 
 if [ "$1" != "--summary" ]; then
   IP_ADDRESSES=$(ip --json address | jq -r '.[].addr_info[0].local' | grep -v null)
