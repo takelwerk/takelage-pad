@@ -1,3 +1,16 @@
+packer {
+  required_plugins {
+    ansible = {
+      version = "~> 1"
+      source = "github.com/hashicorp/ansible"
+    }
+    docker = {
+      source  = "github.com/hashicorp/docker"
+      version = "~> 1"
+    }
+  }
+}
+
 source "docker" "takelage" {
   image = "${var.base_user}/${var.base_repo}:${var.base_tag}"
   commit = true
