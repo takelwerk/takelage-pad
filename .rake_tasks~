@@ -115,6 +115,8 @@ images:project:molecule:verify
 images:project:remove:layer:01-site
 images:project:tasks
 images:project:update
+project:docker:amd64
+project:docker:arm64
 rubylint
 test
 test:project
