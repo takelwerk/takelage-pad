@@ -7,7 +7,7 @@ default_packer_template_dir = 'templates/takelage/docker'
 cmd_images_packer_init = 'PACKER_GITHUB_API_TOKEN=' \
   '$(gopass show --yes --password dev/takelwerk/packer/token 2>/dev/null) ' \
   'packer init ' \
-  '/project/packer/%<default_packer_template_dir>s'
+  '/project/packer/%<packer_template_dir>s'
 
 cmd_images_docker_pull = 'docker pull ' \
   '%<base_user>s/%<base_repo>s:%<base_tag>s'
@@ -200,7 +200,7 @@ namespace :images do
               task "#{number}-#{layer}".to_sym do
                 @commands << format(
                   cmd_images_packer_init,
-                  default_packer_template_dir: default_packer_template_dir
+                  packer_template_dir: packer_template_dir
                 )
 
                 @commands << format(
