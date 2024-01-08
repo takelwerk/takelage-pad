@@ -7,6 +7,7 @@ namespace :project do
   namespace :docker do
     desc 'Create and deploy takelpad arm64 image to dockerhub'
     task arm64: %w[git:warn
+                   dockerhub:login
                    rubylint
                    images:project:molecule:lint
                    images:project:update
@@ -24,6 +25,7 @@ namespace :project do
                    dockerhub:project:manifest:push:version]
     desc 'Create and deploy takelpad amd64 image to dockerhub'
     task amd64: %w[git:warn
+                   dockerhub:login
                    rubylint
                    images:project:molecule:lint
                    images:project:update
