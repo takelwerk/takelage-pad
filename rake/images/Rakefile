@@ -4,6 +4,11 @@ require 'rake'
 
 default_packer_template_dir = 'templates/takelage/docker'
 
+cmd_images_packer_init = 'PACKER_GITHUB_API_TOKEN=' \
+  '$(gopass show --yes --password dev/takelwerk/packer/token 2>/dev/null) ' \
+  'packer init ' \
+  '/project/packer/%<default_packer_template_dir>s'
+
 cmd_images_docker_pull = 'docker pull ' \
   '%<base_user>s/%<base_repo>s:%<base_tag>s'
 
@@ -27,6 +32,22 @@ cmd_images_molecule = \
   "'cd ansible && molecule %<job>s --scenario-name image'"
 
 cmd_images_packer =
+  'MUTAGEN=$(git ' \
+    '-c "versionsort.suffix=-" ' \
+    'ls-remote ' \
+    '--exit-code ' \
+    '--refs ' \
+    '--sort="version:refname" ' \
+    '--tags ' \
+    'https://github.com/mutagen-io/mutagen ' \
+    '"*.*.*" ' \
+    '| tail ' \
+    '--lines=1 ' \
+    '| cut ' \
+    '--delimiter="/" ' \
+    '--fields=3 ' \
+    '| cut ' \
+    '--characters=2-) && ' \
   'cd packer && ' \
   'packer build ' \
   "-var='ansible_playbook=%<playbook>s' " \
@@ -35,6 +56,7 @@ cmd_images_packer =
   "-var='base_user=%<base_user>s' " \
   "-var='base_tag=%<base_tag>s' " \
   "-var='local_user=%<local_user>s' " \
+  '-var="mutagen=$MUTAGEN" ' \
   "-var='target_repo=%<target_repo>s' " \
   "-var='packer_template_dir='%<packer_template_dir>s'' " \
   '%<var_privileged>s' \
@@ -174,8 +196,13 @@ namespace :images do
 
               parent_layer = layer
 
-              # desc "Build layer #{layer} from base layer #{parent_layer} of image #{image}"
+              desc "Build layer #{layer} from base layer #{parent_layer} of image #{image}"
               task "#{number}-#{layer}".to_sym do
+                @commands << format(
+                  cmd_images_packer_init,
+                  default_packer_template_dir: default_packer_template_dir
+                )
+
                 @commands << format(
                   cmd_images_packer,
                   image_name: image,
