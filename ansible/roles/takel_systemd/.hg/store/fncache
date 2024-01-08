@@ -20,3 +20,4 @@ data/molecule/default/system/__pycache__/test_takel_systemd_system_services.cpyt
 data/.hgignore.i
 data/tasks/networkd.yml.i
 data/templates/networkd_network_template.j2.i
+data/tasks/install.yml.i
