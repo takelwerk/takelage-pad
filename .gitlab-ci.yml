@@ -4,7 +4,7 @@ default:
     entrypoint: ["/usr/bin/tail -f /dev/null"]
   services:
     - name: docker:dind
-      command: [ "dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false" ]
+      command: [ "dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false", "--mtu=1410" ]
 
 variables:
   DOCKER_HOST: tcp://docker:2375
@@ -17,6 +17,9 @@ stages:
 build:
   stage: build
   script:
+    # Link project directory
+    - ln -fs $CI_PROJECT_DIR /project
+
     # Lint ruby
     - rake rubylint
 
