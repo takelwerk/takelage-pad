@@ -67,7 +67,7 @@ namespace :ansible do
       image = @project['images']['project']
       env_command = ''
       if image.key?('command')
-        img_cmd = image['command'].join(' ')
+        img_cmd = "#{image['command']} "
         env_command = "TAKELAGE_PROJECT_COMMAND=\"#{img_cmd}\" "
       end
 
