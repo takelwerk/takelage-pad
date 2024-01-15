@@ -1,7 +1,6 @@
 default:
   image:
     name: takelwerk/takelbuild:latest-arm64
-    entrypoint: ["/usr/bin/tail -f /dev/null"]
   services:
     - name: docker:dind
       command: [ "dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false", "--mtu=1410" ]
