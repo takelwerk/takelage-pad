@@ -22,3 +22,4 @@ data/molecule/default/tests/__pycache__/test_takel_nginx_configure.cpython-39-py
 data/molecule/default/tests/__pycache__/test_takel_nginx_install.cpython-39-pytest-6.2.5.pyc.i
 data/molecule/default/system/__pycache__/test_takel_nginx_system_nginx.cpython-39-pytest-6.2.5.pyc.i
 data/.hgignore.i
+data/molecule/default/system/test_takel_nginx_system_curl.py.i
