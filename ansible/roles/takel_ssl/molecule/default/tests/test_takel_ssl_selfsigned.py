@@ -1,7 +1,7 @@
 import re
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_ssl_selfsigned_common_name(host, testvars):

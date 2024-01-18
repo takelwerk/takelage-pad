@@ -1,6 +1,6 @@
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_systemd_services_service_enabled(host, testvars):

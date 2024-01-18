@@ -1,6 +1,6 @@
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_takelpad_version_file(host, testvars):

@@ -2,7 +2,7 @@ import pytest
 import re
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 @pytest.fixture(name='ufw_default_policies')

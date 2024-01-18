@@ -1,6 +1,6 @@
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_etherpad_system_curl_etherpad(host, testvars):

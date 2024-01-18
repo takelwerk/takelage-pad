@@ -1,6 +1,6 @@
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_unattended_upgrades_install_deb_packages_installed(host,

@@ -1,6 +1,6 @@
 ---
 - name: converge
-  hosts: molecule-takel-nginx  # all
+  hosts: molecule-takel-nginx
   gather_facts: false
   roles:
     - takel_ssl
