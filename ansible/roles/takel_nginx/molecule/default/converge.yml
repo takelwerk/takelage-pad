@@ -1,16 +1,16 @@
 ---
-- name: converge
+- name: prepare
   hosts: molecule-takel-nginx
   gather_facts: false
   roles:
     - takel_ssl
     - takel_nginx
 
-- name: converge
+- name: prepare
   hosts: molecule-takel-nginx-system
   gather_facts: false
   tasks:
-    - name: Install curl
+    - name: (prepare) Install curl
       apt:
         name: curl
         update_cache: true

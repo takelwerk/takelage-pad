@@ -7,12 +7,20 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+    docker_networks:
+      - name: systest
+    networks:
+      - name: systest
   - name: molecule-takel-nginx-system
     image: takelwerk/takelslim
     command: /usr/bin/tail -f /dev/null
     pre_build_image: true
+    networks:
+      - name: systest
 provisioner:
   name: ansible
+  playbooks:
+    converge: converge.yml
   config_options:
     defaults:
       interpreter_python: auto_silent

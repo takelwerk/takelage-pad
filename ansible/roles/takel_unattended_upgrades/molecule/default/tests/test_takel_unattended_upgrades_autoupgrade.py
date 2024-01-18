@@ -1,3 +1,6 @@
+import takeltest
+
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_unattended_upgrades_autoupgrade_20auto_upgrades(host, testvars):

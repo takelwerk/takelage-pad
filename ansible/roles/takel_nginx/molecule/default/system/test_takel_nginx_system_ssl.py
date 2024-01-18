@@ -1,5 +1,4 @@
 import calendar
-import datetime
 import pytest
 import re
 import time
@@ -11,8 +10,8 @@ testinfra_hosts = [f"{takeltest.hosts()[0]}-system"]
 
 @pytest.fixture()
 def ssl_cert(host, testvars):
-    ip_web_server = testvars['ansible_all_ipv4_addresses'][0]
-    openssl_command = f"</dev/null openssl s_client -connect {ip_web_server}:443"
+    ip = testvars['ansible_all_ipv4_addresses'][0]
+    openssl_command = f"</dev/null openssl s_client -connect {ip}:443"
     cert = host.check_output(openssl_command)
     return cert
 

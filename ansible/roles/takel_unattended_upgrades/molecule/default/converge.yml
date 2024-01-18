@@ -1,5 +1,6 @@
 ---
 - name: default
-  hosts: all
+  hosts: molecule-takel-unattended-upgrades
+  gather_facts: all
   roles:
     - takel_unattended_upgrades

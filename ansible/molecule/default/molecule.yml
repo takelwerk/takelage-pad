@@ -7,16 +7,20 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
-    network_mode: default
+    docker_networks:
+      - name: systest
     networks:
-      - name: ${HOSTNAME}
+      - name: systest
   - name: molecule-takelage-pad-test-project-system
     image: takelwerk/takelslim
     command: /usr/bin/tail -f /dev/null
     pre_build_image: true
+    networks:
+      - name: systest
 provisioner:
   name: ansible
   playbooks:
+    prepare: prepare.yml
     converge: >-
       ../../${TAKELAGE_MOLECULE_CONVERGE_PLAYBOOK:-playbook-site.yml}
   config_options:
@@ -43,6 +47,7 @@ scenario:
     - create
   converge_sequence:
     - create
+    - prepare
     - converge
   destroy_sequence:
     - destroy
@@ -50,6 +55,7 @@ scenario:
     - destroy
     - syntax
     - create
+    - prepare
     - converge
     - idempotence
     - verify

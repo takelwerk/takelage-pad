@@ -1,9 +1,9 @@
 ---
-- name: converge
+- name: prepare
   hosts: molecule-takelage-pad-test-project-system
   gather_facts: false
   tasks:
-    - name: Install curl
+    - name: (prepare) Install curl
       apt:
         name: curl
         update_cache: true
