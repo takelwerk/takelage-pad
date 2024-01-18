@@ -2,7 +2,8 @@ import pytest
 import re
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+# web server
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 @pytest.fixture(name='site_config')

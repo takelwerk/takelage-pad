@@ -7,6 +7,10 @@ platforms:
     command: /lib/systemd/systemd
     privileged: true
     pre_build_image: true
+  - name: molecule-takel-nginx-system
+    image: takelwerk/takelslim
+    command: /usr/bin/tail -f /dev/null
+    pre_build_image: true
 provisioner:
   name: ansible
   config_options:

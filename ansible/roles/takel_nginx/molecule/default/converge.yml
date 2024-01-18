@@ -1,17 +1,16 @@
 ---
 - name: converge
-  hosts: all
+  hosts: molecule-takel-nginx  # all
   gather_facts: false
-  pre_tasks:
-    - name: attach molecule container to docker network
-      docker_container:
-        name: molecule-takel-nginx
-        networks:
-          - name: "{{ lookup('env','HOSTNAME') }}"
-        networks_cli_compatible: false
-        privileged: true
-      delegate_to: 127.0.0.1
-
   roles:
     - takel_ssl
     - takel_nginx
+
+- name: converge
+  hosts: molecule-takel-nginx-system
+  gather_facts: false
+  tasks:
+    - name: Install curl
+      apt:
+        name: curl
+        update_cache: true

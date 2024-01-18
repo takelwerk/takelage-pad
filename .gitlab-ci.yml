@@ -28,8 +28,6 @@ build:
     # Build image with packer
     - rake images:project:build
 
-    - sleep 3000
-
     # Test takelage project image
     - rake images:project:molecule:test
 

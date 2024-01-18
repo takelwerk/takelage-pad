@@ -1,6 +1,7 @@
 import takeltest
 
-testinfra_hosts = takeltest.hosts()
+# web server
+testinfra_hosts = [takeltest.hosts()[0]]
 
 
 def test_takel_nginx_deb_packages_installed(host, testvars):

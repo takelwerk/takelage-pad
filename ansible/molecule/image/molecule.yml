@@ -10,6 +10,10 @@ platforms:
     network_mode: default
     networks:
       - name: ${HOSTNAME}
+  - name: molecule-takelage-pad-test-image-system
+    image: takelwerk/takelslim
+    command: /usr/bin/tail -f /dev/null
+    pre_build_image: true
 provisioner:
   name: ansible
   playbooks:
