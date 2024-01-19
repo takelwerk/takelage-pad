@@ -27,8 +27,10 @@ def test_takel_nginx_system_nginx_cert_not_before(ssl_cert):
         ssl_cert,
         flags=re.DOTALL
     ).group(1)
-    not_valid_before_struct_time = time.strptime(not_valid_before, "%b %d %H:%M:%S %Y")
-    not_valid_before_timestamp = calendar.timegm(not_valid_before_struct_time)
+    not_valid_before_struct_time = time.strptime(
+        not_valid_before, "%b %d %H:%M:%S %Y")
+    not_valid_before_timestamp = calendar.timegm(
+        not_valid_before_struct_time)
     assert not_valid_before_timestamp < time.time()
 
 
@@ -38,6 +40,8 @@ def test_takel_nginx_system_nginx_cert_not_after(ssl_cert):
         ssl_cert,
         flags=re.DOTALL
     ).group(1)
-    not_valid_after_struct_time = time.strptime(not_valid_after, "%b %d %H:%M:%S %Y")
-    not_valid_after_timestamp = calendar.timegm(not_valid_after_struct_time)
+    not_valid_after_struct_time = time.strptime(
+        not_valid_after, "%b %d %H:%M:%S %Y")
+    not_valid_after_timestamp = calendar.timegm(
+        not_valid_after_struct_time)
     assert not_valid_after_timestamp > time.time()
