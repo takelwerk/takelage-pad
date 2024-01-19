@@ -51,89 +51,23 @@ and a parallels vm, too.
 | [![takelage-pad](https://img.shields.io/badge/github-takelage--pad-purple)](https://github.com/takelwerk/takelage-pad) | [![takelpad docker](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/takelpad_docker.yml?label=takelpad%20docker)](https://github.com/takelwerk/takelage-pad/actions/workflows/takelpad_docker.yml) |
 | | [![test takelpad](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/test_takelpad.yml?label=test%20takelpad)](https://github.com/takelwerk/takelage-pad/actions/workflows/test_takelpad.yml) [![test roles](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/test_roles.yml?label=test%20roles)](https://github.com/takelwerk/takelage-pad/actions/workflows/test_roles.yml)                                            |
 
-## Prerequisites
+## Run it
 
-The prerequisites are fairly low. You need to install 
-[vagrant](https://www.vagrantup.com/downloads) from HashiCorp
-and
-[VirtualBox](https://www.virtualbox.org/wiki/Downloads) from Oracle
-in a recent version.
+You could use a simple `docker-compose.yml` file
 
-## Getting started
+```yaml
+version: "3.8"
 
-The box is controlled by a Vagrantfile. This is how you get one:
-
-````bash
-vagrant init takelwerk/takelpad
-````
-
-Now you can start the box 
-(and maybe you want to watch the VirtualBox GUI 
-while doing so for the first time):
-
-```bash
-vagrant up
+services:
+  
+  pad:
+    image: takelwerk/takelpad:latest
+    container_name: takelpad
+    privileged: true
+    ports:
+      - "80:80"
+      - "443:443"
 ```
-
-After each start, vagrant will tell you the IP address of the etherpad.
-You can then use a browser to connect to the etherpad via this IP address.
-
-When you are finished you can stop the box:
-
-```bash
-vagrant halt
-```
-
-Or you can destroy it:
-
-```bash
-vagrant destroy
-```
-
-## Update
-
-From time to time you should update the box:
-```bash
-vagrant box update --box=takelwerk/takelpad
-```
-
-Keep in mind that you have to destroy your old box and create a new one 
-for the update to take effect:
-```bash
-vagrant destroy
-vagrant up
-```
-
-## Troubleshooting
-
-The IP address of a running takelpad can be printed like so:
-
-```bash
-vagrant provision
-```
-
-As *takelage-pad* is a vagrant box you can easily ssh in to it:
-
-```bash
-vagrant ssh
-```
-
-This is how you become root:
-
-```bash
-vagrant ssh -c 'sudo su -'
-```
-
-The script 
-[```takelpad```](https://github.com/takelwerk/takelage-pad/blob/master/ansible/roles/takel-etherpad/templates/takelpad.j2.sh)
-in the box which is invoked by 
-```vagrant provision``` with the parameter ```--summary```
-prints the IP of the last network interface.
-
-This is how you can get more information:
-```bash
-vagrant ssh -c takelpad
-``` 
 
 ## Technical context
 
