@@ -53,7 +53,7 @@ and a parallels vm, too.
 
 ## Run it
 
-You could use a simple `docker-compose.yml` file
+You could use a simple `docker-compose.yml` file to run the pad:
 
 ```yaml
 version: "3.8"
