@@ -12,18 +12,31 @@ provider.
 
 The idea of any etherpad is to edit texts together online.
 But online does not mean you have to have an uplink to the internet.
-You can run this vagrant box on your computer locally.
-Others can then connect to your machine locally.
+
+You can use a simple `docker-compose.yml` file to run this pad locally:
+
+```yaml
+version: "3.8"
+
+services:
+  
+  pad:
+    image: takelwerk/takelpad:latest
+    container_name: takelpad
+    privileged: true
+    ports:
+      - "80:80"
+      - "443:443"
+```
+
+Others can then connect to your machine locally if your firewall permits it or if you run it in a bridged virtual machine.
 You only need to be in the same local network which allows peer-to-peer
 connections.
 This is the case for most default settings of consumer routers
 and cell phone hotspots.
+
 This box is for the data cautious who want to store their data
 locally rather than in the cloud, i.e. on other people's computers.
-
-There exists a docker image
-[takelwerk/takelpad](https://hub.docker.com/repository/docker/takelwerk/takelpad)
-and a parallels vm, too.
 
 ## Framework Versions
 
@@ -50,24 +63,6 @@ and a parallels vm, too.
 | | [![takelbeta amd64](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-dev/takelbeta_amd64.yml?label=takelbeta%20amd64)](https://github.com/takelwerk/takelage-dev/actions/workflows/takelbeta_amd64.yml) [![test_roles](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-dev/test_roles.yml?label=test%20roles)](https://github.com/takelwerk/takelage-dev/actions/workflows/test_roles.yml)                                    |
 | [![takelage-pad](https://img.shields.io/badge/github-takelage--pad-purple)](https://github.com/takelwerk/takelage-pad) | [![takelpad docker](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/takelpad_docker.yml?label=takelpad%20docker)](https://github.com/takelwerk/takelage-pad/actions/workflows/takelpad_docker.yml) |
 | | [![test takelpad](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/test_takelpad.yml?label=test%20takelpad)](https://github.com/takelwerk/takelage-pad/actions/workflows/test_takelpad.yml) [![test roles](https://img.shields.io/github/actions/workflow/status/takelwerk/takelage-pad/test_roles.yml?label=test%20roles)](https://github.com/takelwerk/takelage-pad/actions/workflows/test_roles.yml)                                            |
-
-## Run it
-
-You could use a simple `docker-compose.yml` file to run the pad:
-
-```yaml
-version: "3.8"
-
-services:
-  
-  pad:
-    image: takelwerk/takelpad:latest
-    container_name: takelpad
-    privileged: true
-    ports:
-      - "80:80"
-      - "443:443"
-```
 
 ## Technical context
 
