@@ -6,6 +6,13 @@
     update_cache: true
     cache_valid_time: 3600
 
+- name: (install) create tmp folder
+  ansible.builtin.file:
+    path: /var/opt/etherpad/.ansible/tmp
+    owner: etherpad
+    group: etherpad
+    mode: '0644'
+
 - name: (install) clone etherpad lite
   ansible.builtin.git:
     repo: "{{ takel_etherpad_repo }}"
