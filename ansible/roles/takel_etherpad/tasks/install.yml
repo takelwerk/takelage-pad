@@ -11,6 +11,7 @@
     path: /var/opt/etherpad/.ansible/tmp
     owner: etherpad
     group: etherpad
+    state: directory
     mode: '0644'
 
 - name: (install) clone etherpad lite
