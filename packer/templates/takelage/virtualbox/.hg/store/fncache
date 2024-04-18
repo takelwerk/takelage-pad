@@ -1,5 +1,0 @@
-data/main.pkr.hcl.i
-data/vars.auto.pkr.hcl.i
-data/bin/ssh.sh.i
-data/bin/cleanup.sh.i
-data/bin/minimize.sh.i
