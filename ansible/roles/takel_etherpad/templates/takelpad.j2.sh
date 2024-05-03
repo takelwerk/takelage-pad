@@ -6,7 +6,7 @@ if test -f "$VERSION_FILE"; then
   HEADER="takelpad: $VERSION"
 fi
 
-echo "$HEADER | for details run: vagrant ssh -c takelpad"
+echo "$HEADER | for details run: docker exec -it takelpad takelpad"
 
 if [ ! -z "$1" ]; then
   if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
