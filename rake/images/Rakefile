@@ -42,6 +42,10 @@ cmd_images_packer =
     '--tags ' \
     'https://github.com/mutagen-io/mutagen ' \
     '"*.*.*" ' \
+    '| grep ' \
+    '-v "\-beta" ' \
+    '| grep ' \
+    '-v "\-rc" ' \
     '| tail ' \
     '--lines=1 ' \
     '| cut ' \
