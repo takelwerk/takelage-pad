@@ -1,2 +1,4 @@
 ---
-project: "{{ lookup('ansible.builtin.pipe', 'cd /project && tau project') | from_yaml }}"
+project: >-
+  {{ lookup('ansible.builtin.pipe',
+  'cd /project && tau project') | from_yaml }}
