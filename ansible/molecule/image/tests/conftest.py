@@ -2,9 +2,6 @@ import docker
 import os
 import pytest
 
-image_name = 'takelwerk/takelage'
-image_tag = 'testing'
-
 
 @pytest.fixture(scope='module')
 def docker_client():
