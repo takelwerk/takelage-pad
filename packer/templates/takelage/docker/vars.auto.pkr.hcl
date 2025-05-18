@@ -42,6 +42,10 @@ variable "target_tag" {
   default = "latest"
 }
 
+variable "version" {
+  type = string
+}
+
 variable "packer_template_dir" {
   type = string
 }
