@@ -50,6 +50,7 @@ jobs_project = \
      destroy
      list
      login
+     reset
      test
      verify]
 
@@ -57,6 +58,7 @@ jobs_roles = \
   %i[converge
      destroy
      login
+     reset
      test
      verify]
 

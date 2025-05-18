@@ -68,6 +68,7 @@ cmd_images_packer =
   '%<var_packer_command>s' \
   '%<var_command>s' \
   '%<var_entrypoint>s' \
+  '%<var_version>s' \
   '%<var_workdir>s' \
   '%<packer_template_dir>s'
 
@@ -75,6 +76,7 @@ jobs = \
   %i[converge
      destroy
      login
+     reset
      test
      verify]
 
@@ -84,7 +86,7 @@ namespace :images do
   images = @project['images']
   images.each do |project_image|
     image = project_image.first
-    keep_interim_images = images[image]['keep_interim_images'].nil? ? true : images[image]['keep_interim_images']
+    keep_interim_images = images[image]['keep_interim_images'].nil? || images[image]['keep_interim_images']
     namespace image.to_sym do |env|
       subtasks(env.scope.path) do
         desc 'Update docker base image'
@@ -188,6 +190,11 @@ namespace :images do
                 var_entrypoint = "-var='entrypoint=#{images[image]['entrypoint']}' "
               end
 
+              var_version = ''
+              if @project.key?('version')
+                var_version = "-var='version=#{@project['version']}' "
+              end
+
               var_workdir = ''
               if images[image].key?('workdir')
                 var_workdir = "-var='workdir=#{images[image]['workdir']}' "
@@ -221,6 +228,7 @@ namespace :images do
                   var_packer_command: var_packer_command,
                   var_command: var_command,
                   var_entrypoint: var_entrypoint,
+                  var_version: var_version,
                   var_workdir: var_workdir,
                   target_repo: target_repo
                 )
