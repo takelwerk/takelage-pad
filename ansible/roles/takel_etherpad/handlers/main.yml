@@ -3,7 +3,7 @@
   systemd:
     name: etherpad
     state: restarted
-  notify: wait for etherpad port
+  #notify: wait for etherpad port
 
 - name: wait for etherpad port
   wait_for:

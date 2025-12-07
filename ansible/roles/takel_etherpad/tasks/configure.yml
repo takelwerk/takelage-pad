@@ -16,10 +16,3 @@
     chdir: "{{ takel_etherpad_lib }}/bin"
   tags:
     - molecule-idempotence-notest
-
-- name: (configure) chown deps
-  file:
-    path: "{{ takel_etherpad_lib }}/node_modules"
-    owner: etherpad
-    group: etherpad
-    recurse: true
